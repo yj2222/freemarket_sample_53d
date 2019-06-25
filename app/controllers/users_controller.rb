@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
-  def new_registration
+  def index
+    render "users/new_registration"
   end
 end
