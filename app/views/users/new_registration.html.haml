@@ -1,0 +1,23 @@
+%html
+  %body
+    .user-container
+      = render partial: 'shared/header'
+      %main.user-new-main
+        .main__entry
+          .login-new_user
+            %p
+              新規会員登録
+          .entry-box
+            %button.entry-box__button__mail
+              = icon 'far', 'envelope', id: 'icon__mail'
+              メールアドレスで登録
+              = link_to '', ""
+            %button.entry-box__button__facebook
+              = icon 'fab', 'facebook-square', id: 'icon__facebook'
+              Facebookで登録
+              = link_to '', ""
+            %button.entry-box__button__google
+              = icon 'fab', 'google', id: 'icon__google'
+              Googleで登録
+              = link_to '', "" 
+      = render partial: 'shared/footer'
