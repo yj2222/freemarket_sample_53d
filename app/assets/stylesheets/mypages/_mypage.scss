@@ -1,0 +1,45 @@
+a {
+  text-decoration: none;
+}
+
+.mypage {
+  background-color: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  &__header {
+    height: 50px;
+    border-bottom: 3px solid rgb(216, 216, 216);
+    line-height: 50px;
+    &__list {
+      display: flex;
+      list-style: none;
+      width: 1020px;
+      margin: 0 auto;
+      &--light {
+        font-size: 13px;
+        a {
+          color: black;
+        }
+      }
+      #icon {
+        font-size: 0.6em;
+        font-weight: 100;
+        padding: 4px 6px;
+        color: gray;
+        line-height: 45px;
+      }
+      &--bold {
+        font-weight: bold;
+        font-size: 14px;
+        color: black;
+        a {
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

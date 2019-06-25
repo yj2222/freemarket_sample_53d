@@ -1,0 +1,29 @@
+.tag-box {
+  width: 100%;
+  &__tab {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    &--left,
+    &--right {
+      width: 50%;
+      height: 73px;
+      cursor: pointer;
+      font-weight: bold;
+      line-height: 73px;
+      font-size: 16px;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    .active-tab {
+      background-color: white;
+      border-top: 2px solid red;
+    }
+    .not-active-tab {
+      background-color: #eee;
+      border-top: 2px solid #eee;
+    }
+  }
+}
+

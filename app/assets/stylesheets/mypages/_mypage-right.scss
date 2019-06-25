@@ -1,0 +1,57 @@
+.mypage__right {
+  width: 700px;
+  text-align: center;
+  &__content {
+    width: 100%;
+    height: 200px;
+    background-image: image-url('common/user-bg.jpg');
+    background-position: center;
+    .user {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding-top: 45px;
+      &__link {
+        &__icon {
+          display: block;
+          margin: 0 auto;
+          border-radius: 50%;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+        &__nickname {
+          margin-top: 8px;
+          color: black;
+          font-size: 14px;
+          text-align: center;
+          &:hover {
+            text-decoration: underline;
+            opacity: 0.7;
+          }
+        }
+        &__review {
+          height: 16px;
+          margin-top: 4px;
+          display: flex;
+          justify-content: center;
+          &:hover {
+            opacity: 0.7;
+          }
+          div {
+            height: 16px;
+            color: black;
+            font-size: 14px;
+            &:last-child {
+              margin-left: 16px;
+            }
+            span {
+              margin-left: 6px;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
