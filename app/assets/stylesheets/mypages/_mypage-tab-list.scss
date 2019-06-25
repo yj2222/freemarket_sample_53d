@@ -1,0 +1,89 @@
+.not-active {
+  display: none;
+}
+.tag-box__list {
+  display: block;
+  width: 100%;
+  &__content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    &:hover {
+      background-color: #fafafa;
+    }
+    &__icon {
+      padding: 0 20px;
+    }
+    #chevron-right-icon {
+      position: absolute;
+      top: 50%;
+      right: 16px;
+      transform: translateY(-50%);
+      color: black;
+      font-size: 15px;
+      font-weight: 100;
+    }
+    &__body {
+      width: 100%;
+      margin-right: 50px;
+      color: black;
+      font-size: 14px;
+      text-align: left;
+      &__text {
+        font-weight: 100;
+      }
+      &__time {
+        color: #888888;
+        font-size: 20px;
+        span {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  &--bottom {
+    width: 100%;
+    height: 80px;
+    background-color: white;
+    a {
+      background-color: #eee;
+      color: black;
+      font-size: 14px;
+      line-height: 80px;
+      padding: 20px 300px;
+      &:hover {
+        background-color: #fafafa;
+      }
+    }
+  }
+}
+.tag-box__title {
+  padding: 0 4%;
+  background: white;
+  font-size: 16px;
+  line-height: 72px;
+  padding: 0 16px;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 40px;
+}
+.tag-box__list__none {
+  width: 100%;
+  height: 236px;
+  background-color: white;
+  &__body {
+    padding: 160px 0 60px;
+    background-image: image-url('common/logo-gray-icon2.png');
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    background-size: 100px 90px;
+    color: #ccc;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+}
