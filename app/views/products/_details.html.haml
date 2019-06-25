@@ -1,1 +1,130 @@
-This is Product details
+.wrapper
+  .products
+    .products__container
+      %h1 ショルダーバッグ
+      .products__container__main
+        .products__container__main__image__box
+          .image_active
+            %img#image(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+          .image_dots
+            .image_dot.active
+              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+            .image_dot
+              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+            .image_dot
+              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+            .image_dot
+              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+            .image_dot
+              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+            .image_dot
+              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+            .image_dot
+              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+            .image_dot
+              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+            .image_dot
+              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+        %table.products__container__main__detail_box
+          %tbody
+            %tr
+              %th 出品者
+              %td
+                = link_to "出品者", "" , class: 'links'
+                .faces
+                  = icon 'fas','grin', id: 'grin'
+                  %span 150
+                  = icon 'fas','meh', id: 'meh'
+                  %span 150
+                  = icon 'fas','frown', id: 'frown'
+                  %span 10
+            %tr
+              %th カテゴリー
+              %td
+                = link_to "レディース", "" , class: 'links'
+                .categorys
+                  = link_to "", class: 'links' do
+                    = icon 'fas', 'chevron-right', id: 'chevron'
+                    バッグ
+                .categorys  
+                = link_to "", class: 'links' do
+                  = icon 'fas', 'chevron-right', id: 'chevron'
+                  ショルダーバッグ
+            %tr
+              %th ブランド
+              %td
+                = link_to "コーチ", "", class: 'links' 
+            %tr
+              %th 商品の状態
+              %td
+                目立った傷無しや汚れ無し 
+            %tr
+              %th 配送料の負担
+              %td
+                送料込み(出品者負担)
+            %tr
+              %th 配送の方法
+              %td
+                らくらくメルカリ便
+            %tr
+              %th 配送元の地域
+              %td
+                = link_to "神奈川県", "" , class: 'links'
+            %tr
+              %th 発送日の目安
+              %td
+                １〜２日で発送
+      .products__container__price__box
+        .price
+          %span ¥8,000
+        .tax
+          %span (税込)
+        .cost 
+          %span 送料込み
+      .products__container__buy__box
+        = link_to "",class: "buy-btn" do
+          購入画面に進む
+      .products__container__comment__box
+        %p.inner-comment 
+          テストです
+          テストです
+          TESUTO DESU
+          TESUTO DESU
+      .products__container__likereport__box.clearfix
+        %button.like
+          = icon 'far','heart', id: 'like'
+          %span いいね! 
+          %span.num 3
+        %button.report
+          = icon 'far','flag', id: 'flag'
+          %span 不適切な商品の報告
+        .safety
+          = link_to "", class: "safety-btn links-noline" do
+            = icon 'fas','lock', id: 'lock'
+            %span あんしん・あんぜんへの取り組み
+    .comment__container
+      = form_for '' do |f|
+        .comment__container__note
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .comment__container__textarea.clearfix
+          = f.text_area :content, class: 'input-box__text'
+          = f.submit 'コメントする', class: 'comment'
+    .other__products
+      .other__products__prev
+        = link_to "", class: 'links' do
+          = icon 'fas', 'chevron-left', id: 'chevron' 
+          バッグ
+      .other__products__next
+        = link_to "", class: 'links' do
+          ブレスレット
+          = icon 'fas', 'chevron-right', id: 'chevron'
+    %ul.sns__share
+      %li.sns__share__list
+        = link_to "" do
+          = icon 'fab','facebook-square', id: 'facebook'
+      %li.sns__share__list
+        = link_to "" do
+          = icon 'fab','twitter-square', id: 'twitter'
+      %li.sns__share__list
+        = link_to "" do
+          = icon 'fab','pinterest-square', id: 'pinterest'
