@@ -12,7 +12,7 @@ stderr_path "#{app_path}/log/unicorn.stderr.log"
 
 stdout_path "#{app_path}/log/unicorn.stdout.log"
 
-timeout 
+timeout 60
 
 preload_app true
 GC.respond_to?(:copy_on_write_friendly=) && GC.copy_on_write_friendly = true
