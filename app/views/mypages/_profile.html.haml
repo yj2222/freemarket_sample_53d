@@ -1,0 +1,37 @@
+.edit-profile
+  %h2.edit-profile__title プロフィール
+  .edit-profile__form
+    = form_for '' do |f|
+      .edit-profile__form__upper
+        = image_tag 'common/user-icon.png', alt: 'ユーザアイコン', class: 'edit-profile__form__upper--icon', height: '60', width: '60'
+        = f.text_field :nickname, value: "aaa", placeholder: "bbb", class: 'edit-profile__form__upper--input'
+      .edit-profile__form__lower
+        = f.text_area :text, value: "aaa-text", placeholder: "例）こんにちは！", class: 'edit-profile__form__lower--text'
+      .edit-profile__form__btn
+        = f.submit "変更する", class: 'edit-profile__form__btn--submit'
+
+
+
+
+
+-# .form
+-#   = form_for [@group, @message] do |f|
+-#     = f.text_field :content, class: 'form__message', placeholder: 'type a message', id: 'new_message'
+-#     .form__mask
+-#       = f.label :image, class: 'form__mask__image' do
+-#         = fa_icon 'picture-o', class: 'icon'
+-#         = f.file_field :image, class: 'hidden'
+-#     = f.submit 'Send', class: 'form__submit'
+
+
+-# .profile
+-#   %h2.profile__head プロフィール
+-#   = form_for(@profile, url: mypage_profile_update_path, method: :patch, html: { class: 'profile__form' }) do |f|
+-#     .profile__form__user
+-#       .profile__form__user__content
+-#         = image_tag 'common/user-icon.png', alt: 'icon', class: 'header__container__bottom__user__mypage__icon', height: '60', width: '60'
+-#         = f.text_field :nickname, autofocus: true, value: "#{@profile.nickname}", placeholder: "例)AYA☆セール中"
+-#     .profile__form__body
+-#       = f.text_area :body, autofocus: true, value: "#{@profile.body}", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+-#     .profile__form__actions
+-#       = f.submit "変更する"
