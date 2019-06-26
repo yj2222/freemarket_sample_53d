@@ -1,0 +1,24 @@
+.logout {
+  background-color: white;
+  width: 700px;
+  box-sizing: border-box;
+  padding: 60px;
+  height: 100%;
+  &__btn {
+    background: #ea352d;
+    color: #fff;
+    display: block;
+    width: 50%;
+    line-height: 48px;
+    font-size: 14px;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+    margin: 0 auto;
+    opacity: 0.9;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+

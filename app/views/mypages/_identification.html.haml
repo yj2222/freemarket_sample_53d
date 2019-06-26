@@ -1,0 +1,55 @@
+.identification
+  %h2.identification__title 本人情報の登録
+  .identification__description
+    %p お客さまの本人情報をご登録ください。
+    %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+  .identification__link
+    = link_to "本人確認書類のアップロードについて", "", class: "identification__link--upload"
+    = fa_icon "chevron-right", id: 'icon', class: "identification__link--icon"
+  .identification__form
+    = form_for '' do |f|
+      %h3.identification__form__field お名前
+      %p.identification__form--taxt 増島裕司
+      %h3.identification__form__field お名前カナ
+      %p.identification__form--taxt マスジマ ユウジ
+      %h3.identification__form__field 生年月日
+      %p.identification__form--taxt 1990/07/12
+
+      .identification__form__field 
+        %span.identification__form__field__lavel 郵便番号 
+        %span.identification__form__field__arbitrary 任意 
+        .identification__form__field--input
+          = f.text_field :post_number, autofocus: true, value: "", placeholder: "例）1234567", class: 'input'
+
+      .identification__form__field 
+        %span.identification__form__field__lavel 都道府県 
+        %span.identification__form__field__arbitrary 任意 
+        .identification__form__field--input.icon-relative
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", class: 'input'
+          -# = f.text_field :prefectures, autofocus: true, value: "", placeholder: "---", class: 'identification__form__field--input'
+          = fa_icon "chevron-down", id: 'icon', class: "icon-relative--absolute"
+
+      .identification__form__field
+        %span.identification__form__field__lavel 市区町村 
+        %span.identification__form__field__arbitrary 任意 
+        .identification__form__field--input
+          = f.text_field :city, autofocus: true, value: "", placeholder: "例）横浜市緑区", class: 'input'
+
+      .identification__form__field
+        %span.identification__form__field__lavel 番地 
+        %span.identification__form__field__arbitrary 任意 
+        .identification__form__field--input
+          = f.text_field :address_number, autofocus: true, value: "", placeholder: "例）青山1-1-1", class: 'input'
+
+      .identification__form__field
+        %span.identification__form__field__lavel 建物名 
+        %span.identification__form__field__arbitrary 任意 
+        .identification__form__field--input
+          = f.text_field :building, autofocus: true, value: "", placeholder: "例）柳ビル103", class: 'input'
+
+      .identification__form__btn
+        = f.submit "登録する", class: "identification__form__btn--submit"
+
+  .identification__link
+    = link_to "本人情報の登録について", "", class: "identification__link--upload"
+    = fa_icon "chevron-right", id: 'icon', class: "identification__link--icon"
