@@ -88,6 +88,18 @@
 - belongs_to :product
 - belongs_to :user
 
+
+
+## addressテーブル
+|Column|Type|Options|
+|------|----|-------|
+|prefecture_id|integer|
+|city|string|
+
+### Association
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
