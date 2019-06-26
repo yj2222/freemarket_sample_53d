@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :products
   resources :mypages
   resources :users
+  resources :credits
 end
