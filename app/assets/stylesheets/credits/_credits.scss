@@ -10,133 +10,143 @@
       text-align: center;
       font-weight: bold;
     }
-    &__main {
-      padding: 64px ;
-      max-width: 320px;
-      margin: 0 auto;
-      &__top {
-        .label {
-          @include label
-        }
-        .arbitrary {
-          @include arbitrary
-        }
-        &__form {
-          .input-wide {
-            @include input-wide
-          }
-          &__images {
-            display: flex;
-            width: 30px;
-            background-color: white;
-            margin-top: 8px;
-            li {
-              .image {
-                padding-right: 10px;
-              }
-            }
-          }
-        }
+  }
+  &__main {
+    padding: 64px ;
+    max-width: 320px;
+    margin: 0 auto;
+    &__top {
+      .label {
+        // @include label;
+        font-weight: bold;
       }
-      &__middle {
-        margin-top: 40px;
-        &__form {
-          // width: 35%;
-          &__select {
-            margin: 8px 0 0;
-            display: flex;
-            width: 100%;
-            &--box {
-              width:35%;
-              .input {
-                z-index: 2;
-                height: 48px;
-                padding: 0 16px;
-                border-radius: 4px;
-                border: 1px solid #ccc;
-                background: 0;
-                font-size: 16px;
-                line-height: 1.5;
-                cursor: pointer;
-                width: 100%;
-              }
-            }
-            &--text {
-              padding: 15px 0 0 10px;
-              vertical-align: bottom;
-            }
-          }
-        }
+      .arbitrary {
+        // @include arbitrary;
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
       }
-      &__bottom {
-        margin-top: 40px;
-        .label {
-          @include label
-        }
-        .arbitrary {
-          @include arbitrary
-        }
-        &__form {
-          .input-wide {
-            @include input-wide
-          }
-        }
-        &__help {
-          color: #0099E8;
-          text-align: right;
-          margin: 8px 0 0;
-          &--icon {
-
-          }
-        }
-      }
-      &__btn {
-        margin: 40px 0 0 0;
-        &--submit {
-          background: #ea352d;
-          color: #fff;
-          display: block;
+      &__form {
+        .input-wide {
+          // @include input-wide;
           width: 100%;
-          line-height: 48px;
-          font-size: 14px;
-          transition: all ease-out .3s;
-          cursor: pointer;
-          text-align: center;
-          opacity: 0.9;
-          &:hover {
-            opacity: 1;
+          margin: 8px 0 0;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          box-sizing: border-box;
+        }
+        &__images {
+          display: flex;
+          width: 30px;
+          background-color: white;
+          margin-top: 8px;
+          li {
+            .image {
+              padding-right: 10px;
+            }
           }
         }
       }
     }
+    &__middle {
+      margin-top: 40px;
+      &__form {
+        // width: 35%;
+        &__select {
+          margin: 8px 0 0;
+          display: flex;
+          width: 100%;
+          &--box {
+            width:35%;
+            .input {
+              z-index: 2;
+              height: 48px;
+              padding: 0 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: 0;
+              font-size: 16px;
+              line-height: 1.5;
+              cursor: pointer;
+              width: 100%;
+            }
+          }
+          &--text {
+            padding: 15px 0 0 10px;
+            vertical-align: bottom;
+          }
+        }
+      }
+    }
+    &__bottom {
+      margin-top: 40px;
+      .label {
+        // @include label;
+        font-weight: bold;
+      }
+      .arbitrary {
+        // @include arbitrary;
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      &__form {
+        .input-wide {
+          // @include input-wide;
+          width: 100%;
+          margin: 8px 0 0;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          box-sizing: border-box;
+        }
+      }
+      &__help {
+        color: #0099E8;
+        text-align: right;
+        margin: 8px 0 0;
+        &__text {
+        }
+        &--icon {
+        }
+      }
+    }
+    &__btn {
+      margin: 40px 0 0 0;
+      &--submit {
+        background: #ea352d;
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+        opacity: 0.9;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
   }
-}
-
-@mixin input-wide {
-  width: 100%;
-  margin: 8px 0 0;
-  height: 48px;
-  padding: 10px 16px 8px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background: #fff;
-  line-height: 1.5;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-@mixin label {
-  font-weight: bold;
-}
-
-@mixin arbitrary {
-  background: #ea352d;
-  margin: 0 0 0 8px;
-  padding: 2px 4px;
-  border-radius: 2px;
-  color: #fff;
-  font-size: 12px;
-  vertical-align: top;
 }
 
 .icon-relative {
