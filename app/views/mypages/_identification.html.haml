@@ -5,7 +5,8 @@
     %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
   .identification__link
     = link_to "本人確認書類のアップロードについて", "", class: "identification__link--upload"
-    = fa_icon "chevron-right", id: 'icon', class: "identification__link--icon"
+    = icon 'fa', 'chevron-right', id: 'icon', class: "identification__link--icon"
+
   .identification__form
     = form_for '' do |f|
       %h3.identification__form__field お名前
@@ -27,7 +28,7 @@
         .identification__form__field--input.icon-relative
           = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", class: 'input'
           -# = f.text_field :prefectures, autofocus: true, value: "", placeholder: "---", class: 'identification__form__field--input'
-          = fa_icon "chevron-down", id: 'icon', class: "icon-relative--absolute"
+          = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
       .identification__form__field
         %span.identification__form__field__lavel 市区町村 
@@ -52,4 +53,4 @@
 
   .identification__link
     = link_to "本人情報の登録について", "", class: "identification__link--upload"
-    = fa_icon "chevron-right", id: 'icon', class: "identification__link--icon"
+    = icon 'fa', 'chevron-right', id: 'icon', class: "identification__link--icon"
