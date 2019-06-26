@@ -15,7 +15,7 @@
         justify-content: space-between;
         padding: 16px;
         background-color: white;
-        border-top: solid 1px gray;
+        border-top: solid 1px #eee;
         text-decoration: none;
         &:first-child {
           border-top: none;
@@ -27,7 +27,7 @@
         }
         &:hover {
           background-color: #f5f5f5;
-          #icon {
+          .icon {
             color: #343434;
             padding-right: 0;
             transition: padding-right 0.2s;
@@ -38,11 +38,10 @@
           color: black;
           line-height: 1;
         }
-        #icon {
+        .icon {
           color: #ccc;
           font-size: 15px;
           padding-right: 5px;
-          font-weight: 100;
         }
         .notice--new {
           position: absolute;
@@ -81,7 +80,7 @@
         }
         &:hover {
           background-color: #f5f5f5;
-          #icon {
+          .icon {
             color: #343434;
             padding-right: 0;
             transition: padding-right 0.2s;
@@ -92,11 +91,10 @@
           color: black;
           line-height: 1;
         }
-        #icon {
+        .icon {
           color: #ccc;
           font-size: 15px;
           padding-right: 5px;
-          font-weight: 100;
         }
       }
     } 
