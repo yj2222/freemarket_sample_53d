@@ -1,6 +1,6 @@
 .wrapper
   %header.buy-header
-    ヘッダー
+    = render 'shared/details_header'
   %main.buy-main
     %section.buy__container
       %h2.buy__container-head
@@ -58,4 +58,5 @@
               変更する
               = icon 'fas', 'chevron-right', id: 'chevron'  
   %footer.buy-footer
-    フッター
+    = render 'shared/details_footer'
+

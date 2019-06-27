@@ -65,11 +65,17 @@
             }  
             .like-heart {
               color: gray;          
-            }        
+            }    
+            .index_like_botton--text {
+              color: black;
+            }    
           } 
           .item_price_tax {
             font-size: 10px;
-            color: black; 
+            color: black;
+            &--text {
+              font-size: 10px;
+            }
           }
         }
       } 

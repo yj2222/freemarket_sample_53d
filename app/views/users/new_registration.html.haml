@@ -1,7 +1,7 @@
 %html
   %body
     .user-container
-      = render partial: 'shared/header'
+      = render partial: 'shared/details_header'
       %main.user-new-main
         .main__entry
           .login-new_user
@@ -20,4 +20,4 @@
               = icon 'fab', 'google', id: 'icon__google'
               Googleで登録
               = link_to '', "" 
-      = render partial: 'shared/footer'
+      = render partial: 'shared/details_footer'
