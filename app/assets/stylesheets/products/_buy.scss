@@ -33,12 +33,16 @@
       margin: 0 auto;
       background-color: white;
       h2{
+        font-weight: bold;
         padding: 32px 16px;
         text-align: center;
         font-size: 22px;
       }
       h4{
-        font-weight: 600px;
+        font-weight: bold;
+      }
+      span{
+        font-weight: bold;
       }
       &-content{
         margin: 0 auto;
@@ -88,7 +92,9 @@
               display: flex;
               justify-content: space-between;
               &-payment{
-                font-size: 28px;
+                span{
+                  font-size: 28px;
+                }
               }
             }
           }
