@@ -17,17 +17,28 @@
  @import "reset";
  @import 'font-awesome-sprockets';
  @import "font-awesome";
+ @import 'mixins/mixin';
  @import 'mypages/mypage-tab';
  @import 'mypages/mypage-right';
  @import 'mypages/mypage-left';
  @import 'mypages/mypage';
  @import 'mypages/mypage-tab-list';
  @import 'mypages/mypage-edit';
- @import 'new_registration';
- @import 'footer';
- @import 'header';
+ @import 'mypages/identification';
+ @import 'mypages/log_out';
+ @import 'new_registration'; 
+ @import 'modules/index_footer';
+ @import 'modules/index_header';
+ @import 'modules/details_footer';
+ @import 'modules/details_header';
  @import 'credits/credits';
- @import 'mixins/mixin';
+ @import 'modules/seller-icon';
+ @import 'products/products';
+ @import 'products/details';
+ @import 'products/buy';
+ 
+ 
+ 
 
 
 
