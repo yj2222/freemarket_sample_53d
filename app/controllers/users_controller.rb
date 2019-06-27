@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    render "users/login"
+    # render "users/login"
+    render "users/new_registration"
   end
 
   def new

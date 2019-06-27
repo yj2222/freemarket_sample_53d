@@ -10,14 +10,14 @@
           .entry-box
             %button.entry-box__button__mail
               = icon 'far', 'envelope', id: 'icon__mail'
-              メールアドレスで登録
+              %p.mail__text メールアドレスで登録
               = link_to '', ""
             %button.entry-box__button__facebook
               = icon 'fab', 'facebook-square', id: 'icon__facebook'
-              Facebookで登録
+              %p.mail__text Facebookで登録
               = link_to '', ""
             %button.entry-box__button__google
               = icon 'fab', 'google', id: 'icon__google'
-              Googleで登録
+              %p.mail__text Googleで登録
               = link_to '', "" 
       = render partial: 'shared/details_footer'

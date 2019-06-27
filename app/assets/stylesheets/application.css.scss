@@ -37,3 +37,9 @@
  @import 'mixins/mixin';
  @import 'products/upload';
  @import 'credits/credits';
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
