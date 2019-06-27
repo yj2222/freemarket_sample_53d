@@ -73,7 +73,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 
 gem 'payjp'
-gem 'font-awesome-sass', '~> 5.8.1'
+gem 'font-awesome-sass'
 gem 'carrierwave'
 gem 'mini_magick' 
 
