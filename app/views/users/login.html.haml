@@ -1,0 +1,28 @@
+%html
+  %body
+    .user-container
+      = render partial: 'shared/header'
+      %main.main
+        .login-box
+          .login-new_user
+            %p
+              アカウントをお持ちでない方はこちら
+            = link_to '新規会員登録', ""
+          .login-box__google-facebook
+            %button.button__facebook
+              = icon 'fab', 'facebook-square', id: 'icon__facebook'
+              Facebookでログイン
+              = link_to '', ""
+            %button.button__google
+              = icon 'fab', 'google', id: 'icon__google'
+              Googleでログイン
+              = link_to '', ""
+          = form_for "" do |f|
+            .login-box__form
+              = f.text_field "", {class: "form-address",placeholder: "メールアドレス"}
+              = f.text_field "", {class: "form-password", placeholder: "パスワード"}
+              .norobot
+                %img{:alt => "Image from Gyazo", :src => "https://i.gyazo.com/aeb4855b41254a0b7ba721820a02a0dc.png", :width => "306"}
+              = f.submit "ログイン", {class:"form-button"}
+              = link_to 'パスワードをお忘れの方はこちら', ""
+      = render partial: 'shared/footer'
