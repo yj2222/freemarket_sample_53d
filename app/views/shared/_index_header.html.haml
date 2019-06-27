@@ -1,0 +1,32 @@
+.header 
+  .header__index-inner 
+    .top-header
+      .top-header-image  
+        %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1881812696", alt: "company_logo"}
+      .top-page-search
+        = form_for "" do |f| 
+          = f.text_field :content, class: 'header_search', placeholder: '  何かお探しですか?' 
+          %label.form-mask 
+            = f.submit 'Send', class: 'form__submit'
+            = icon('fas', 'search', class: 'search-icon')
+
+    .bottom-header 
+      .bottom-header__left
+        %ul.category-brands
+          %li
+            %h2.category-list-parent 
+              = icon('fas', 'list-ul', class: 'category-list-ul')
+              %span カテゴリーから探す             
+          %li
+            %h2.brands-list-parent 
+              = icon('fas', 'tag', class: 'brands-list-tag')
+              %span ブランドから探す
+
+      .bottom-header__right
+        %ul.devise-login
+          %li
+            = link_to "", class: "new-member-registration" do
+              新規会員登録
+          %li
+            = link_to "", class: "log-in" do
+              ログイン

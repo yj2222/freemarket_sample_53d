@@ -82,5 +82,5 @@ gem 'mysql2'
 gem 'fog-aws'
 
 group :production do
-gem 'unicorn'
+  gem 'unicorn'
 end

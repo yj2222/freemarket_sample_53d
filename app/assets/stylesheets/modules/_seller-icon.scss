@@ -1,0 +1,21 @@
+.seller-item-button {
+  position: fixed;
+  border-radius: 50%; 
+  background-color: red;
+  text-align: center;
+  width: 160px;
+  height: 160px;
+  bottom: 32px;
+  right: 32px; 
+  .seller {
+    margin: 32px 0 0 0;
+    width: 160px;
+    font-size: 22px;
+    color: white;
+  }
+  .seller-item-camera {
+    color: white; 
+    text-align: center; 
+    font-size: 3.6em;
+  }
+}
