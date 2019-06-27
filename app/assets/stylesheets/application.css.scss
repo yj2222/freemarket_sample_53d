@@ -15,6 +15,7 @@
  */
  
  @import "reset";
+ @import 'mixins/mixin';
  @import 'font-awesome-sprockets';
  @import "font-awesome";
  @import 'mypages/mypage-tab';
@@ -35,4 +36,3 @@
  @import 'footer';
  @import 'header';
  @import 'credits/credits';
- @import 'mixins/mixin';
