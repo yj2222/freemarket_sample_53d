@@ -73,10 +73,10 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 
 gem 'payjp'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 5.8.1'
 gem 'carrierwave'
 gem 'mini_magick' 
 
 group :production do
-gem 'unicorn'
+  gem 'unicorn'
 end

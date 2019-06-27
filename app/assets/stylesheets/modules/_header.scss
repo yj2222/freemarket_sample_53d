@@ -1,0 +1,139 @@
+.header {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  &__index-inner {
+    box-sizing: inherit;
+    margin: 0 auto;
+    background-color: white;
+    width: 850px; 
+    padding: 8px 0 0;
+    .top-header {
+      display: flex;
+      .top-header-image {
+        img {
+          width: 136px;
+          height: 36px;
+        }
+      }  
+      .top-page-search { 
+        position: relative;
+        margin: 0 0 0 45px; 
+        width: 700px;
+        
+        .header_search { 
+          width: 664px;
+          height: 36px;
+          border-radius: 4px;
+          border: 0;
+          background-color: #F5F5F5;
+        }
+        .form__submit {
+          box-sizing: inherit;
+          height: 40px;
+          position: absolute;
+          top: 0;
+          right: 4px;  
+          display: none; 
+        } 
+        .search-icon {
+          color: white;
+          // アイコンを中央に移動させる以下３つ
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: gray;
+          width: 40px;
+          height: 36px; 
+          border-radius: 0 4px 4px 0;
+          position: absolute;
+          top: 0;
+          right: 7px;
+          cursor: pointer;
+        }
+      }
+    } 
+    .bottom-header {
+      display: block;
+      width: 850px; 
+      height: 44px;
+      margin: 8px 0 0 0;
+      .bottom-header__left {
+        float: left; 
+        height: 44px;
+        width: 305px;
+        background-color: white;
+        .category-brands {
+          display: flex;
+          li { 
+            padding: 0 11px 0 0; 
+            .category-list-parent {
+              line-height: 44px;
+              .category-list-ul {
+                color: red;
+              } 
+              span {
+                font-weight: 450;
+                font-size: 14px;
+                font-family: sans-serif;
+              }
+            } 
+          }
+          li {
+            padding: 0 0 0 12px;
+            .brands-list-parent {
+              line-height: 44px; 
+              .brands-list-tag {
+                color: red;
+              } 
+              span {
+                font-weight: 450;
+                font-size: 14px;
+                font-family: sans-serif;
+              }
+            }
+          } 
+        }
+      }
+      .bottom-header__right { 
+        float: right;
+        width: 216px;
+        height: 34px;
+        background-color: white;
+        .devise-login {
+          display: flex; 
+          float: right;
+          li {
+            margin: 0 0 0 8px;
+              .new-member-registration {
+                color: white;
+                background-color: red;
+                border: 1px;
+                margin: 0 0 0 6px;
+                line-height: 34px;
+                border-radius: 4px;
+                font-size: 14px; 
+                padding: 10px 13px;
+                text-align: center;
+              }   
+          }    
+          li {   
+            margin: 0 0 0 12px; 
+            height: 32px;
+            .log-in {
+              color:  #0099E8;
+              background-color: white;
+              border: solid 1px #0099E8;
+              line-height: 32px;
+              border-radius: 4px;
+              margin: 0 0 0 6px;
+              text-align: center;
+              font-size: 13px;
+              padding: 10px 10px;
+            } 
+          }
+        }
+      }
+    }
+  }
+} 
