@@ -1,0 +1,217 @@
+.index-bottom-image {
+  height: 260px;
+  background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?57233791);
+  background-position: center;
+  background-size: cover;
+  .central-bottom-image { 
+    display: block;
+    position: relative;
+    background-color: transparent;
+    height: 260px;
+    width: 750px;
+    margin: 0 auto;
+    .index_app_introduction {
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 58px; 
+      left: 16px;
+      width: 374px;
+      height: 144px;
+      h2 {
+        font-size: 16px;
+        height: 22px;
+        margin: 0;
+        color: white;
+      } 
+      p {
+        height: 24px;
+        font-size: 24px;
+        margin: 10px 0 0 0;
+        color: white;
+        font-weight: 500;
+      } 
+      .app_introduction_icon { 
+        display: flex;
+        margin: 20px 0 0 0;
+        height: 68px;
+        .introduction_icon_mercari {
+          img {
+            width: 68px;
+            height: 68px;
+          } 
+        }
+        .app_download_icon { 
+          display: flex;
+          margin: 0 0 0 24px; 
+          li { 
+            margin: 12px 15px 0 0;
+            width: 133px; 
+            height: 40px;
+          }         
+        }
+      }
+    } 
+    .index_app_image { 
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      img {
+        width: 300px;
+        height: 260px;
+      }
+    }
+  }
+} 
+
+.footer {
+  padding: 0 20px 10px 20px;
+  background-color: #212121;
+  color:white; 
+  width: 100%;
+  height: 391px;
+  .footer-top {
+    height: 298px;
+    width: 1020px;
+    margin: 0 auto;
+    padding: 0;
+    .footer-top-first {
+      margin: 18px 0 0 0;
+      padding: 0 20px 0 0;
+      width: 20%;
+      float: left;
+      height: 241px;
+      .footer-head {
+        font-size: 16px; 
+        font-weight: 100;
+        height: 22px;
+        width: 184px;
+        color: white;
+      }
+      ul {
+        font-size: 12px;
+        height: 203px;
+        li {
+          margin-top: 16px; 
+          a {
+            color: gray; 
+            .footer-twitter-square {
+              color: white;              
+              font-size: 2.5em; 
+            } 
+            .footer-facebook-square {
+              color: white;              
+              font-size: 2.5em;
+              margin: 0 0 0 20px;
+            }
+          }
+        }
+      }
+    } 
+    .footer-top-second {
+      height: 280px;
+      margin: 18px 0 0 0;
+      padding: 0 40px 0 0;
+      width: 20%;
+      float: left;
+      .footer-head {
+        font-size: 16px; 
+        font-weight: 100;
+        height: 22px;
+        width: 184px;
+        color: white; 
+      }
+      .footer-top-second-help-guide {
+          font-size: 12px;
+          height: 242px;
+        li {
+            margin-top: 16px;
+          a {
+            color: gray;
+          }
+        }
+      }  
+    }
+    .footer-top-third {
+      height: 202px;
+      margin: 18px 0 0 0;
+      padding: 0 40px 0 0;
+      width: 40%;
+      float: left; 
+      .footer-head {
+        width: 100%;
+        height: 22px;
+      } 
+      .footer-top-third-privacy {
+        height: 194px;
+        width: 45%;
+        float: left; 
+        font-size: 12px;
+        padding: 0 10px 0 0;
+        li {
+          margin-top: 16px;
+          a {
+            color: gray;
+          }
+        }
+      } 
+      .footer-top-third-policy {
+        height: 194px;
+        width: 45%;
+        float: left;
+        font-size: 12px; 
+        padding: 0 0 0 10px;
+        li {
+          margin-top: 16px;
+          a {
+            color: gray;
+          }
+        }
+      }      
+    }
+    .footer-top-forth {
+      height: 88px;
+      width: 10%;
+      margin: 18px 0 0 0;
+      padding: 0;
+      float: left; 
+      .footer-head {
+        font-size: 16px; 
+        font-weight: 100;
+        height: 22px;
+        width: 184px;
+        color: white; 
+      }
+      li {
+        margin-top: 16px;
+        font-size: 12px;
+        a {
+          color: gray;
+        }
+      }
+    }
+  }
+  .footer-bottom {
+    margin: 30px auto 20px;
+    padding: 0;
+    width: 70%;
+    height: 33px; 
+    display: flex;
+    .footer-logo {
+      width: 124px;
+      height: 33px;
+    }
+    .footer-copyright {
+      width: 100%;
+      height: 14px;
+      margin: 8px 0 0 0;
+      text-align: center;
+      small {
+        font-size: 10px;
+        font-family: Source Sans Pro;
+     }
+    }
+  }
+} 
