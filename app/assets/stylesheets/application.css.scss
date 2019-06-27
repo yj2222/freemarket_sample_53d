@@ -15,9 +15,9 @@
  */
  
  @import "reset";
+ @import 'mixins/mixin';
  @import 'font-awesome-sprockets';
  @import "font-awesome";
- @import 'mixins/mixin';
  @import 'mypages/mypage-tab';
  @import 'mypages/mypage-right';
  @import 'mypages/mypage-left';
@@ -31,11 +31,11 @@
  @import 'modules/index_header';
  @import 'modules/details_footer';
  @import 'modules/details_header';
+ @import 'users/new_registration';
+ @import "users/information";
+ @import 'footer';
+ @import 'header';
  @import 'credits/credits';
- @import 'modules/seller-icon';
- @import 'products/products';
- @import 'products/details';
- @import 'products/buy';
  
  
  
