@@ -4,7 +4,7 @@
   %main.buy-main
     %section.buy__container
       %h2.buy__container-head
-        購入を確定しますか？
+        購入内容の確認
       %section.buy__container-content
         .buy__product.inner
           %h3
@@ -12,17 +12,17 @@
           %p ショルダーバッグ
           = form_for '' do |f|
             .buy__product__costs
-              %p.price ¥8,000
-              %span.shipping-cost 送料込み
+              %span.price ¥8,000
+              %p.shipping-cost 送料込み
             .buy__product__button.not-have
               .points__box
                 ポイントはありません
             .buy__product__price
               .price__table
                 .price__table-payment
-                  支払金額
+                  %span 支払金額
                 .price__table-payment
-                  ¥8,000
+                  %span ¥8,000
             .has-message
               %p この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
             .buy__product__button
