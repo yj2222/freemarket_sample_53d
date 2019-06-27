@@ -38,7 +38,7 @@
           border-radius: 4px;
           text-decoration: none;
         }
-        .entry-box__button__mail{
+        &__button__mail{
           @include entry-box__buttons;
           background-color: #eee;
           color: #333;
@@ -50,7 +50,7 @@
             margin-left: 10px;
           }
         }
-        .entry-box__button__facebook{
+        &__button__facebook{
           @include entry-box__buttons;
           color: white;
           margin-top: 16px; 
@@ -62,7 +62,7 @@
             margin-left: 10px;
           }
         }
-        .entry-box__button__google{
+        &__button__google{
           @include entry-box__buttons;
           margin-top: 16px;
           color: #333;
