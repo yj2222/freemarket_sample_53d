@@ -1,4 +1,5 @@
 .wrapper
+  = render 'shared/index_header'
   .products
     .products__container
       %h1 ショルダーバッグ
@@ -128,3 +129,5 @@
       %li.sns__share__list
         = link_to "" do
           = icon 'fab','pinterest-square', id: 'pinterest'
+
+  = render 'shared/index_footer' 

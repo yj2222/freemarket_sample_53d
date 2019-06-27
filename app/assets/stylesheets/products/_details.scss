@@ -190,25 +190,24 @@
       }
     }
     .sns__share{
-      height: 138px;
       margin: 24px auto;
       padding: 32px 0 24px 0;
       background-color: white;
       display: flex;
       justify-content: center;
       &__list{
-        padding: 10px;
+        padding: 10px 5px;
         #facebook{
           color: #3B5998;
-          font-size: 4em;
+          font-size: 3em;
         }
         #twitter{
           color: #1DA1F2;
-          font-size: 4em;
+          font-size: 3em;
         }
         #pinterest{
           color: #BD081C;
-          font-size: 4em;
+          font-size: 3em;
         }
       }
     }

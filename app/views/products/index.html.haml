@@ -1,8 +1,8 @@
-= render 'shared/header'
+= render 'shared/index_header'
 
-  = render 'details'
+-# = render 'details'
 
-  = render partial: "upload"
+-# = render partial: "upload"
   
 .index-banner-image 
   %img{src: "https://www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?4216410007", alt: "pick_key_image"}
@@ -15,7 +15,7 @@
         レディース 新着アイテム
     .pick-up-contents 
       .pick-up-content-category
-        = link_to "#", class: "item_details" do
+        = link_to "/products/details", class: "item_details" do
           %img{src: "https://static.mercdn.net/thumb/photos/m22301283822_1.jpg?1557200472", alt: "product_image"} 
           .content_description 
             .item_name  
@@ -23,10 +23,11 @@
             .item_price_like 
               .item-price ¥ 3,000     
               .index_like_botton
-                = icon('far', 'heart', class: 'like-heart') 
-                1
+                %span.icon
+                  = icon('far', 'heart', class: 'like-heart') 
+                %span.index_like_botton--text 1
             .item_price_tax 
-              %p (税込) 
+              %p.item_price_tax--text (税込) 
       .pick-up-content-category
         = link_to "#", class: "item_details" do
           %img{src: "https://static.mercdn.net/thumb/photos/m22301283822_1.jpg?1557200472", alt: "product_image"} 
@@ -500,6 +501,6 @@
       = link_to "#", class: "show-all-items" do
         すべての商品を見る
 
-= render 'shared/footer' 
+= render 'shared/index_footer' 
 
 = render 'shared/seller-icon'

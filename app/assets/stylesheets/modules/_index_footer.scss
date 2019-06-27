@@ -66,24 +66,24 @@
   }
 } 
 
-.footer {
+.index-footer {
   padding: 0 20px 10px 20px;
   background-color: #212121;
   color:white; 
   width: 100%;
   height: 391px;
-  .footer-top {
+  .index-footer-top {
     height: 298px;
     width: 1020px;
     margin: 0 auto;
     padding: 0;
-    .footer-top-first {
+    .index-footer-top-first {
       margin: 18px 0 0 0;
       padding: 0 20px 0 0;
       width: 20%;
       float: left;
       height: 241px;
-      .footer-head {
+      .index-footer-head {
         font-size: 16px; 
         font-weight: 100;
         height: 22px;
@@ -97,11 +97,11 @@
           margin-top: 16px; 
           a {
             color: gray; 
-            .footer-twitter-square {
+            .index-footer-twitter-square {
               color: white;              
               font-size: 2.5em; 
             } 
-            .footer-facebook-square {
+            .index-footer-facebook-square {
               color: white;              
               font-size: 2.5em;
               margin: 0 0 0 20px;
@@ -110,20 +110,20 @@
         }
       }
     } 
-    .footer-top-second {
+    .index-footer-top-second {
       height: 280px;
       margin: 18px 0 0 0;
       padding: 0 40px 0 0;
       width: 20%;
       float: left;
-      .footer-head {
+      .index-footer-head {
         font-size: 16px; 
         font-weight: 100;
         height: 22px;
         width: 184px;
         color: white; 
       }
-      .footer-top-second-help-guide {
+      .index-footer-top-second-help-guide {
           font-size: 12px;
           height: 242px;
         li {
@@ -134,17 +134,17 @@
         }
       }  
     }
-    .footer-top-third {
+    .index-footer-top-third {
       height: 202px;
       margin: 18px 0 0 0;
       padding: 0 40px 0 0;
       width: 40%;
       float: left; 
-      .footer-head {
+      .index-footer-head {
         width: 100%;
         height: 22px;
       } 
-      .footer-top-third-privacy {
+      .index-footer-top-third-privacy {
         height: 194px;
         width: 45%;
         float: left; 
@@ -157,7 +157,7 @@
           }
         }
       } 
-      .footer-top-third-policy {
+      .index-footer-top-third-policy {
         height: 194px;
         width: 45%;
         float: left;
@@ -171,13 +171,13 @@
         }
       }      
     }
-    .footer-top-forth {
+    .index-footer-top-forth {
       height: 88px;
       width: 10%;
       margin: 18px 0 0 0;
       padding: 0;
       float: left; 
-      .footer-head {
+      .index-footer-head {
         font-size: 16px; 
         font-weight: 100;
         height: 22px;
@@ -193,17 +193,17 @@
       }
     }
   }
-  .footer-bottom {
+  .index-footer-bottom {
     margin: 30px auto 20px;
     padding: 0;
     width: 70%;
     height: 33px; 
     display: flex;
-    .footer-logo {
+    .index-footer-logo {
       width: 124px;
       height: 33px;
     }
-    .footer-copyright {
+    .index-footer-copyright {
       width: 100%;
       height: 14px;
       margin: 8px 0 0 0;

@@ -17,10 +17,10 @@
     .index_app_image
       %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?2334484240", alt: "index_app_img"} 
 
-.footer 
-  .footer-top 
-    .footer-top-first
-      %h2.footer-head メルカリについて 
+.index-footer 
+  .index-footer-top 
+    .index-footer-top-first
+      %h2.index-footer-head メルカリについて 
       %ul
         %li 
           = link_to "https://about.mercari.com/" do 
@@ -37,14 +37,14 @@
         %li 
           = link_to "" do 
             メルカリロゴ利用ガイドライン  
-        %li.footer-social-logo 
+        %li.index-footer-social-logo 
           = link_to "https://twitter.com/mercari_jp" do
-            = icon('fab', 'twitter', class: 'footer-twitter-square') 
+            = icon('fab', 'twitter', class: 'index-footer-twitter-square') 
           = link_to "https://www.facebook.com/mercarijp" do
-            = icon('fab', 'facebook-square', class: 'footer-facebook-square')
-    .footer-top-second  
-      %h2.footer-head ヘルプ＆ガイド 
-      %ul.footer-top-second-help-guide 
+            = icon('fab', 'facebook-square', class: 'index-footer-facebook-square')
+    .index-footer-top-second  
+      %h2.index-footer-head ヘルプ＆ガイド 
+      %ul.index-footer-top-second-help-guide 
         %li 
           = link_to "" do 
             メルカリガイド
@@ -69,9 +69,9 @@
         %li 
           = link_to "" do 
             メルカリボックス           
-    .footer-top-third 
-      %h2.footer-head プライバシーと利用規約
-      .footer-top-third-privacy  
+    .index-footer-top-third 
+      %h2.index-footer-head プライバシーと利用規約
+      .index-footer-top-third-privacy  
         %ul 
           %li 
             = link_to "" do 
@@ -86,7 +86,7 @@
             = link_to "" do 
               コンプラインスポリシー 
 
-      .footer-top-third-policy 
+      .index-footer-top-third-policy 
         %ul 
           %li 
             = link_to "" do 
@@ -104,8 +104,8 @@
             = link_to "" do 
               返金・返金ポリシー
                
-    .footer-top-forth
-      %h2.footer-head 国 
+    .index-footer-top-forth
+      %h2.index-footer-head 国 
       %ul 
         %li 
           = link_to "" do 
@@ -113,9 +113,9 @@
         %li 
           = link_to "" do 
             United States 
-  .footer-bottom  
-    .footer-logo 
+  .index-footer-bottom  
+    .index-footer-logo 
       = link_to "" do
         = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?1905591235" 
-    .footer-copyright  
+    .index-footer-copyright  
       %small @2019 Mercari 
