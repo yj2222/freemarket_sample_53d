@@ -1,39 +1,303 @@
+@import 'mixins/mixin';
 
-
-.exhibition__main__image-form__upload {
-  position: relative;
-  min-height: 162px;
+.exhibition {
+  min-height: 100%;
   background: #f5f5f5;
-  border: 1px dashed #ccc;
-  font-size: 0;
-  text-align: center;
-  -webkit-transition: -webkit-box-shadow ease-out .3s;
-  transition: -webkit-box-shadow ease-out .3s;
-  transition: box-shadow ease-out .3s;
-  transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
-  cursor: pointer;
-  margin-left: 2%;
-  width: 700px;
-}
-
-.exhibition__main__image-form__upload--text {
-  position: absolute;
-  top: 50%;
-  left: 16px;
-  right: 16px;
-  text-align: center;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   font-size: 14px;
-  line-height: 1.5;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  pointer-events: none;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  color: #333;
+  &__container {
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    .exhibition__head {
+      padding: 32px 16px;
+      font-size: 22px;
+      line-height: 1.5;
+      text-align: center;
+      &--title {
+        font-weight: bold;
+      }
+    }
+    .exhibition__main {
+      border-top: 1px solid #eee;
+      &__image-form {
+        padding: 40px;
+        .form {
+          &__lavel--top {
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
+        &__text {
+          margin: 8px 0 0;
+          line-height: 1.5;
+        }
+        &__upload {
+          position: relative;
+          min-height: 162px;
+          background: #f5f5f5;
+          border: 1px dashed #ccc;
+          font-size: 0;
+          text-align: center;
+          -webkit-transition: -webkit-box-shadow ease-out .3s;
+          transition: -webkit-box-shadow ease-out .3s;
+          transition: box-shadow ease-out .3s;
+          transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
+          cursor: pointer;
+          margin-left: 2%;
+          display: block;
+          width: 620px;
+          margin: 16px auto 0;
+          &--text {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            right: 16px;
+            text-align: center;
+            font-size: 14px;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            pointer-events: none;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            letter-spacing: -2px;
+            font-weight: bold;
+            line-height: 10px;
+          }
+          &--file {
+            width: 100%;
+            margin-left: 0;
+            height: 160px;
+            opacity: 0;
+          }
+        }
+      }
+      &__name-form {
+        padding: 40px;
+        border-top: 1px solid #eee;
+      }
+      &__description-form {
+        padding: 0 40px 40px 40px;
+      } 
+      &__category-form {
+        padding: 40px;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        &__left {
+        }
+        &__right {
+          .lower-form {
+            padding-top: 40px;
+          }
+        }
+      }
+      &__derivary-form {
+        padding: 40px;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        &__left {
+        }
+        &__right {
+          .lower-form {
+            padding-top: 40px;
+          }
+        }
+      }
+      &__price-form {
+        padding: 40px;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        &__left {
+        }
+        &__right {
+          .price-form {
+            width: 400px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0 24px;
+            border: 0;
+            &__text {
+              line-height: 50px;
+            }
+            &__input {
+              &--yen {
+                padding-right: 5px;
+              }
+              &--box {
+                height: 30px;
+                padding: 10px 16px 8px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: #fff;
+                line-height: 1.5;
+                font-size: 16px;
+              }
+              &--box::placeholder {
+                text-align:right;
+              }
+            }
+          }
+          .price__list {
+            &__tax {
+              display: flex;
+              justify-content: space-between;
+              padding: 24px 0;
+              border-top: 1px solid #ccc;
+              &--left {
+              }
+              &--right {
+              }
+            }
+            &__profit {
+              display: flex;
+              justify-content: space-between;
+              padding: 24px 0;
+              font-weight: bold;
+              border-top: 1px solid #ccc;
+              &--left {
+                font-size: 16px;
+              }
+              &--right {
+                font-size: 34px;
+              }
+            }
+          }
+        }
+      }
+      .exhibition__bottom {
+        padding: 40px;
+        border-top: 1px solid #eee;
+        &__text {
+          text-decoration: none;
+          a {
+            color: #0099e8;
+            &:hover {
+              text-decoration: underline;
+              opacity: 0.7;
+            }
+          }
+        }
+        &__btn {
+          margin-top: 40px ;
+          text-align: center;
+          &--submit {
+            background: #ea352d;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            transition: all ease-out .3s;
+            cursor: pointer;
+            text-align: center;
+            opacity: 0.9;
+            &:hover {
+              opacity: 1;
+            }
+          }
+          &--return {
+            width: 45%;
+            margin: 24px auto 0;
+            background: #aaa;
+            border: 1px solid #aaa;
+            color: #fff;
+            display: block;
+            line-height: 48px;
+            font-size: 14px;
+            border: 1px solid transparent;
+            -webkit-transition: all ease-out .3s;
+            transition: all ease-out .3s;
+            cursor: pointer;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
 }
-
-.exhibition__main__image-form__upload--file {
-  width: 100%;
-  margin-left: 0;
-  height: 160px;
-  opacity: 0;
+.form__input {
+  margin: 8px 0 0;
+  &--box {
+    display: block;
+    width: 580px;
+    height: 30px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  &--textarea {
+    display: block;
+    width: 590px;
+    max-width: 100%;
+    min-height: 104px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+.form__select {
+  margin: 8px 0 0;
+  width: 400px;
+  select {
+    width: 100%;
+    z-index: 2;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+}
+.icon-relative {
+  position: relative;
+  &--absolute {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    z-index: 2;
+    color: #888;
+    font-size: 20px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    background-color: white;
+  }
+}
+.form-icon {
+  &__help {
+    &--icon {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      // background: #0099e8;
+      color: #0099e8;
+      line-height: 14px;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
+.form {
+  &__lavel--top {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  &__lavel {
+    @include form__lavel;
+  }
+  &__equired {
+    @include form__equired;
+  }
 }
