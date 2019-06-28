@@ -48,7 +48,7 @@
               %span.form__lavel 商品の状態 
               %span.form__equired 必須
               .form__select.icon-relative
-                = f.select :category, @category, autofocus: true, prompt: "---", class: "form__select--box"
+                = f.select :condition, @condition, autofocus: true, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
           
         .exhibition__main__derivary-form
@@ -64,14 +64,14 @@
               %span.form__lavel 配送料の負担 
               %span.form__equired 必須
               .form__select.icon-relative
-                = f.select :burden, @burden, autofocus: true, prompt: "---", class: "form__select--box"
+                = f.select :delivaly_price, @delivaly_price, autofocus: true, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
             .form.lower-form 
               %span.form__lavel 発送元の地域 
               %span.form__equired 必須
               .form__select.icon-relative
-                = f.collection_select :area, Prefecture.all, :id, :name, prompt: "---", class: 'form__select--box'
+                = f.collection_select :prefecture, Prefecture.all, :id, :name, prompt: "---", class: 'form__select--box'
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
             .form.lower-form 

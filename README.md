@@ -1,4 +1,4 @@
-# README
+## DB設計
 
 ## usersテーブル
 |Column|Type|Options|
@@ -14,15 +14,12 @@
 |birth_month|string|null: false|
 |birth_day|string|null: false|
 |post_number|intger|null: false|
-|prefectures|string|null: false|
+|prefecture|string|null: false|
 |city|string|null: false|
 |address_number|string|null: false|
 |building|string|
 |phone_number|intger|
-|card_number|intger|null: false|
-|expiration_month|intger|null: false|
-|expiration_year|intger|null: false|
-|security_code|intger|null: false|
+|card_id|references|null: false|
 
 ### Association
 - has_many :products
@@ -30,10 +27,23 @@
 
 
 
+## creditsテーブル
+|user_id|references|null: false, index: true, foreign_key: true|
+|number|intger|null: false|
+|month|intger|null: false|
+|year|intger|null: false|
+|security_code|intger|null: false|
+
+### Association
+- belongs_to :user
+
+
+
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|title|string|null: false|
+|user_id|references|null: false, index: true, foreign_key: true|
+|name|string|null: false|
 |description|text|null: false|
 |category_id|references|null: false,foreign_key: true|
 |size|string|null: false|
@@ -41,7 +51,7 @@
 |condition|string|null: false|
 |delibary_price|string|null: false|
 |delibary_type|string|null: false|
-|area|string|null: false|
+|prefecture|string|null: false|
 |delivaly_days|string|null: false|
 |price|intger|null: false|
 
@@ -50,6 +60,28 @@
 - has_many :likes
 - has_many :image
 - has_many :category
+
+
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image_url|string|null: false|
+
+### Association
+- belongs_to :product
+
+
+
+## Product_imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_id|references|null: false, index: true, foreign_key: true|
+|image_id|references|null: false, index: true, foreign_key: true|
+
+### Association
+- belongs_to :product
+- belongs_to :image
 
 
 
@@ -66,59 +98,14 @@
 
 
 
-## imagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|product_id|references|null: false,foreign_key: true|
-|image_url|string|null: false|
-
-### Association
-- belongs_to :product
-
-
-
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|null: false,foreign_key: true|
-|user_id|references|null: false,foreign_key: true|
+|product_id|references|null: false, index: true, foreign_key: true|
+|user_id|references|null: false, index: true, foreign_key: true|
 |count|intger|
 
 ### Association
 - belongs_to :product
 - belongs_to :user
 
-
-
-## addressテーブル
-|Column|Type|Options|
-|------|----|-------|
-|prefecture_id|integer|
-|city|string|
-
-### Association
-
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
