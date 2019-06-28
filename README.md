@@ -6,6 +6,17 @@
 |nickname|string|null: false|
 |email|string|null: false|
 |passward|string|null: false|
+
+### Association
+- has_many :products
+- has_many :likes
+- belongs_to :credit
+
+
+
+## profilesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |firstname_kanji|string|null: false|
 |lastname_kanji|string|null: false|
 |firstname_katakana|string|null: false|
@@ -13,17 +24,24 @@
 |birth_yaer|string|null: false|
 |birth_month|string|null: false|
 |birth_day|string|null: false|
+|phone_number|intger|
+
+### Association
+- belongs_to :user
+
+
+
+## areasテーブル
+|Column|Type|Options|
+|------|----|-------|
 |post_number|intger|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |address_number|string|null: false|
 |building|string|
-|phone_number|intger|
-|card_id|references|null: false|
 
 ### Association
-- has_many :products
-- has_many :likes
+- belongs_to :user
 
 
 
@@ -58,8 +76,8 @@
 ### Association
 - belongs_to :user
 - has_many :likes
-- has_many :image
-- has_many :category
+- has_many :images
+- belongs_to :category
 
 
 
@@ -67,21 +85,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |image_url|string|null: false|
+|product_id|references|null: false,foreign_key: true|
 
 ### Association
 - belongs_to :product
-
-
-
-## Product_imagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|product_id|references|null: false, index: true, foreign_key: true|
-|image_id|references|null: false, index: true, foreign_key: true|
-
-### Association
-- belongs_to :product
-- belongs_to :image
 
 
 
@@ -94,7 +101,7 @@
 |son|string|
 
 ### Association
-- belongs_to :product
+- has_many :products
 
 
 
@@ -111,16 +118,6 @@
 
 
 
-## sellersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, index: true, foreign_key: true|
-
-### Association
-- belongs_to :user
-
-
-
 ## tradesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -131,5 +128,5 @@
 
 ### Association
 - belongs_to :product
-- belongs_to :seller
-- belongs_to :buyer
+- belongs_to :seller_id, class_name: "User"
+
