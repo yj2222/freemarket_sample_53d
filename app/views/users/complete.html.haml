@@ -1,0 +1,39 @@
+.wrapper
+  %header.complete-header
+    = render "complete_header.html"
+  %main.complete-main
+    %section.complete__container
+      %h2.complete__container-head
+        会員登録が完了しました。
+      %section.complete__container-content
+        .complete__product.inner
+          = form_for '' do |f|
+            .complete__product__table
+              .table-comment
+                %span ありがとうございます。
+              .table-comment
+                %span 会員登録が完了しました。
+            .complete__product__button
+              .points__box.on
+                メルカリをはじめる
+        .complete-bottom-image
+          .complete-bottom-images
+            .complete_app_introduction 
+              %h2 ＼スマホでかんたんフリマアプリ／
+              %p 今すぐ無料ダウンロード！ 
+              .complete_introduction_icon 
+                .complete_icon_mercari 
+                  %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?2334484240", alt: "mercari_icon"}  
+                %ul.complete_download_icon 
+                  %li
+                    = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8" do
+                      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2334484240" 
+                  %li 
+                    = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do 
+                      = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2334484240"
+            .complete_app_image
+              %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?2334484240", alt: "index_app_img"} 
+
+  %footer.complete-footer
+    = render "shared/details_footer"
+
