@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    render "users/registrations/information"
+    # render "users/registrations/information" 
+    render "users/new_registration_address"
   end
 end
