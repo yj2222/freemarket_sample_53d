@@ -5,6 +5,8 @@ class UsersController < ApplicationController
   end
 
   def new
+    # render "users/registrations/information" 
+    render "users/new_registration_address"
     # render "users/registrations/information"
     # render "users/registrations/tel_authentication"
     @years = [2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030]
