@@ -109,3 +109,27 @@
 - belongs_to :product
 - belongs_to :user
 
+
+
+## sellersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, index: true, foreign_key: true|
+
+### Association
+- belongs_to :user
+
+
+
+## tradesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, index: true, foreign_key: true|
+|seller_id|references|null: false, index: true, foreign_key: true|
+|products_id|references|null: false, index: true, foreign_key: true|
+|flug|references|null: false|
+
+### Association
+- belongs_to :product
+- belongs_to :seller
+- belongs_to :buyer
