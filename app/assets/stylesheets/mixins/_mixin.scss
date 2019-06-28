@@ -24,3 +24,20 @@
   font-size: 12px;
   vertical-align: top;
 }
+
+@mixin form__equired {
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  font-weight: bold;
+}
+
+@mixin form__lavel {
+  font-size: 14px;
+  font-weight: bold;
+  color: #888;
+}
