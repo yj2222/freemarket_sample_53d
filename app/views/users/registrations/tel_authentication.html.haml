@@ -1,0 +1,22 @@
+%html
+  %body
+    .user-container
+      = render partial: 'shared/registrations/tel_authentication_header'
+      %main.main__tel
+        %h2.title__tel
+          電話番号の確認
+        = form_for "" do |f|
+          .inner__tel
+            .inner__tel__box
+              %label.inner__tel__box__number
+                携帯電話の番号
+              = f.text_field "", {class: "form__input", placeholder: "携帯電話の番号を入力"}
+            %p.text_use_sms
+              本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+            = f.submit "SMSを送信する", {class:"form-button"}
+            %p.text__oath
+              ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+            .inner__tel__text__right
+              = link_to '電話番号の確認が必要な理由',"" 
+              = icon 'fa', 'chevron-right', id: 'icon__chevron-right'
+      = render partial: 'shared/details_footer'

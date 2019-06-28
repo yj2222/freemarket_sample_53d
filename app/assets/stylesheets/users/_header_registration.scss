@@ -61,6 +61,16 @@
             }
           }
         }
+        .finished-position{
+          .registration__stage__bar{
+            background: #ea352d;
+            &::after{
+              z-index: 2;
+              content: '';
+              background: #ea352d;
+            }
+          }
+        }
         #registration__finish{
           .registration__stage__bar{
             &::after{
