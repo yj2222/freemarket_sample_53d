@@ -1,4 +1,4 @@
-## DB設計
+-## DB設計
 
 ## usersテーブル
 |Column|Type|Options|
@@ -61,11 +61,13 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, index: true, foreign_key: true|
+|category_id|references|null: false,foreign_key: true|
+
 |name|string|null: false|
 |description|text|null: false|
-|category_id|references|null: false,foreign_key: true|
 |size|string|null: false|
 |brand|string|
+
 |condition|string|null: false|
 |delibary_price|string|null: false|
 |delibary_type|string|null: false|
@@ -85,6 +87,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image_url|string|null: false|
+
 |product_id|references|null: false,foreign_key: true|
 
 ### Association
@@ -96,6 +99,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |product_id|references|null: false,foreign_key: true|
+
 |parent|string|null: false|
 |child|string|
 |son|string|
@@ -110,6 +114,7 @@
 |------|----|-------|
 |product_id|references|null: false, index: true, foreign_key: true|
 |user_id|references|null: false, index: true, foreign_key: true|
+
 |count|intger|
 
 ### Association
@@ -124,9 +129,8 @@
 |user_id|references|null: false, index: true, foreign_key: true|
 |seller_id|references|null: false, index: true, foreign_key: true|
 |products_id|references|null: false, index: true, foreign_key: true|
-|flug|references|null: false|
+|flug|integer|null: false|
 
 ### Association
 - belongs_to :product
 - belongs_to :seller_id, class_name: "User"
-
