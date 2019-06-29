@@ -88,6 +88,8 @@ gem 'mysql2'
 gem 'fog-aws'
 gem "dropzonejs-rails" 
 gem 'recaptcha', require: "recaptcha/rails"
+gem 'devise-i18n'
+gem 'devise-i18n-views'
 
 group :production do
   gem 'unicorn'
