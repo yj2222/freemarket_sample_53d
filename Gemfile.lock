@@ -373,14 +373,11 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-<<<<<<< HEAD
   dropzonejs-rails
-=======
   devise-i18n
   devise-i18n-views
   dropzonejs-rails
   dropzonejs-rails (~> 0.8.4)
->>>>>>> 913f4a01ad34483fe8f86cab6e9a256e3ed5a685
   fog-aws
   font-awesome-sass
   haml-rails
