@@ -10,7 +10,9 @@
 ### Association
 - has_many :products
 - has_many :likes
-- belongs_to :credit
+- has_one :credit
+- has_one :profile
+- has_one :area
 
 
 
@@ -25,6 +27,7 @@
 |birth_month|string|null: false|
 |birth_day|string|null: false|
 |phone_number|intger|
+|user_id|references|null: false, index: true, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -39,6 +42,7 @@
 |city|string|null: false|
 |address_number|string|null: false|
 |building|string|
+|user_id|references|null: false, index: true, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -51,6 +55,7 @@
 |month|intger|null: false|
 |year|intger|null: false|
 |security_code|intger|null: false|
+|user_id|references|null: false, index: true, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -61,7 +66,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, index: true, foreign_key: true|
-|category_id|references|null: false,foreign_key: true|
 
 |name|string|null: false|
 |description|text|null: false|
@@ -126,7 +130,7 @@
 ## tradesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, index: true, foreign_key: true|
+|buyer_id|references|null: false, index: true, foreign_key: true|
 |seller_id|references|null: false, index: true, foreign_key: true|
 |products_id|references|null: false, index: true, foreign_key: true|
 |flug|integer|null: false|
@@ -134,3 +138,4 @@
 ### Association
 - belongs_to :product
 - belongs_to :seller_id, class_name: "User"
+- belongs_to :buyer_id, class_name: "User"
