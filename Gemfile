@@ -86,7 +86,7 @@ gem 'jquery-rails'
 gem 'active_hash'
 gem 'mysql2'
 gem 'fog-aws'
-gem "dropzonejs-rails", '~> 0.8.4'
+gem "dropzonejs-rails"
 gem 'recaptcha', require: "recaptcha/rails"
 
 group :production do
