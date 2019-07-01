@@ -75,10 +75,10 @@ ActiveRecord::Schema.define(version: 2019_06_29_055749) do
     t.text "description", null: false
     t.string "size", null: false
     t.string "brand"
-    t.string "delibary_price", null: false
-    t.string "delibary_type", null: false
+    t.string "delivery_price", null: false
+    t.string "delivery_type", null: false
     t.string "prefecture", null: false
-    t.string "delivaly_days", null: false
+    t.string "delively_days", null: false
     t.integer "price", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2019_06_29_055749) do
     t.string "lastname_kanji", null: false
     t.string "firstname_katakana", null: false
     t.string "lastname_katakana", null: false
-    t.string "birth_yaer", null: false
+    t.string "birth_year", null: false
     t.string "birth_month", null: false
     t.string "birth_day", null: false
     t.integer "phone_number"
