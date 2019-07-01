@@ -5,10 +5,10 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.text :description, null: false
       t.string :size, null: false
       t.string :brand
-      t.string :delibary_price, null: false
-      t.string :delibary_type, null: false
+      t.string :delivery_price, null: false
+      t.string :delivery_type, null: false
       t.string :prefecture, null: false
-      t.string :delivaly_days, null: false
+      t.string :delively_days, null: false
       t.integer :price, null: false
       t.references :user, null: false, index: true, foreign_key: true
       t.timestamps
