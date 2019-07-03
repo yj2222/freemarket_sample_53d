@@ -12,8 +12,14 @@
           %span.form__equired 必須
           %p.exhibition__main__image-form__text 最大10枚までアップロードできます
           //投稿画像プレビュー
-          %ul.exhibition__main__image-form__list
-            %li.exhibition__main__image-form__list--preview
+          %ul.image-upload__preview
+          //プレビュー表示変更の場合があるので以下の記述残しておきます。
+            -# %li.image-upload__preview__list
+            -#   .image-upload__preview__list__top
+            -#     = image_tag "common/user-bg.jpg", size: "114x50", alt: "test", class: "image-upload__preview__list__top--image"
+            -#   .image-upload__preview__list__bottom
+            -#     %span.image-upload__preview__list__bottom--btn.btn-left 編集
+            -#     %span.image-upload__preview__list__bottom--btn 削除
           //画像投稿フォーム
           = f.fields_for :images do |fi|
             .exhibition__main__image-form__upload
