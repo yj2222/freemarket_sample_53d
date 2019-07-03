@@ -22,7 +22,6 @@ $(document).on('turbolinks:load', function () {
     //選択されたファイル情報を取得、変数追加
     var image = event.target.files[0];
     images.push(image)
-    console.log(images)
 
     // 読み込んだ画像を読み込む
     var file_reader = new FileReader();
