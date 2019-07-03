@@ -3,7 +3,7 @@
     %h2.input-card__head--title クレジットカード情報入力
 
   .input-card__main
-    = form_for '', method: "post", :html => {:id => "charge-form"} do |f|
+    = form_for '', method: "post", html: {id: "charge-form"} do |f|
       .input-card__main__top
         %span.label カード番号
         %span.arbitrary 必須
