@@ -6,6 +6,10 @@ class ProductsController < ApplicationController
   def show 
   end
 
+  def purchase
+    @trade = Trade.new
+  end
+  
   def new
     @product = Product.new
     @image = Image.new
