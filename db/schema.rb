@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_29_055749) do
+ActiveRecord::Schema.define(version: 2019_07_02_085511) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -35,10 +35,8 @@ ActiveRecord::Schema.define(version: 2019_06_29_055749) do
     t.string "parent", null: false
     t.string "child"
     t.string "son"
-    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_categories_on_product_id"
   end
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -71,18 +69,21 @@ ActiveRecord::Schema.define(version: 2019_06_29_055749) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "description", null: false
-    t.string "size", null: false
+    t.string "name"
+    t.text "description"
+    t.string "size"
     t.string "brand"
-    t.string "delivery_price", null: false
-    t.string "delivery_type", null: false
-    t.string "prefecture", null: false
-    t.string "delively_days", null: false
-    t.integer "price", null: false
-    t.bigint "user_id", null: false
+    t.string "delivery_price"
+    t.string "delivery_type"
+    t.string "prefecture"
+    t.string "delively_days"
+    t.integer "price"
+    t.integer "condition"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -127,11 +128,11 @@ ActiveRecord::Schema.define(version: 2019_06_29_055749) do
   end
 
   add_foreign_key "areas", "users"
-  add_foreign_key "categories", "products"
   add_foreign_key "credits", "users"
   add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "trades", "products", column: "products_id"

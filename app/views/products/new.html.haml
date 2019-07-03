@@ -1,62 +1,137 @@
-.wrapper
-  %header.buy-header
-    = render 'shared/details_header'
-  %main.buy-main
-    %section.buy__container
-      %h2.buy__container-head
-        購入内容の確認
-      %section.buy__container-content
-        .buy__product.inner
-          %h3
-            %img#image(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
-          %p ショルダーバッグ
-          = form_for '' do |f|
-            .buy__product__costs
-              %span.price ¥8,000
-              %p.shipping-cost 送料込み
-            .buy__product__button.not-have
-              .points__box
-                ポイントはありません
-            .buy__product__price
-              .price__table
-                .price__table-payment
-                  %span 支払金額
-                .price__table-payment
-                  %span ¥8,000
-            .has-message
-              %p この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
-            .buy__product__button
-              .points__box.on
-                購入する
-      %section.buy__container-content
-        .buy__user.inner
-          .buy__user__shipping-address
-            %h4 配送先
-            .postal-code
-              %p 〒193-0834
-            .address
-              %p 東京都八王子市****町
-              %p ***-***
-            .name
-              %p 佐々木貴啓
-          .buy__user__change.clearfix
-            = link_to "", class: 'links' do
-              変更する
-              = icon 'fas', 'chevron-right', id: 'chevron'            
-      %section.buy__container-content
-        .buy__payment.inner
-          .buy__payment-method
-            %h4 支払方法
-            .number
-              %p ************4242
-            .limit-month
-              %p 04/26
-            .card-type
-              %img(src="https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1905591235" alt="VISA")
-          .buy__user__change.clearfix
-            = link_to "", class: 'links' do
-              変更する
-              = icon 'fas', 'chevron-right', id: 'chevron'  
-  %footer.buy-footer
-    = render 'shared/details_footer'
+= render 'shared/details_header'
 
+.exhibition
+  .exhibition__container
+    .exhibition__head
+      %h2.exhibition__head--title 商品の情報を入力
+    .exhibition__main
+      = form_for @product do |f|
+
+        .exhibition__main__image-form.form
+          %span.form__lavel--top 出品画像 
+          %span.form__equired 必須
+          %p.exhibition__main__image-form__text 最大10枚までアップロードできます
+          //投稿画像プレビュー
+          %ul.exhibition__main__image-form__list
+            %li.exhibition__main__image-form__list--preview
+          //画像投稿フォーム
+          = f.fields_for :images do |fi|
+            .exhibition__main__image-form__upload
+              .exhibition__main__image-form__upload--text
+                %p ドラッグアンドドロップ
+                %p またはクリックしてファイルをアップロード
+              = fi.file_field :image_url, autofocus: true, class: "exhibition__main__image-form__upload--file"
+
+        .exhibition__main__name-form
+          .form
+            %span.form__lavel 商品名 
+            %span.form__equired 必須
+            .form__input
+              = f.text_field :name, autofocus: true, placeholder: "商品名（必須40文字まで）", class: "form__input--box"
+        
+        .exhibition__main__description-form
+          .form
+            %span.form__lavel 商品の説明 
+            %span.form__equired 必須
+            .form__input
+              = f.text_area :description, autofocus: true, class: "form__input--textarea", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+
+        .exhibition__main__category-form
+          .exhibition__main__category-form__left.form
+            .exhibition__main__category-form__left--title.form__lavel 商品の詳細
+          .exhibition__main__category-form__right
+            .form
+              %span.form__lavel カテゴリー 
+              %span.form__equired 必須
+              .form__select.icon-relative
+                = f.select :category_id, Category.categories, autofocus: true, class: "form__select--box"
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+
+            .form.lower-form
+              %span.form__lavel 商品の状態 
+              %span.form__equired 必須
+              .form__select.icon-relative
+                = f.select :condition, Product.conditions , autofocus: true, prompt: "---", class: "form__select--box"
+                -# = f.select :condition, options_for_select(Product.conditions.keys)
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+          
+        .exhibition__main__derivary-form
+          .exhibition__main__derivary-form__left
+            %span.form__lavel 配送について
+            %span.form-icon
+              = link_to '', class: 'form-icon__help' do
+                = icon 'fas', 'question-circle', class: "form-icon__help--icon"
+
+          .exhibition__main__derivary-form__right
+            .form
+              %span.form__lavel 配送料の負担 
+              %span.form__equired 必須
+              .form__select.icon-relative
+                -# = f.select :delivery_price, @delivery_price, autofocus: true, prompt: "---", class: "form__select--box"
+                = f.select :delivery_price,[['---',""], ['送料込み（出品者負担）', '送料込み（出品者負担）'], ['着払い（購入者負担）', '着払い（購入者負担）']], {}, {class: "form__select--box"}
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+
+            .form.lower-form 
+              %span.form__lavel 発送元の地域 
+              %span.form__equired 必須
+              .form__select.icon-relative
+                = f.collection_select :prefecture, Prefecture.all, :id, :name, prompt: "---", class: 'form__select--box'
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+
+            .form.lower-form 
+              %span.form__lavel 発送までの日数 
+              %span.form__equired 必須
+              .form__select.icon-relative
+                -# = f.select :delively_days, @delively_days, autofocus: true, prompt: "---", class: "form__select--box"
+                = f.select :delively_days,[['---',""], ['1~2日で発送', '1~2日で発送'], ['2〜3日で発送', '2〜3日で発送'],['4〜7日で発送', '4〜7日で発送']], {}, {class: "form__select--box"}
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+
+        .exhibition__main__price-form
+          .exhibition__main__price-form__left
+            %span.form__lavel 販売価格(300〜9,999,999)
+            %span.form__icon
+              = link_to '', class: 'form-icon__help' do
+                = icon 'fas', 'question-circle', class: "form-icon__help--icon"
+
+          .exhibition__main__price-form__right
+            .price-form
+              .price-form__text.form
+                %span.form__lavel 価格
+                %span.form__equired 必須
+              .price-form__input
+                %span.price-form__input--yen ¥
+                = f.text_field :price, autofocus: true, placeholder: "例）300", class: "price-form__input--box", id: "textForm1"
+                
+            .price__list
+              .price__list__tax
+                %p.price__list__tax--left 販売手数料(10%)
+                %p.price__list__tax--right -
+              .price__list__profit
+                %p.price__list__profit--left 販売利益
+                %p.price__list__profit--right -
+
+        .exhibition__bottom
+          .exhibition__bottom__text
+            %div
+              = link_to '禁止されている出品', '#'
+              %span 、
+              = link_to '行為', '#'
+              %span を必ずご確認ください。
+            %div
+              %span またブランド品でシリアルナンバー等がある場合はご記載ください。
+              = link_to '偽ブランドの販売', '#'
+              %span は犯罪であり処罰される可能性があります。
+            %div
+              %span また、出品をもちまして
+              = link_to '加盟店規約', '#'
+              %span に同意したことになります。
+
+          .exhibition__bottom__btn
+            = f.submit "出品する", class: 'exhibition__bottom__btn--submit'
+          
+            = link_to 'もどる', root_path, class: 'exhibition__bottom__btn--return'
+
+= render 'shared/details_footer'
+
+
+   

@@ -4,7 +4,6 @@ class CreateCategories < ActiveRecord::Migration[5.2]
       t.string :parent, null: false
       t.string :child
       t.string :son
-      t.references :product, null: false, index: true, foreign_key: true
       t.timestamps
     end
   end
