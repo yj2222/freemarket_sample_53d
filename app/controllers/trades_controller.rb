@@ -9,7 +9,7 @@ class TradesController < ApplicationController
       redirect_to controller: 'credits', action: 'index'
       flash[:alert] = '購入にはクレジットカード登録が必要です'
     else
-      Payjp.api_key= "sk_test_6be8842c8cbe2ba6e307b5b4"
+      Payjp.api_key= ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
