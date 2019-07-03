@@ -3,12 +3,12 @@
     %h2.input-card__head--title クレジットカード情報入力
 
   .input-card__main
-    = form_for '' do |f|
+    = form_for '', method: "post", :html => {:id => "charge-form"} do |f|
       .input-card__main__top
         %span.label カード番号
         %span.arbitrary 必須
         .input-card__main__top__form
-          = f.text_field :card_number, autofocus: true, value: "", placeholder: "半角数字のみ", class: 'input-wide'
+          = f.text_field :card_number, autofocus: true, value: "", placeholder: "半角数字のみ", class: 'input-wide', maxlength: '16'
           %ul.input-card__main__top__form__images
             %li
               = image_tag 'common/visa.svg', alt: 'visa', class: "image", width: "49", height: "20"
@@ -31,7 +31,7 @@
         .input-card__main__middle__form
           .input-card__main__middle__form__select
             .input-card__main__middle__form__select--box.icon-relative
-              = f.select :expiration_month, @months, {}, class: "input", prompt: "--"
+              = f.select :expiration_month, @months, {}, class: "input"
               = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
             .input-card__main__middle__form__select--text 月
 
@@ -45,7 +45,7 @@
         %span.label セキュリティコード 
         %span.arbitrary 必須
         .input-card__main__bottom__form
-          = f.text_field :security_code, autofocus: true, value: "", placeholder: "カード背面4桁もしくは3桁の番号", class: 'input-wide'
+          = f.text_field :security_code, autofocus: true, value: "", placeholder: "カード背面4桁もしくは3桁の番号", class: 'input-wide', maxlength: '4'
         .input-card__main__bottom__help
           %span.input-card__main__bottomp__help--icon
             = icon 'fas', 'question-circle', class: ""
