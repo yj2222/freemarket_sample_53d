@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
 
   def create
     
-    product = Product.new(product_params)
+    product = Product.new(params_int(product_params))
     if product.save
       Image.create(image_params)
       redirect_to root_path, notice: '出品しました。'
@@ -47,5 +47,20 @@ class ProductsController < ApplicationController
   end
 
   # ここに送られたパラメータを整数化する記述を記載。
+
+  def integer_string?(str)
+    Integer(str)
+    true
+  rescue ArgumentError
+    false
+  end
+
+  def params_int(product_params)
+    product_params.each do |key,value|
+      if integer_string?(value)
+        product_params[key]=value.to_i
+      end
+    end
+  end
 
 end
