@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   end
 
   def purchase
+    @trade = Trade.new
   end
   
   def new
