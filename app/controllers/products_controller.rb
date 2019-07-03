@@ -4,6 +4,8 @@ class ProductsController < ApplicationController
   end 
 
   def show 
+    # @product = Product.find(params[:id])
+    @product = Product.find(2)
   end
 
   def new
@@ -17,5 +19,10 @@ class ProductsController < ApplicationController
     @delivaly_days = ["1~2日で発送","2~3日で発送","4~7日で発送"]
   end
 
+  private
+  def product_params
+    params.requre(:product)
+    
+  end
 
 end
