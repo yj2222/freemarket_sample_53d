@@ -21,7 +21,6 @@ $(document).on('turbolinks:load', function() {
         var token = response.id;
         $("#charge-form").append($('<input type="hidden" name="payjpToken" class="payjp-token" />').val(token));
         $("#charge-form").get(0).submit();
-        console.log(response.id)
       }
       else {
         alert("error")
