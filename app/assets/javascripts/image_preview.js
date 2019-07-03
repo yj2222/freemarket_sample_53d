@@ -13,11 +13,6 @@ $(document).on('turbolinks:load', function () {
                 </li>`
     return html;
   }
-
-  // function build_file_tag(id) {
-  //   var html = `<input name="images[name][${id}]" type="file">`
-  //   return html;
-  // }
   
   var image_id = 1;
   var images = [];
@@ -40,8 +35,6 @@ $(document).on('turbolinks:load', function () {
         $('.image-upload__preview').append(image_tag);
         // ファイル数カウント
         image_id += 1;
-        // file_tag = build_file_tag(image_id);
-        // image_form.append(file_tag);
       };
     })(image);
      file_reader.readAsDataURL(image);
