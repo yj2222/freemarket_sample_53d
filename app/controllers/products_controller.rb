@@ -16,13 +16,15 @@ class ProductsController < ApplicationController
 
   def create
     
-
     product = Product.new(product_params)
-    product.save
+    if product.save
+      Image.create(image_params)
+      redirect_to root_path, notice: '出品しました。'
+    else
+      render :new
+    end
 
-    Image.create(image_params)
 
-    redirect_to root_path
   end
 
 
@@ -51,5 +53,5 @@ class ProductsController < ApplicationController
   end
 
   # ここに送られたパラメータを整数化する記述を記載。
-  
+
 end
