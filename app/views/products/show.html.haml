@@ -35,16 +35,12 @@
                 = link_to "#{@product.user.nickname}", mypages_path , class: 'links'
                 .faces
                   = icon 'fas','grin', id: 'grin'
-                  -# 仮置き中
-                  -# profileテーブルから評価の数を引っ張ってくること
                   %span 
                     = @product.user.profile.good
                   = icon 'fas','meh', id: 'meh'
-                  -# profileテーブルから評価の数を引っ張ってくること
                   %span 
                     = @product.user.profile.normal
                   = icon 'fas','frown', id: 'frown'
-                  -# profileテーブルから評価の数を引っ張ってくること
                   %span
                     = @product.user.profile.bad
             %tr
@@ -106,7 +102,7 @@
         %button.like
           = icon 'far','heart', id: 'like'
           %span いいね! 
-          -# likesテーブルから持ってくること
+          -# likesテーブルから持ってくること（未実装
           %span.num 3
         %button.report
           = icon 'far','flag', id: 'flag'
@@ -146,6 +142,7 @@
       .details-pick-up-letter
         = link_to "#", class: "new_arrival links" do 
           %h2 出品者さんのその他の出品
+          -# each文で回して表示する （未実装
       .details-pick-up-contents
         .details-pick-up-content-category
           = link_to "/products/details", class: "item_details" do
