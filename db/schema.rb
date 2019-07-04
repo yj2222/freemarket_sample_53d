@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_29_055749) do
+ActiveRecord::Schema.define(version: 2019_07_02_111024) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -35,20 +35,16 @@ ActiveRecord::Schema.define(version: 2019_06_29_055749) do
     t.string "parent", null: false
     t.string "child"
     t.string "son"
-    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_categories_on_product_id"
   end
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "number", null: false
-    t.integer "month", null: false
-    t.integer "year", null: false
-    t.integer "security_code", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "customer_id"
+    t.string "card_id"
     t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
@@ -83,6 +79,9 @@ ActiveRecord::Schema.define(version: 2019_06_29_055749) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -98,6 +97,9 @@ ActiveRecord::Schema.define(version: 2019_06_29_055749) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "good"
+    t.integer "normal"
+    t.integer "bad"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -127,11 +129,11 @@ ActiveRecord::Schema.define(version: 2019_06_29_055749) do
   end
 
   add_foreign_key "areas", "users"
-  add_foreign_key "categories", "products"
   add_foreign_key "credits", "users"
   add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "trades", "products", column: "products_id"

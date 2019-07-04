@@ -20,7 +20,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: freemarket_sumple_53d
+  database: freemarket_sample_53d_development
   pool: 5
   username: root
   password:
@@ -34,7 +34,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: freemarket_sumple_53d_test
+  database: freemarket_sample_53d_test
   pool: 5
   username: root
   password:
@@ -43,7 +43,7 @@ test:
 
 production:
   <<: *default
-  database: freemarket_sumple_53d
+  database: freemarket_sample_53d
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock

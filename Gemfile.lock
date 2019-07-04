@@ -113,6 +113,8 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     dropzonejs-rails (0.8.4)
       rails (> 3.1)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.8.0)
     erubis (2.7.0)
     excon (0.64.0)
@@ -273,7 +275,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rspec-core (3.8.1)
+    rspec-core (3.8.2)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.4)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -373,11 +375,10 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  dropzonejs-rails
   devise-i18n
   devise-i18n-views
-  dropzonejs-rails
   dropzonejs-rails (~> 0.8.4)
+  enum_help
   fog-aws
   font-awesome-sass
   haml-rails
@@ -409,5 +410,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   2.0.1
-
+   2.0.2
