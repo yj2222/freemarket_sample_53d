@@ -1,6 +1,18 @@
 class ProductsController < ApplicationController
   def index  
+    # カテゴリーの一覧 スコープを使用 model/product.rb参照
+    @products_ladies = Product.where(categories_id: 1).recent
+    @products_mens = Product.where(categories_id: 2).recent
+    @products_kids = Product.where(categories_id: 3).recent
+    @products_perfume = Product.where(categories_id: 4).recent
+    # ブランドの一覧
+    @products_chanel = Product.where(brand_id: 1).recent 
+    @products_vuitton = Product.where(brand_id: 2).recent
+    @products_supreme = Product.where(brand_id: 3).recent
+    @products_nike = Product.where(brand_id: 4).recent 
     
+    # スコープのメリットを記録するためにあえて残しています
+    # @products_ladies = Product.where(categories_id: 1).order("created_at DESC").limit(4)
   end 
 
   def show 

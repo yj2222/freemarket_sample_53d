@@ -1,0 +1,98 @@
+.recommend__title
+  %h2 ピックアップカテゴリー 
+
+  .top-page__items-box 
+    .top-page__items-box--letter  
+      = link_to "#", class: "new_arrival" do 
+        レディース 新着アイテム
+    .top-page__items-box__content-boxes 
+      - @products_ladies.each do |product|
+        .top-page__items-box__content-boxes__content
+          = link_to products_path do
+            = image_tag (product.images[0][:image_url])
+            .item__outline 
+              .item__outline--product-name
+                = product.name
+              .item__outline--product-price
+                = number_to_currency product.price   
+                .items__outline--like
+                  %span
+                    = icon('far', 'heart', class: 'like-heart') 
+                    1
+              .item__outline--price_tax 
+                %p (税込) 
+    .show-all-items 
+      = link_to "#", class: "show-all-items" do
+        すべての商品を見る
+  
+  .top-page__items-box 
+    .top-page__items-box--letter  
+      = link_to "#", class: "new_arrival" do 
+        メンズ 新着アイテム
+    .top-page__items-box__content-boxes
+      - @products_mens.each do |product|
+        .top-page__items-box__content-boxes__content
+          = link_to products_path do
+            = image_tag (product.images[0][:image_url])
+            .item__outline 
+              .item__outline--product-name
+                = product.name
+              .item__outline--product-price
+                = number_to_currency product.price   
+                .items__outline--like
+                  %span
+                    = icon('far', 'heart', class: 'like-heart') 
+                    1
+              .item__outline--price_tax 
+                %p (税込) 
+    .show-all-items 
+      = link_to "#", class: "show-all-items" do
+        すべての商品を見る
+  
+  .top-page__items-box 
+    .top-page__items-box--letter  
+      = link_to "#", class: "new_arrival" do 
+        ベビー・キッズ 新着アイテム
+    .top-page__items-box__content-boxes
+      - @products_kids.each do |product|
+        .top-page__items-box__content-boxes__content
+          = link_to products_path do
+            = image_tag (product.images[0][:image_url])
+            .item__outline 
+              .item__outline--product-name
+                = product.name
+              .item__outline--product-price
+                = number_to_currency product.price   
+                .item__outline--like
+                  %span
+                    = icon('far', 'heart', class: 'like-heart') 
+                    1
+              .item__outline--price_tax 
+                %p (税込) 
+    .show-all-items 
+      = link_to "#", class: "show-all-items" do
+        すべての商品を見る
+      
+  .top-page__items-box 
+    .top-page__items-box--letter  
+      = link_to products_path class: "new_arrival" do  
+        コスメ・香水・美容 新着アイテム
+    .top-page__items-box__content-boxes
+      - @products_perfume.each do |product|
+        .top-page__items-box__content-boxes__content
+          = link_to products_path do
+            = image_tag (product.images[0][:image_url])
+            .item__outline 
+              .item__outline--product-name
+                = product.name
+              .item__outline--product-price
+                = number_to_currency product.price   
+                .item__outline--like
+                  %span
+                    = icon('far', 'heart', class: 'like-heart') 
+                    1
+              .item__outline--price_tax 
+                %p (税込) 
+    .show-all-items 
+      = link_to "#", class: "show-all-items" do
+        すべての商品を見る
