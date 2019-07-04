@@ -8,7 +8,7 @@
     .top-page__items-box__content-boxes 
       - @products_chanel.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to "/products/details", class: "item_details" do
+          = link_to product_path do
             = image_tag (product.images[0][:image_url])
             .item__outline 
               .item__outline--product-name
@@ -32,7 +32,7 @@
     .top-page__items-box__content-boxes 
       - @products_vuitton.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to "/products/details", class: "item_details" do
+          = link_to product_path do
             = image_tag (product.images[0][:image_url])
             .item__outline 
               .item__outline--product-name
@@ -56,7 +56,7 @@
     .top-page__items-box__content-boxes 
       - @products_supreme.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to "/products/details", class: "item_details" do
+          = link_to product_path do
             = image_tag (product.images[0][:image_url])
             .item__outline 
               .item__outline--product-name
@@ -80,7 +80,7 @@
     .top-page__items-box__content-boxes 
       - @products_nike.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to "/products/details", class: "item_details" do
+          = link_to product_path do
             = image_tag (product.images[0][:image_url])
             .item__outline 
               .item__outline--product-name
