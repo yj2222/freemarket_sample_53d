@@ -90,6 +90,7 @@ gem "dropzonejs-rails", '~> 0.8.4'
 gem 'recaptcha', require: "recaptcha/rails"
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'enum_help'
 
 group :production do
   gem 'unicorn'

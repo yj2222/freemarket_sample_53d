@@ -4,10 +4,17 @@ Rails.application.routes.draw do
   resources :products do
     collection do
       get 'details'
-      get 'upload'
+      get 'purchase'
     end
   end
+  
   resources :mypages
   resources :users
-  resources :credits
+  resources :credits 
+  resources :trades do
+    collection do
+      get 'buy'
+    end
+  end
+
 end
