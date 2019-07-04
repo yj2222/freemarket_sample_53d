@@ -31,6 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.create(user_params)
     if @user.save
+      sign_in(user)
       redirect_to signup_payment_path
     else
       render "users/registrations/information"
