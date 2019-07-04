@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_083155) do
+ActiveRecord::Schema.define(version: 2019_07_02_111024) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -40,13 +40,11 @@ ActiveRecord::Schema.define(version: 2019_07_03_083155) do
   end
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "number", null: false
-    t.integer "month", null: false
-    t.integer "year", null: false
-    t.integer "security_code", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "customer_id"
+    t.string "card_id"
     t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
@@ -73,16 +71,17 @@ ActiveRecord::Schema.define(version: 2019_07_03_083155) do
     t.text "description", null: false
     t.string "size", null: false
     t.string "brand"
-    t.string "delivery_price", null: false
-    t.string "delivery_type", null: false
+    t.string "delibary_price", null: false
+    t.string "delibary_type", null: false
     t.string "prefecture", null: false
-    t.string "delively_days", null: false
+    t.string "delivaly_days", null: false
     t.integer "price", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id"
     t.string "status"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -91,7 +90,7 @@ ActiveRecord::Schema.define(version: 2019_07_03_083155) do
     t.string "lastname_kanji", null: false
     t.string "firstname_katakana", null: false
     t.string "lastname_katakana", null: false
-    t.string "birth_year", null: false
+    t.string "birth_yaer", null: false
     t.string "birth_month", null: false
     t.string "birth_day", null: false
     t.integer "phone_number"
@@ -134,6 +133,7 @@ ActiveRecord::Schema.define(version: 2019_07_03_083155) do
   add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "trades", "products", column: "products_id"

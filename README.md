@@ -79,6 +79,9 @@
 |delivaly_days|string|null: false|
 |price|intger|null: false|
 
+|category_id|references|null: false, index: true, foreign_key: true|
+
+
 ### Association
 - belongs_to :user
 - has_many :likes
@@ -102,7 +105,6 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|null: false,foreign_key: true|
 
 |parent|string|null: false|
 |child|string|
