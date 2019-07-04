@@ -21,7 +21,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mypages, :credits
+  resources :mypages do
+    collection do
+      get 'logout'
+      get 'profile'
+      get 'identification'
+    end
+  end
+  resources :credits
   resources :trades do
     collection do
       get 'buy'
