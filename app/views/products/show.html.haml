@@ -7,26 +7,26 @@
       .products__container__main
         .products__container__main__image__box
           .image_active
-            = image_tag(@product.images[0][:image_url], id: 'image')
+            = image_tag "#{@product.images.first.image_url}",class: 'image'
           .image_dots
             .image_dot.active
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
         %table.products__container__main__detail_box
           %tbody
             %tr
