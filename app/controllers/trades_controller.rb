@@ -9,13 +9,14 @@ class TradesController < ApplicationController
       redirect_to controller: 'credits', action: 'index'
       flash[:alert] = '購入にはクレジットカード登録が必要です'
     else
-      Payjp.api_key= ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key= Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
   end
 
   def buy
+    Payjp.api_key= Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
     @current_user = User.find(1)   # マージ後に消す(@currentを全てcurrentに変更する)
     card = @current_user.credit
     @product = Product.find(1)   # マージ後に消す記述

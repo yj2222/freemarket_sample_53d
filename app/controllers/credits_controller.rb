@@ -12,7 +12,7 @@ class CreditsController < ApplicationController
     
   def create   # クレジットカード登録のメソッド
     # テスト鍵をセットする記述
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
     # paramsの中に'payjpToken'が存在するか確かめる
     if params['payjpToken'].blank?
       redirect_to action: "index"
@@ -42,7 +42,7 @@ class CreditsController < ApplicationController
     if card.blank?
       redirect_to action: "index"
     else
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(credit.customer_id)
       @customer_card = customer.cards.retrieve(credit.card_id)
     end
