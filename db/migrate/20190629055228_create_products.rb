@@ -4,7 +4,8 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.text :description, null: false
       t.string :size, null: false
-      t.string :brand
+      # 型をstringからintegerへ カラム名をbrand_idへ
+      t.string :brand 
       t.string :delibary_price, null: false
       t.string :delibary_type, null: false
       t.string :prefecture, null: false

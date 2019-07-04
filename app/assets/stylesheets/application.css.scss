@@ -39,7 +39,10 @@
  @import 'credits/credits';
  @import 'products/upload';
  @import 'credits/credits';
- @import 'users/new_registration_address';
+ @import 'users/new_registration_address'; 
+ @import "slick/slick-theme"; 
+ @import "slick/slick";
+ @import "slick/carousel";
 
 select {
   -webkit-appearance: none;
