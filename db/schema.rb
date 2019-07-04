@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2019_07_04_044824) do
     t.integer "price", null: false
     t.bigint "user_id", null: false
     t.integer "condition"
+    t.string "delivery_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
