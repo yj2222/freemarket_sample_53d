@@ -12,8 +12,8 @@ class Product < ApplicationRecord
   # created_atカラムを降順で取得する
   scope :sorted, -> { order(created_at: :DESC) }
   # 取得するデータの数 = 4
-  scope :limit, -> { limit(4) }
+  scope :limiter, -> { limit(4) }
   # limitとsortedを合わせたもの
-  scope :recent, -> { sorted.limit }
+  scope :recent, -> { sorted.limiter }
 
 end

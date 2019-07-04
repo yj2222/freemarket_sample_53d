@@ -8,7 +8,7 @@
     .top-page__items-box__content-boxes 
       - @products_ladies.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to product_path do
+          = link_to products_path do
             = image_tag (product.images[0][:image_url])
             .item__outline 
               .item__outline--product-name
@@ -32,7 +32,7 @@
     .top-page__items-box__content-boxes
       - @products_mens.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to product_path do
+          = link_to products_path do
             = image_tag (product.images[0][:image_url])
             .item__outline 
               .item__outline--product-name
@@ -56,7 +56,7 @@
     .top-page__items-box__content-boxes
       - @products_kids.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to product_path do
+          = link_to products_path do
             = image_tag (product.images[0][:image_url])
             .item__outline 
               .item__outline--product-name
@@ -75,12 +75,12 @@
       
   .top-page__items-box 
     .top-page__items-box--letter  
-      = link_to product_path class: "new_arrival" do  
+      = link_to products_path class: "new_arrival" do  
         コスメ・香水・美容 新着アイテム
     .top-page__items-box__content-boxes
       - @products_perfume.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to product_path do
+          = link_to products_path do
             = image_tag (product.images[0][:image_url])
             .item__outline 
               .item__outline--product-name
