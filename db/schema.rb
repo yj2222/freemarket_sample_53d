@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_111024) do
+ActiveRecord::Schema.define(version: 2019_07_03_083155) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -67,20 +67,21 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "description", null: false
-    t.string "size", null: false
+    t.string "name"
+    t.text "description"
+    t.string "size"
     t.string "brand"
-    t.string "delibary_price", null: false
-    t.string "delibary_type", null: false
-    t.string "prefecture", null: false
-    t.string "delivaly_days", null: false
-    t.integer "price", null: false
-    t.bigint "user_id", null: false
+    t.string "delivery_price"
+    t.string "delivery_type"
+    t.string "prefecture"
+    t.string "delively_days"
+    t.integer "price"
+    t.integer "condition"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
     t.bigint "category_id"
+    t.string "status"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -90,7 +91,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
     t.string "lastname_kanji", null: false
     t.string "firstname_katakana", null: false
     t.string "lastname_katakana", null: false
-    t.string "birth_yaer", null: false
+    t.string "birth_year", null: false
     t.string "birth_month", null: false
     t.string "birth_day", null: false
     t.integer "phone_number"
