@@ -65,6 +65,7 @@ class ProductsController < ApplicationController
   private
   def product_params
     params.requre(:product)
+  end
 
   def params_int(product_params)
     product_params.each do |key,value|

@@ -7,7 +7,7 @@
       .products__container__main
         .products__container__main__image__box
           .image_active
-            %img#image(src="#{@product.images[0].image_url}" alt="サンプル画像")
+            = image_tag "#{@product.images[0].image_url}"
           .image_dots
             .image_dot.active
               %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
@@ -112,7 +112,7 @@
             = icon 'fas','lock', id: 'lock'
             %span あんしん・あんぜんへの取り組み
     .comment__container
-      = form_for '' do |f|
+      = form_for '#' do |f|
         .comment__container__note
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         .comment__container__textarea.clearfix
