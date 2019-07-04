@@ -20,6 +20,5 @@ Rails.application.routes.draw do
       get 'upload'
     end
   end
-  resources :mypages
-  resources :credits
+  resources :mypages, :credits
 end
