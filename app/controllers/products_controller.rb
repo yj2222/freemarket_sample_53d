@@ -4,6 +4,9 @@ class ProductsController < ApplicationController
   end 
 
   def show 
+    # NOTE：本番では以下の記述を使用する
+    # @product = Product.find(params[:id])
+    @product = Product.find(2)
   end
 
   def purchase
@@ -59,6 +62,11 @@ class ProductsController < ApplicationController
     false
   end
 
+  private
+  def product_params
+    params.requre(:product)
+  end
+
   def params_int(product_params)
     product_params.each do |key,value|
       if integer_string?(value)
@@ -66,5 +74,4 @@ class ProductsController < ApplicationController
       end
     end
   end
-
 end

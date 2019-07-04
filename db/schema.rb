@@ -35,10 +35,8 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
     t.string "parent", null: false
     t.string "child"
     t.string "son"
-    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_categories_on_product_id"
   end
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -81,6 +79,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.bigint "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
@@ -98,6 +97,9 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "good"
+    t.integer "normal"
+    t.integer "bad"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -127,7 +129,6 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
   end
 
   add_foreign_key "areas", "users"
-  add_foreign_key "categories", "products"
   add_foreign_key "credits", "users"
   add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
