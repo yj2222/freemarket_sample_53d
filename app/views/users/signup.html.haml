@@ -9,9 +9,9 @@
               新規会員登録
           .entry-box
             %button.entry-box__button__mail
-              = icon 'far', 'envelope', id: 'icon__mail'
-              %p.mail__text メールアドレスで登録
-              = link_to '', ""
+              = link_to signup_all_path do
+                = icon 'far', 'envelope', id: 'icon__mail'
+                %p.mail__text メールアドレスで登録
             %button.entry-box__button__facebook
               = icon 'fab', 'facebook-square', id: 'icon__facebook'
               %p.mail__text Facebookで登録

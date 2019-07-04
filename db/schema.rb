@@ -83,10 +83,11 @@ ActiveRecord::Schema.define(version: 2019_07_04_044824) do
     t.string "delivaly_days", null: false
     t.integer "price", null: false
     t.bigint "user_id", null: false
+    t.integer "condition"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
     t.bigint "category_id"
+    t.string "status"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -96,7 +97,7 @@ ActiveRecord::Schema.define(version: 2019_07_04_044824) do
     t.string "lastname_kanji", null: false
     t.string "firstname_katakana", null: false
     t.string "lastname_katakana", null: false
-    t.string "birth_yaer", null: false
+    t.string "birth_year", null: false
     t.string "birth_month", null: false
     t.string "birth_day", null: false
     t.integer "phone_number"

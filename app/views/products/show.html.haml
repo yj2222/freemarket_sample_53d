@@ -100,10 +100,10 @@
           = @product.description
       .products__container__likereport__box.clearfix
         %button.like
-          = icon 'far','heart', id: 'like'
-          %span いいね! 
+          = icon 'far','heart', id: 'likes'
+          %span.likes いいね! 
           -# likesテーブルから持ってくること（未実装
-          %span.num 3
+          %span.likes 3
         %button.report
           = icon 'far','flag', id: 'flag'
           %span 不適切な商品の報告

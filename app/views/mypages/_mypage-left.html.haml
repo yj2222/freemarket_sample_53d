@@ -55,24 +55,24 @@
 
   %h3.mypage-left__head 設定
   .mypage-left__lower-list
-    = link_to '#' do
+    = link_to profile_mypages_path do
       %p プロフィール
       = icon 'fa', 'chevron-right', class: 'icon'
     = link_to '#' do
       %p 住所変更
       = icon 'fa', 'chevron-right', class: 'icon'
-    = link_to '#' do
+    = link_to credits_path do
       %p 支払い方法
       = icon 'fa', 'chevron-right', class: 'icon'
     = link_to '#' do
       %p メール/パスワード
       = icon 'fa', 'chevron-right', class: 'icon'
-    = link_to '#' do
+    = link_to identification_mypages_path do
       %p 本人情報
       = icon 'fa', 'chevron-right', class: 'icon'
     = link_to '#' do
       %p 電話番号の確認
       = icon 'fa', 'chevron-right', class: 'icon'
-    = link_to '#' do
+    = link_to logout_mypages_path do
       %p ログアウト
       = icon 'fa', 'chevron-right', class: 'icon'

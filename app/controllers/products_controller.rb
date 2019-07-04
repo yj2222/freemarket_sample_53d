@@ -38,6 +38,7 @@ class ProductsController < ApplicationController
     product = Product.new(params_int(product_params))
     if product.save
       Image.create(image_params)
+      Image.create(image_params_2)
       redirect_to root_path, notice: '出品しました。'
     else
       render :new
@@ -63,6 +64,11 @@ class ProductsController < ApplicationController
   def image_params
     last_id = Product.pluck(:id).last
     params.require(:product).require(:images_attributes).require("0").permit(:image_url).merge(product_id: last_id)
+  end
+
+  def image_params_2
+    last_id = Product.pluck(:id).last
+    params.require(:product).require(:images_attributes).require("1").permit(:image_url).merge(product_id: last_id)
   end
 
   # ここに送られたパラメータを整数化する記述を記載。
