@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2019_07_04_044824) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.bigint "category_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
@@ -102,6 +103,9 @@ ActiveRecord::Schema.define(version: 2019_07_04_044824) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "good"
+    t.integer "normal"
+    t.integer "bad"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

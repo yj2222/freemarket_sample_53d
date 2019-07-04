@@ -1,8 +1,9 @@
 class Product < ApplicationRecord
+  has_many :likes
+  has_many :images
   belongs_to :user, optional: true
   belongs_to :category, optional: true
 
-  has_many :images
   accepts_nested_attributes_for :images
 
   # enum condition: [:"---", :unused , :like_new , :invisibly_damaged , :slightly_damaged , :damaged , :bad ]

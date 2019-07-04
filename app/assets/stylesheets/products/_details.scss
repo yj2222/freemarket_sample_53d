@@ -44,14 +44,14 @@
             width: 300px;
             display: flex;
             flex-wrap: wrap;
-            .image_dot img{
-              height: 60px;
-              width: 60px;
-            }
           }
           #image{
             height: 300px;
             width: 300px;
+          }
+          #smallimage{
+            height: 60px;
+            width: 60px;
           }
         }
         table{
