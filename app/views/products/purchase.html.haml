@@ -8,9 +8,9 @@
       %section.buy__container-content
         .buy__product.inner
           %h3
-            %img#image(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+            = image_tag("https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg", id: "image")
           %p ショルダーバッグ
-          = form_for '' do |f|
+          = form_for @trade do |f|
             .buy__product__costs
               %span.price ¥8,000
               %p.shipping-cost 送料込み
@@ -52,11 +52,10 @@
             .limit-month
               %p 04/26
             .card-type
-              %img(src="https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1905591235" alt="VISA")
+              = image_tag("https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?1905591235")
           .buy__user__change.clearfix
             = link_to "", class: 'links' do
               変更する
               = icon 'fas', 'chevron-right', id: 'chevron'  
   %footer.buy-footer
     = render 'shared/details_footer'
-
