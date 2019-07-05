@@ -6,11 +6,13 @@ $(function() {
       $(".like").css("border-color","red")
       $(".likes").css("color","red")
       $("#likes").css("color","red")
+      console.log("あか")
       flag = 1;
     } else {
       $(".like").html('<i id="likes" class="far fa-heart"></i><span class="likes">いいね</span><span class="likes">3</span')
       $(".like").css("border-color","#f5f5f5")
       $("#likes").css("color","black")
+      console.log("くろ")
       flag = 0;
     }
   });

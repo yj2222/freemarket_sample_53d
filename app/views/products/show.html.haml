@@ -6,26 +6,80 @@
         = @product.name
       .products__container__main
         .products__container__main__image__box
-          .image_active
-            = image_tag(@product.images[0][:image_url], id: 'image')
-          .image_dots
-            .image_dot.active
+          %ul#image_slider
+            -#   %li.image_item
+            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
+            -#   %li.image_item
+            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
+            -#   %li.image_item
+            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
+            -#   %li.image_item
+            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
+            -#   %li.image_item
+            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
+            -#   %li.image_item
+            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
+            -#   %li.image_item
+            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
+            -#   %li.image_item
+            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
+            -#   %li.image_item
+            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
+            -# %ul#thumbnail_list
+            -#   %li.thumbnail_item.thumbnail-current
+            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
+            -#   %li.thumbnail_item
+            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
+            -#   %li.thumbnail_item
+            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
+            -#   %li.thumbnail_item
+            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
+            -#   %li.thumbnail_item
+            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
+            -#   %li.thumbnail_item
+            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
+            -#   %li.thumbnail_item
+            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
+            -#   %li.thumbnail_item
+            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
+            -#   %li.thumbnail_item
+            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
+            %li.image_item
+              = image_tag(@product.images[0][:image_url], class: 'normalimage')
+            %li.image_item
+              = image_tag(@product.images[1][:image_url], class: 'normalimage')
+            %li.image_item
+              = image_tag(@product.images[0][:image_url], class: 'normalimage')
+            %li.image_item
+              = image_tag(@product.images[0][:image_url], class: 'normalimage')
+            %li.image_item
+              = image_tag(@product.images[0][:image_url], class: 'normalimage')
+            %li.image_item
+              = image_tag(@product.images[0][:image_url], class: 'normalimage')
+            %li.image_item
+              = image_tag(@product.images[0][:image_url], class: 'normalimage')
+            %li.image_item
+              = image_tag(@product.images[0][:image_url], class: 'normalimage')
+            %li.image_item
+              = image_tag(@product.images[0][:image_url], class: 'normalimage')
+          %ul#thumbnail_list
+            %li.thumbnail_item.thumbnail-current
               = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            .image_dot
+            %li.thumbnail_item
+              = image_tag(@product.images[1][:image_url], id: 'smallimage')
+            %li.thumbnail_item
               = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            .image_dot
+            %li.thumbnail_item
               = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            .image_dot
+            %li.thumbnail_item
               = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            .image_dot
+            %li.thumbnail_item
               = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            .image_dot
+            %li.thumbnail_item
               = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            .image_dot
+            %li.thumbnail_item
               = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            .image_dot
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            .image_dot
+            %li.thumbnail_item
               = image_tag(@product.images[0][:image_url], id: 'smallimage')
         %table.products__container__main__detail_box
           %tbody
@@ -58,7 +112,7 @@
             %tr
               %th ブランド
               %td
-                = link_to "#{@product.brand}", "", class: 'links' 
+                = link_to "#{@product.brand_id}", "", class: 'links' 
             %tr
               %th 商品の状態
               %td

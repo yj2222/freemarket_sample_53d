@@ -39,19 +39,29 @@
         display: flex;
         justify-content: space-between;
         &__image__box{
-          .image_dots{
-            height: 120px;
-            width: 300px;
-            display: flex;
-            flex-wrap: wrap;
-          }
-          #image{
+          #image_slider{
             height: 300px;
             width: 300px;
+            .normalimage{
+              height: 300px;
+              width: 300px;
+            }
           }
-          #smallimage{
-            height: 60px;
-            width: 60px;
+          #thumbnail_list{
+            display: flex;
+            flex-wrap: wrap;
+            height: 120px;
+            width: 300px;
+            .thumbnail_item:after{
+              opacity: 0.5;
+            }
+            .thumbnail-current:after{
+              opacity: 1;
+            }
+            #smallimage{
+              height: 60px;
+              width: 60px;
+            }
           }
         }
         table{
