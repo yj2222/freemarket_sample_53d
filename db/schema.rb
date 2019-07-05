@@ -84,9 +84,11 @@ ActiveRecord::Schema.define(version: 2019_07_06_065633) do
     t.integer "price"
     t.integer "condition"
     t.bigint "user_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -139,6 +141,7 @@ ActiveRecord::Schema.define(version: 2019_07_06_065633) do
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
   add_foreign_key "products", "brands"
+  add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "trades", "products"
