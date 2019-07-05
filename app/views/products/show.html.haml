@@ -58,11 +58,11 @@
             %tr
               %th ブランド
               %td
-                = link_to "#{@product.brand}", "", class: 'links' 
+                = link_to "#{@product.brand_id}", "", class: 'links' 
             %tr
               %th 商品の状態
               %td
-                = @product.status
+                = @product.condition
             %tr
               %th 配送料の負担
               %td
@@ -78,7 +78,7 @@
             %tr
               %th 発送日の目安
               %td
-                = @product.delively_days
+                = @product.delivery_days
       .products__container__price__box
         .price
           %span 
@@ -93,7 +93,7 @@
             %span
               着払い(購入者負担)
       .products__container__buy__box
-        = link_to new_product_path ,class: "buy-btn" do
+        = link_to purchase_products_path ,class: "buy-btn" do
           購入画面に進む
       .products__container__comment__box
         %p.inner-comment 

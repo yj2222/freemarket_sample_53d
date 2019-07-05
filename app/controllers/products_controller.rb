@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
   def index  
     # カテゴリーの一覧 スコープを使用 model/product.rb参照
-    @products_ladies = Product.where(categories_id: 1).recent
-    @products_mens = Product.where(categories_id: 2).recent
-    @products_kids = Product.where(categories_id: 3).recent
-    @products_perfume = Product.where(categories_id: 4).recent
+    @products_ladies = Product.where(category_id: 1).recent
+    @products_mens = Product.where(category_id: 2).recent
+    @products_kids = Product.where(category_id: 3).recent
+    @products_perfume = Product.where(category_id: 4).recent
     # ブランドの一覧
     @products_chanel = Product.where(brand_id: 1).recent 
     @products_vuitton = Product.where(brand_id: 2).recent
@@ -18,7 +18,7 @@ class ProductsController < ApplicationController
   def show 
     # NOTE：本番では以下の記述を使用する
     # @product = Product.find(params[:id])
-    @product = Product.find(6)
+    @product = Product.find(1)
   end
 
   def purchase
@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
       :category_id,
       :condition,
       :delivery_price,
-      :delively_days,
+      :delivery_days,
       :prefecture,
       :price).merge(user_id: 1, size: 1, delivery_type: 1)
   end
