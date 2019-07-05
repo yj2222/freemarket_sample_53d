@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_04_044824) do
+ActiveRecord::Schema.define(version: 2019_07_06_065633) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 2019_07_04_044824) do
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,11 +46,11 @@ ActiveRecord::Schema.define(version: 2019_07_04_044824) do
   end
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "card_id"
+    t.string "customer_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "customer_id"
-    t.string "card_id"
     t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
@@ -73,21 +73,20 @@ ActiveRecord::Schema.define(version: 2019_07_04_044824) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "description", null: false
-    t.string "size", null: false
-    t.integer "brand_id"
-    t.string "delivery_price", null: false
-    t.string "delivery_type", null: false
-    t.string "prefecture", null: false
-    t.string "delively_days", null: false
-    t.integer "price", null: false
-    t.bigint "user_id", null: false
+    t.string "name"
+    t.text "description"
+    t.string "size"
+    t.bigint "brand_id"
+    t.string "delivery_price"
+    t.string "delivery_type"
+    t.string "prefecture"
+    t.string "delivery_days"
+    t.integer "price"
+    t.integer "condition"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id"
-    t.string "status"
-    t.integer "categories_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -100,24 +99,24 @@ ActiveRecord::Schema.define(version: 2019_07_04_044824) do
     t.string "birth_month", null: false
     t.string "birth_day", null: false
     t.integer "phone_number"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "good"
     t.integer "normal"
     t.integer "bad"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "buyer_id", null: false
     t.bigint "seller_id", null: false
-    t.bigint "products_id", null: false
+    t.bigint "product_id", null: false
     t.integer "flug", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_trades_on_buyer_id"
-    t.index ["products_id"], name: "index_trades_on_products_id"
+    t.index ["product_id"], name: "index_trades_on_product_id"
     t.index ["seller_id"], name: "index_trades_on_seller_id"
   end
 
@@ -139,9 +138,10 @@ ActiveRecord::Schema.define(version: 2019_07_04_044824) do
   add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
+  add_foreign_key "products", "brands"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
-  add_foreign_key "trades", "products", column: "products_id"
+  add_foreign_key "trades", "products"
   add_foreign_key "trades", "users", column: "buyer_id"
   add_foreign_key "trades", "users", column: "seller_id"
 end

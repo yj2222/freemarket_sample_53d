@@ -26,7 +26,7 @@ class TradesController < ApplicationController
         customer: card.customer_id,
         currency: 'jpy',
     )
-    @trade = Trade.new(buyer_id: @current_user.id, products_id: @product.id, flug: '1', seller_id: )
+    @trade = Trade.new(buyer_id: @current_user.id, products_id: @product.id, flug: '1', seller_id: @prodcut.user.id)
     if @trade.save
       flash[:notice] = '購入しました'
       redirect_to action: 'done'

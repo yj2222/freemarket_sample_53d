@@ -27,11 +27,11 @@
                 %p ドラッグアンドドロップ
                 %p またはクリックしてファイルをアップロード
               = fi.file_field :image_url, autofocus: true, name: "product[images_attributes][0][image_url]", class: "exhibition__main__image-form__upload--file"
-            .exhibition__main__image-form__upload
-              .exhibition__main__image-form__upload--text
-                %p ドラッグアンドドロップ
-                %p またはクリックしてファイルをアップロード
-              = fi.file_field :image_url, autofocus: true, name: "product[images_attributes][1][image_url]", class: "exhibition__main__image-form__upload--file"
+            -# .exhibition__main__image-form__upload
+            -#   .exhibition__main__image-form__upload--text
+            -#     %p ドラッグアンドドロップ
+            -#     %p またはクリックしてファイルをアップロード
+            -#   = fi.file_field :image_url, autofocus: true, name: "product[images_attributes][1][image_url]", class: "exhibition__main__image-form__upload--file"
 
         .exhibition__main__name-form
           .form
@@ -94,7 +94,7 @@
               %span.form__equired 必須
               .form__select.icon-relative
                 -# = f.select :delively_days, @delively_days, autofocus: true, prompt: "---", class: "form__select--box"
-                = f.select :delively_days,[['---',""], ['1~2日で発送', '1~2日で発送'], ['2〜3日で発送', '2〜3日で発送'],['4〜7日で発送', '4〜7日で発送']], {}, {class: "form__select--box"}
+                = f.select :delivery_days,[['---',""], ['1~2日で発送', '1~2日で発送'], ['2〜3日で発送', '2〜3日で発送'],['4〜7日で発送', '4〜7日で発送']], {}, {class: "form__select--box"}
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
         .exhibition__main__price-form
