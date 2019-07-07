@@ -9,7 +9,8 @@
       - @products_ladies.each do |product|
         .top-page__items-box__content-boxes__content
           = link_to products_path do
-            = image_tag "#{product.images.first.image_url}",class: 'image'
+            -# 別の問題で画像が読み込めていないので一旦コメントアウトしています。
+            -# = image_tag "#{product.images.first.image_url}",class: 'image'
             .item__outline 
               .item__outline--product-name
                 = product.name
