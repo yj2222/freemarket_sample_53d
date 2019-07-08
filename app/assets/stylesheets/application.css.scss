@@ -27,6 +27,8 @@
  @import 'mypages/mypage-edit';
  @import 'mypages/identification';
  @import 'mypages/log-out';
+ @import 'products/new';
+ @import 'products/image_preview';
  @import 'modules/index_footer';
  @import 'modules/index_header';
  @import 'modules/details_footer';
@@ -38,7 +40,6 @@
  @import 'users/tel_authentication';
  @import 'users/payment';
  @import 'credits/credits';
- @import 'products/upload';
  @import 'credits/credits';
  @import "slick/slick-theme"; 
  @import "slick/slick";
