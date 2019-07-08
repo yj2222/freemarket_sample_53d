@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   resources :credits 
   resources :trades do
     collection do
-      get 'buy'
+      post 'buy'
+      get 'done'
     end
   end
 

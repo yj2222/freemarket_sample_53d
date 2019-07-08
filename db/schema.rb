@@ -35,10 +35,8 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
     t.string "parent", null: false
     t.string "child"
     t.string "son"
-    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_categories_on_product_id"
   end
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -69,16 +67,17 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "description", null: false
-    t.string "size", null: false
+    t.string "name"
+    t.text "description"
+    t.string "size"
     t.string "brand"
-    t.string "delibary_price", null: false
-    t.string "delibary_type", null: false
-    t.string "prefecture", null: false
-    t.string "delivaly_days", null: false
-    t.integer "price", null: false
-    t.bigint "user_id", null: false
+    t.string "delivery_price"
+    t.string "delivery_type"
+    t.string "prefecture"
+    t.string "delively_days"
+    t.integer "price"
+    t.integer "condition"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
@@ -91,7 +90,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
     t.string "lastname_kanji", null: false
     t.string "firstname_katakana", null: false
     t.string "lastname_katakana", null: false
-    t.string "birth_yaer", null: false
+    t.string "birth_year", null: false
     t.string "birth_month", null: false
     t.string "birth_day", null: false
     t.integer "phone_number"
@@ -104,12 +103,12 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "buyer_id", null: false
     t.bigint "seller_id", null: false
-    t.bigint "products_id", null: false
+    t.bigint "product_id", null: false
     t.integer "flug", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_trades_on_buyer_id"
-    t.index ["products_id"], name: "index_trades_on_products_id"
+    t.index ["product_id"], name: "index_trades_on_product_id"
     t.index ["seller_id"], name: "index_trades_on_seller_id"
   end
 
@@ -127,7 +126,6 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
   end
 
   add_foreign_key "areas", "users"
-  add_foreign_key "categories", "products"
   add_foreign_key "credits", "users"
   add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
@@ -135,7 +133,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
-  add_foreign_key "trades", "products", column: "products_id"
+  add_foreign_key "trades", "products"
   add_foreign_key "trades", "users", column: "buyer_id"
   add_foreign_key "trades", "users", column: "seller_id"
 end

@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    @trade = Trade.new
+    @product = Product.find(3)
   end
   
   def new

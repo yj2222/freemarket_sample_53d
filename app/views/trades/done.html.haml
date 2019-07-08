@@ -1,0 +1,8 @@
+.wrapper
+  %header.buy-header
+    = render 'shared/details_header'
+  %main.finish-main
+    %p.purchase-finish 
+      購入が完了しました！
+      .return-top-page
+        = link_to "トップページ", root_path, class: "top-page-move"

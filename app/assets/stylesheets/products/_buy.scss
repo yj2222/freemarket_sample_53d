@@ -78,9 +78,16 @@
             margin: 16px 0;
             width: 320px;
             background-color: #ccc;
-            .points__box{
+            &--submit{
               padding: 16px;
               text-align: center;
+              background: #ea352d;
+              margin: 0 auto;
+              display: block;
+              width: 100%;
+              cursor: pointer;
+              color: #fff;
+              font-size: 15px
             }
           }
           &__price{
