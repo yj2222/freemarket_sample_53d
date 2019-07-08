@@ -48,33 +48,5 @@ class TradesController < ApplicationController
 
   def done
   end
-
-  # private
-
-  # def product_params
-  #   params.require(:product).permit(:name,
-  #     :description,
-  #     :delivery_price,
-  #     :prefecture,
-  #     :delively_days,
-  #     :price,
-  #     :category_id,
-  #     :condition).merge(user_id: 1, size: 1, delivery_type: 1)
-  # end
-
-  # def integer_string?(str)
-  #   Integer(str)
-  #   true
-  # rescue ArgumentError
-  #   false
-  # end
-
-  # def params_int(product_params)
-  #   product_params.each do |key,value|
-  #     if integer_string?(value)
-  #       product_params[key]=value.to_i
-  #     end
-  #   end
-  # end
   
 end
