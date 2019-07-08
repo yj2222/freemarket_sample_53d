@@ -53,19 +53,8 @@
             .form
               %span.form__lavel カテゴリー 
               %span.form__equired 必須
-              = f.fields_for :category do |fi|
-
-                .form__select.icon-relative
-                  = fi.select :parent, Category.parents, autofocus: true, prompt: "---", class: "form__select--box"
-                  = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-                - if @product.errors.messages[:category_id].present?
-                  - @product.errors.messages[:category_id].each do |message|
-                    %p.error= message
-
-            .form.lower-form
-              %span.form__lavel サイズ 
-              %span.form__equired 必須
               .form__select.icon-relative
+                .form__select.icon-relative
                 = f.select :category_id, Category.parents, prompt: "----", autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
               .form__select.icon-relative

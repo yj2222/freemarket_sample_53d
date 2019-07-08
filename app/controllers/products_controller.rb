@@ -30,8 +30,6 @@ class ProductsController < ApplicationController
     @product = Product.new
     @image = Image.new
     @product.images.build
-    @category = Category.new
-    @product.category.build
     
   end
 
