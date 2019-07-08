@@ -2,4 +2,7 @@
   = render partial: "mypages/mypage-header"
   .mypage__main
     = render partial: "mypages/mypage-left"
-    = render partial: "new"
+    .input-card
+      .input-card__head
+        %h2.input-card__head--title クレジットカード情報入力
+        = render partial: "new"
