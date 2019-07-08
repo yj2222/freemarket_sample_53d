@@ -25,6 +25,7 @@
                   %p ドラッグアンドドロップ
                   %p またはクリックしてファイルをアップロード
                 = fi.file_field :image_url, autofocus: true, name: "images[1][image_url]", class: "exhibition__main__image-form__upload--file display-none", id: "image1"
+
         .exhibition__main__name-form
           .form
             %span.form__lavel 商品名 
@@ -44,6 +45,7 @@
             - if @product.errors.messages[:description].present?
               - @product.errors.messages[:description].each do |message|
                 %p.error= message
+
         .exhibition__main__category-form
           .exhibition__main__category-form__left.form
             .exhibition__main__category-form__left--title.form__lavel 商品の詳細
@@ -52,12 +54,14 @@
               %span.form__lavel カテゴリー 
               %span.form__equired 必須
               = f.fields_for :category do |fi|
+
                 .form__select.icon-relative
                   = fi.select :parent, Category.parents, autofocus: true, prompt: "---", class: "form__select--box"
                   = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
                 - if @product.errors.messages[:category_id].present?
                   - @product.errors.messages[:category_id].each do |message|
                     %p.error= message
+
             .form.lower-form
               %span.form__lavel サイズ 
               %span.form__equired 必須
@@ -67,6 +71,7 @@
               - if @product.errors.messages[:size].present?
                 - @product.errors.messages[:size].each do |message|
                   %p.error= message  
+
             .form.lower-form
               %span.form__lavel 商品の状態 
               %span.form__equired 必須
@@ -93,6 +98,7 @@
               - if @product.errors.messages[:delivery_price].present?
                 - @product.errors.messages[:delivery_price].each do |message|
                   %p.error= message
+
             .form.lower-form 
               %span.form__lavel 発送元の地域 
               %span.form__equired 必須
@@ -102,6 +108,7 @@
               - if @product.errors.messages[:prefecture].present?
                 - @product.errors.messages[:prefecture].each do |message|
                   %p.error= message
+
             .form.lower-form
               %span.form__lavel 発送までの日数 
               %span.form__equired 必須
@@ -111,6 +118,7 @@
               - if @product.errors.messages[:delivery_days].present?
                 - @product.errors.messages[:delivery_days].each do |message|
                   %p.error= message
+
         .exhibition__main__price-form
           .exhibition__main__price-form__left
             %span.form__lavel 販売価格(300〜9,999,999)
