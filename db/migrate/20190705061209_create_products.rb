@@ -12,6 +12,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.integer :price
       t.integer :condition
       t.references :user, index: true, foreign_key: true
+      t.references :category, index: true, foreign_key: true
       t.timestamps
     end
   end
