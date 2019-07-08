@@ -7,80 +7,13 @@
       .products__container__main
         .products__container__main__image__box
           %ul#image_slider
-            -#   %li.image_item
-            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
-            -#   %li.image_item
-            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
-            -#   %li.image_item
-            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
-            -#   %li.image_item
-            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
-            -#   %li.image_item
-            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
-            -#   %li.image_item
-            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
-            -#   %li.image_item
-            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
-            -#   %li.image_item
-            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
-            -#   %li.image_item
-            -#     = image_tag("@product.images[0][:image_url]", class: 'normalimage')
-            -# %ul#thumbnail_list
-            -#   %li.thumbnail_item.thumbnail-current
-            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
-            -#   %li.thumbnail_item
-            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
-            -#   %li.thumbnail_item
-            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
-            -#   %li.thumbnail_item
-            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
-            -#   %li.thumbnail_item
-            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
-            -#   %li.thumbnail_item
-            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
-            -#   %li.thumbnail_item
-            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
-            -#   %li.thumbnail_item
-            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
-            -#   %li.thumbnail_item
-            -#     = image_tag("@product.images[0][:image_url]", id: 'smallimage')
-            %li.image_item
-              = image_tag(@product.images[0][:image_url], class: 'normalimage')
-            %li.image_item
-              = image_tag(@product.images[1][:image_url], class: 'normalimage')
-            %li.image_item
-              = image_tag(@product.images[0][:image_url], class: 'normalimage')
-            %li.image_item
-              = image_tag(@product.images[0][:image_url], class: 'normalimage')
-            %li.image_item
-              = image_tag(@product.images[0][:image_url], class: 'normalimage')
-            %li.image_item
-              = image_tag(@product.images[0][:image_url], class: 'normalimage')
-            %li.image_item
-              = image_tag(@product.images[0][:image_url], class: 'normalimage')
-            %li.image_item
-              = image_tag(@product.images[0][:image_url], class: 'normalimage')
-            %li.image_item
-              = image_tag(@product.images[0][:image_url], class: 'normalimage')
+            - @product.images.each_with_index do |image, index|
+              %li.image_item
+                = image_tag(image[:image_url], class: 'normalimage')
           %ul#thumbnail_list
-            %li.thumbnail_item.thumbnail-current
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            %li.thumbnail_item
-              = image_tag(@product.images[1][:image_url], id: 'smallimage')
-            %li.thumbnail_item
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            %li.thumbnail_item
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            %li.thumbnail_item
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            %li.thumbnail_item
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            %li.thumbnail_item
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            %li.thumbnail_item
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
-            %li.thumbnail_item
-              = image_tag(@product.images[0][:image_url], id: 'smallimage')
+            - @product.images.each_with_index do |image, index|
+              %li.thumbnail_item.thumbnail-current
+                = image_tag(image[:image_url], id: 'smallimage')
         %table.products__container__main__detail_box
           %tbody
             %tr

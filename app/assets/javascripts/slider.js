@@ -10,7 +10,6 @@ $(function(){
   });
   
   // スライダー初期化後、カレントのサムネイル画像にクラス「thumbnail-current」を付ける
-  // 「slickスライダー作成」の前にこの記述は書いてください。
   $(slider).on('init',function(slick){
    var index = $(".slide-item.slick-slide.slick-current").attr("data-slick-index");
    $(thumbnailItem+'[data-index="'+index+'"]').addClass("thumbnail-current");
@@ -18,10 +17,10 @@ $(function(){
 
   //slickスライダー初期化  
   $(slider).slick({
-    autoplay: false,
+    autoplay: true,
     arrows: false,
-    fade: true,
-    infinite: false //これはつけましょう。
+    fade: false,
+    infinite: false
   });
   //サムネイル画像アイテムをクリックしたときにスライダー切り替え
   $(thumbnailItem).on('click',function(){
