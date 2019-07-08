@@ -1,12 +1,10 @@
 = render 'shared/details_header'
-
 .exhibition#btn
   .exhibition__container
     .exhibition__head
       %h2.exhibition__head--title 商品の情報を入力
     .exhibition__main
       = form_for @product do |f|
-
         .exhibition__main__image-form.form
           %span.form__lavel--top 出品画像 
           %span.form__equired 必須
@@ -90,7 +88,6 @@
             %span.form-icon
               = link_to '', class: 'form-icon__help' do
                 = icon 'fas', 'question-circle', class: "form-icon__help--icon"
-
           .exhibition__main__derivary-form__right
             .form
               %span.form__lavel 配送料の負担 
@@ -128,7 +125,6 @@
             %span.form__icon
               = link_to '', class: 'form-icon__help' do
                 = icon 'fas', 'question-circle', class: "form-icon__help--icon"
-
           .exhibition__main__price-form__right
             .price-form
               .price-form__text.form
@@ -148,7 +144,6 @@
               .price__list__profit
                 %p.price__list__profit--left 販売利益
                 %p.price__list__profit--right -
-
         .exhibition__bottom
           .exhibition__bottom__text
             %div
@@ -164,10 +159,8 @@
               %span また、出品をもちまして
               = link_to '加盟店規約', '#'
               %span に同意したことになります。
-
           .exhibition__bottom__btn
             = f.submit "出品する", class: 'exhibition__bottom__btn--submit'
           
             = link_to 'もどる', root_path, class: 'exhibition__bottom__btn--return'
-
 = render 'shared/details_footer'
