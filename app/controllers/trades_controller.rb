@@ -3,7 +3,9 @@ class TradesController < ApplicationController
   require 'payjp'
 
   def index
-    @current_user = User.find(1)   # マージ後に消す(@currentを全てcurrentに変更する)
+    # TODO:マージ後にユーザー登録機能で追加されたユーザーidを持ってくる記述に変更
+    @current_user = User.find(1)
+    # TODO:マージ後に@currentをcurrentに変更
     card = @current_user.credit
     if card.blank?
       redirect_to controller: 'credits', action: 'index'
@@ -17,9 +19,12 @@ class TradesController < ApplicationController
 
   def buy
     Payjp.api_key= Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
-    @current_user = User.find(1)   # マージ後に消す(@currentを全てcurrentに変更する)
+    # TODO:マージ後にユーザー登録機能で追加されたユーザーidを持ってくる記述に変更
+    @current_user = User.find(1)
+    # TODO:マージ後に@currentをcurrentに変更
     card = @current_user.credit
-    @product = Product.find(3)   # マージ後に消す記述
+    # TODO:マージ後に出品機能で追加されたプロダクトidを持ってくる記述を追加、下のコメントアウトを反映
+    @product = Product.find(3)
     # @product = Product.find(params[:product_id])
     if card.blank?
       redirect_to controller: 'credits', action: 'index'
