@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
     # NOTE：本番では以下の記述を使用する
     # @product = Product.find(params[:id])
     @product = Product.find(1)
+    
   end
 
   def purchase
