@@ -31,11 +31,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.create(user_params)
     if @user.save
-      sign_in(user)
-      redirect_to signup_payment_path
+      sign_in(@user)
+      redirect_to root_path
     else
       render "users/registrations/information"
     end
+  end
+
+  def destroy
+    super
+    session[:keep_signed_out] = true
   end
   
   def all
@@ -55,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def user_params
     params.require(:user).permit(:nickname, :email, :password, 
-      profile_attributes: [:id, :firstname_kanji, :lastname_kanji, :firstname_katakana, :lastname_katakana, :birth_yaer, :birth_month, :birth_day, :phone_number],   
+      profile_attributes: [:id, :firstname_kanji, :lastname_kanji, :firstname_katakana, :lastname_katakana, :birth_year, :birth_month, :birth_day, :phone_number],   
       area_attributes: [:id, :post_number, :prefecture, :city, :address_number, :building])
   end
 end

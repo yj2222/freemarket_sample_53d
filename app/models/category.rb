@@ -59,4 +59,5 @@ class Category < ApplicationRecord
     "その他": 18
   },_suffix: true
 
+
 end

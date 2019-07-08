@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, skip: :all
+  devise_for :users
   devise_scope :user do
     get 'login', to: 'users/sessions#login'
     get 'signup', to: 'users/sessions#signup'
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     post 'users', to: 'users/registrations#create'
     get 'signup/all', to: 'users/registrations#all'
     post 'signup/all', to: 'users/registrations#create'
+    delete 'mypages/logout', to: 'users/sessions#destroy'
   end
 
   root 'products#index'
@@ -31,7 +32,8 @@ Rails.application.routes.draw do
   resources :credits
   resources :trades do
     collection do
-      get 'buy'
+      post 'buy'
+      get 'done'
     end
   end
 end

@@ -45,7 +45,6 @@ group :development, :test do
   gem 'capistrano-rails'	
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
-  gem 'pry-rails'	
 end
 
 group :development, :test do
@@ -91,7 +90,7 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'enum_help'
-
+gem 'pry-rails'
 group :production do
   gem 'unicorn'
 end

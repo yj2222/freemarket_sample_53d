@@ -1,37 +1,30 @@
 = render 'shared/details_header'
-
 .exhibition#btn
   .exhibition__container
     .exhibition__head
       %h2.exhibition__head--title 商品の情報を入力
     .exhibition__main
       = form_for @product do |f|
-
         .exhibition__main__image-form.form
           %span.form__lavel--top 出品画像 
           %span.form__equired 必須
           %p.exhibition__main__image-form__text 最大10枚までアップロードできます
           //投稿画像プレビュー
           %ul.image-upload__preview
-          //プレビュー表示変更の場合があるので以下の記述残しておきます。
-          -# %li.image-upload__preview__list
-          -#   .image-upload__preview__list__top
-          -#     = image_tag "common/user-bg.jpg", size: "114x50", alt: "test", class: "image-upload__preview__list__top--image"
-          -#   .image-upload__preview__list__bottom
-          -#     %span.image-upload__preview__list__bottom--btn.btn-left 編集
-          -#     %span.image-upload__preview__list__bottom--btn 削除
-          //画像投稿フォーム
-          = f.fields_for :images do |fi|
-            .exhibition__main__image-form__upload
-              .exhibition__main__image-form__upload--text
-                %p ドラッグアンドドロップ
-                %p またはクリックしてファイルをアップロード
-              = fi.file_field :image_url, autofocus: true, name: "product[images_attributes][0][image_url]", class: "exhibition__main__image-form__upload--file"
-            -# .exhibition__main__image-form__upload
-            -#   .exhibition__main__image-form__upload--text
-            -#     %p ドラッグアンドドロップ
-            -#     %p またはクリックしてファイルをアップロード
-            -#   = fi.file_field :image_url, autofocus: true, name: "product[images_attributes][1][image_url]", class: "exhibition__main__image-form__upload--file"
+            //プレビュー表示変更の場合があるので以下の記述残しておきます。
+            -# %li.image-upload__preview__list
+            -#   .image-upload__preview__list__top
+            -#     = image_tag "common/user-bg.jpg", size: "114x50", alt: "test", class: "image-upload__preview__list__top--image"
+            -#   .image-upload__preview__list__bottom
+            -#     %span.image-upload__preview__list__bottom--btn.btn-left 編集
+            -#     %span.image-upload__preview__list__bottom--btn 削除
+            //画像投稿フォーム
+            = f.fields_for :images do |fi|
+              .exhibition__main__image-form__upload.box-size--wide
+                .exhibition__main__image-form__upload--text
+                  %p ドラッグアンドドロップ
+                  %p またはクリックしてファイルをアップロード
+                = fi.file_field :image_url, autofocus: true, name: "images[1][image_url]", class: "exhibition__main__image-form__upload--file display-none", id: "image1"
 
         .exhibition__main__name-form
           .form
@@ -39,6 +32,9 @@
             %span.form__equired 必須
             .form__input
               = f.text_field :name, autofocus: true, placeholder: "商品名（必須40文字まで）", class: "form__input--box"
+            - if @product.errors.messages[:name].present?
+              - @product.errors.messages[:name].each do |message|
+                %p.error= message
         
         .exhibition__main__description-form
           .form
@@ -46,6 +42,9 @@
             %span.form__equired 必須
             .form__input
               = f.text_area :description, autofocus: true, class: "form__input--textarea", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+            - if @product.errors.messages[:description].present?
+              - @product.errors.messages[:description].each do |message|
+                %p.error= message
 
         .exhibition__main__category-form
           .exhibition__main__category-form__left.form
@@ -53,6 +52,18 @@
           .exhibition__main__category-form__right
             .form
               %span.form__lavel カテゴリー 
+              %span.form__equired 必須
+              = f.fields_for :category do |fi|
+
+                .form__select.icon-relative
+                  = fi.select :parent, Category.parents, autofocus: true, prompt: "---", class: "form__select--box"
+                  = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+                - if @product.errors.messages[:category_id].present?
+                  - @product.errors.messages[:category_id].each do |message|
+                    %p.error= message
+
+            .form.lower-form
+              %span.form__lavel サイズ 
               %span.form__equired 必須
               .form__select.icon-relative
                 = f.select :category_id, Category.parents, prompt: "----", autofocus: true, class: "form__select--box"
@@ -68,15 +79,21 @@
               %span.form__lavel サイズ
               %span.form__equired 必須
               .form__select.icon-relative
-                = f.select :size, Product.sizes , autofocus: true, prompt: "---", class: "form__select--box"
+                = f.select :size, Product.sizes, autofocus: true, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              - if @product.errors.messages[:size].present?
+                - @product.errors.messages[:size].each do |message|
+                  %p.error= message  
 
             .form.lower-form
               %span.form__lavel 商品の状態 
               %span.form__equired 必須
               .form__select.icon-relative
-                = f.select :condition, Product.conditions , autofocus: true, prompt: "---", class: "form__select--box"
+                = f.select :condition, Product.conditions, autofocus: true, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              - if @product.errors.messages[:condition].present?
+                - @product.errors.messages[:condition].each do |message|
+                  %p.error= message
           
         .exhibition__main__derivary-form
           .exhibition__main__derivary-form__left
@@ -84,7 +101,6 @@
             %span.form-icon
               = link_to '', class: 'form-icon__help' do
                 = icon 'fas', 'question-circle', class: "form-icon__help--icon"
-
           .exhibition__main__derivary-form__right
             .form
               %span.form__lavel 配送料の負担 
@@ -100,19 +116,29 @@
                 = f.select :delivery_type, Product.delivery_types, prompt: "---", class: 'form__select--box'
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
             
+              - if @product.errors.messages[:delivery_price].present?
+                - @product.errors.messages[:delivery_price].each do |message|
+                  %p.error= message
+
             .form.lower-form 
               %span.form__lavel 発送元の地域 
               %span.form__equired 必須
               .form__select.icon-relative
                 = f.select :prefecture, Profile.prefectures, prompt: "---", class: 'form__select--box'
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              - if @product.errors.messages[:prefecture].present?
+                - @product.errors.messages[:prefecture].each do |message|
+                  %p.error= message
 
-            .form.lower-form 
+            .form.lower-form
               %span.form__lavel 発送までの日数 
               %span.form__equired 必須
               .form__select.icon-relative
                 = f.select :delivery_days, Product.delivery_days, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              - if @product.errors.messages[:delivery_days].present?
+                - @product.errors.messages[:delivery_days].each do |message|
+                  %p.error= message
 
         .exhibition__main__price-form
           .exhibition__main__price-form__left
@@ -120,7 +146,6 @@
             %span.form__icon
               = link_to '', class: 'form-icon__help' do
                 = icon 'fas', 'question-circle', class: "form-icon__help--icon"
-
           .exhibition__main__price-form__right
             .price-form
               .price-form__text.form
@@ -129,6 +154,9 @@
               .price-form__input
                 %span.price-form__input--yen ¥
                 = f.text_field :price, autofocus: true, placeholder: "例）300", class: "price-form__input--box", id: "textForm1"
+              - if @product.errors.messages[:price].present?
+                - @product.errors.messages[:price].each do |message|
+                  %p.error= message
                 
             .price__list
               .price__list__tax
@@ -137,7 +165,6 @@
               .price__list__profit
                 %p.price__list__profit--left 販売利益
                 %p.price__list__profit--right -
-
         .exhibition__bottom
           .exhibition__bottom__text
             %div
@@ -153,10 +180,8 @@
               %span また、出品をもちまして
               = link_to '加盟店規約', '#'
               %span に同意したことになります。
-
           .exhibition__bottom__btn
             = f.submit "出品する", class: 'exhibition__bottom__btn--submit'
           
             = link_to 'もどる', root_path, class: 'exhibition__bottom__btn--return'
-
 = render 'shared/details_footer'

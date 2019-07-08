@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   belongs_to :category, optional: true
 
   accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :category
 
   enum condition: {
     "新品、未使用": 1, 
@@ -59,5 +60,6 @@ class Product < ApplicationRecord
   scope :limiter, -> { limit(4) }
   # limitとsortedを合わせたもの
   scope :recent, -> { sorted.limiter }
+
 
 end
