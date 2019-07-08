@@ -66,6 +66,19 @@
               %span.form__lavel サイズ 
               %span.form__equired 必須
               .form__select.icon-relative
+                = f.select :category_id, Category.parents, prompt: "----", autofocus: true, class: "form__select--box"
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              .form__select.icon-relative
+                = f.select :category_id, Category.children, prompt: "----", autofocus: true, class: "form__select--box"
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              .form__select.icon-relative
+                = f.select :category_id, Category.grandchildren, prompt: "----", autofocus: true, class: "form__select--box"
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+
+            .form.lower-form
+              %span.form__lavel サイズ
+              %span.form__equired 必須
+              .form__select.icon-relative
                 = f.select :size, Product.sizes, autofocus: true, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
               - if @product.errors.messages[:size].present?
@@ -95,6 +108,14 @@
               .form__select.icon-relative
                 = f.select :delivery_price, Product.delivery_prices, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+            
+            .form.lower-form 
+              %span.form__lavel 配送の方法
+              %span.form__equired 必須
+              .form__select.icon-relative
+                = f.select :delivery_type, Product.delivery_types, prompt: "---", class: 'form__select--box'
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+            
               - if @product.errors.messages[:delivery_price].present?
                 - @product.errors.messages[:delivery_price].each do |message|
                   %p.error= message
