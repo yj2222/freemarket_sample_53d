@@ -27,11 +27,15 @@
  @import 'mypages/mypage-edit';
  @import 'mypages/identification';
  @import 'mypages/log-out';
+ @import 'products/new';
+ @import 'products/image_preview';
  @import 'modules/index_footer';
  @import 'modules/index_header';
  @import 'modules/gretel';
  @import 'modules/details_footer';
  @import 'modules/details_header';
+ @import 'modules/slick';
+ @import 'modules/slick-theme';
  @import 'users/signup';
  @import 'users/login';
  @import "users/information";
@@ -39,7 +43,6 @@
  @import 'users/tel_authentication';
  @import 'users/payment';
  @import 'credits/credits';
- @import 'products/upload';
  @import 'credits/credits';
  @import "slick/slick-theme"; 
  @import "slick/slick";

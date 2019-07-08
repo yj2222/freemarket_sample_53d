@@ -24,6 +24,32 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render "users/registrations/payment"
   end
 
+  def create_payment   # クレジットカード登録のメソッド
+    # テスト鍵をセットする記述
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+    # paramsの中に'payjpToken'が存在するか確かめる
+    if params['payjpToken'].blank?
+      redirect_to action: "index"
+    else
+      # payjpに保存する記述
+      @current_user = User.find(1)   # マージ後に消す(@currentを全てcurrentに変更する)
+      customer = Payjp::Customer.create(
+        card: params['payjpToken'],
+        metadata: {user_id: @current_user.id}
+      )
+      # dbに保存する記述
+      @card = Credit.new(user_id: @current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @card.save
+        # redirect_to action: "show"
+        render "users/registrations/complete"
+        flash[:notice] = 'クレジットカードの登録が完了しました'
+      else
+        redirect_to action: "create"
+        flash[:alert] = 'クレジットカードの登録に失敗しました'
+      end
+    end
+  end
+
   def complete
     render "users/registrations/complete"
   end
