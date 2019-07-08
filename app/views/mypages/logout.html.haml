@@ -1,0 +1,6 @@
+.mypage
+  = render partial: "mypage-header"
+  .mypage__main
+    = render partial: "mypage-left"
+    .logout
+      = link_to 'ログアウト', mypages_logout_path, method: :delete, class: 'logout__btn'

@@ -2,17 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// 初期のバナーイメージです
+// .index-banner-image {
+//   margin: 10px 0 0 0;
+//   background-size: auto;
+//   text-align: center;
+//   img { 
+//   height: 390px;
+//   }
+// } 
 
-.index-banner-image {
-  margin: 10px 0 0 0;
-  background-size: auto;
-  text-align: center;
-  img { 
-  height: 390px;
-  }
-} 
-
-.pick-up-category { 
+.recommend__title { 
   padding: 40px 0 40px 0;
   background: #f5f5f5;
   h2 { 
@@ -20,12 +20,12 @@
     text-align: center;
     font-weight: 600;
   } 
-  .pick-up-box {
+  .top-page__items-box {
     margin: 0 auto;
     background-color: #F5F5F5;
     width: 942px;
-    height: 442px;
-    .pick-up-letter { 
+    height: 440px;
+    &--letter { 
       text-align: center;
       margin: 26px 11px;
       .new_arrival {
@@ -35,47 +35,41 @@
         font-weight: 600;
       }
     }
-    .pick-up-contents {
+    &__content-boxes {
       display: flex;
-      .pick-up-content-category {
+      &__content {
         background-color:white;
-        margin: 0 auto;
+        margin: 0 0 0 20px;
         width: 213px;
         height: 330px; 
         img {
           height: 213px;
           width: 213px;
         } 
-        .content_description { 
+        .item__outline { 
           padding: 16px;
-          .item_name { 
-            font-size: 16px;
-            height: 48px;
-            width: 181px;
-            color: black; 
-          } 
-          .item_price_like { 
+          color: black; 
+          width: 181px; 
+          height: 78px;
+          &--product-name {
+            word-break: break-word;
+            // セットで用いる
+            overflow: hidden;
+            height: 46px;
+          }
+          &--product-price { 
             display: flex;
             justify-content: space-between;
-            font-size: 14px;
-            font-weight: 300;
-            margin: 8px 0 0 0;  
-            .item-price {
-              color: black; 
-            }  
+            font-weight: 550;
+            margin: 8px 0 0 0; 
+            width: 181px;
+            height: 17px;
             .like-heart {
               color: gray;          
             }    
-            .index_like_botton--text {
-              color: black;
-            }    
           } 
-          .item_price_tax {
+          p {
             font-size: 10px;
-            color: black;
-            &--text {
-              font-size: 10px;
-            }
           }
         }
       } 
@@ -86,6 +80,7 @@
       text-decoration: none;
       font-size: 14px;
       color: #0099e8;
+      width: 935px;
     }    
   }
 } 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_111024) do
+ActiveRecord::Schema.define(version: 2019_07_06_065633) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
     t.index ["user_id"], name: "index_areas_on_user_id"
   end
 
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "parent", null: false
     t.string "child"
@@ -40,11 +46,11 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
   end
 
   create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "card_id"
+    t.string "customer_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "customer_id"
-    t.string "card_id"
     t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
@@ -70,17 +76,18 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
     t.string "name"
     t.text "description"
     t.string "size"
-    t.string "brand"
+    t.bigint "brand_id"
     t.string "delivery_price"
     t.string "delivery_type"
     t.string "prefecture"
-    t.string "delively_days"
+    t.string "delivery_days"
     t.integer "price"
     t.integer "condition"
     t.bigint "user_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["category_id"], name: "index_products_on_category_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
@@ -94,6 +101,9 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
     t.string "birth_month", null: false
     t.string "birth_day", null: false
     t.integer "phone_number"
+    t.integer "good"
+    t.integer "normal"
+    t.integer "bad"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -130,6 +140,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_111024) do
   add_foreign_key "images", "products"
   add_foreign_key "likes", "products"
   add_foreign_key "likes", "users"
+  add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"

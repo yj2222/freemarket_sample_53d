@@ -2,109 +2,117 @@
   = render 'shared/index_header'
   .products
     .products__container
-      %h1 ショルダーバッグ
+      %h1
+        = @product.name
       .products__container__main
         .products__container__main__image__box
           .image_active
-            %img#image(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+            = image_tag "#{@product.images.first.image_url}",class: 'image'
           .image_dots
             .image_dot.active
-              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
             .image_dot
-              %img(src="https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg" alt="サンプル画像")
+              = image_tag "#{@product.images.first.image_url}",class: 'image'
         %table.products__container__main__detail_box
           %tbody
             %tr
               %th 出品者
               %td
-                = link_to "出品者", "" , class: 'links'
+                = link_to "#{@product.user.nickname}", mypages_path , class: 'links'
                 .faces
                   = icon 'fas','grin', id: 'grin'
-                  %span 150
+                  %span 
+                    = @product.user.profile.good
                   = icon 'fas','meh', id: 'meh'
-                  %span 150
+                  %span 
+                    = @product.user.profile.normal
                   = icon 'fas','frown', id: 'frown'
-                  %span 10
+                  %span
+                    = @product.user.profile.bad
             %tr
               %th カテゴリー
               %td
-                = link_to "レディース", "" , class: 'links'
+                = link_to "#{@product.category.parent}", "" , class: 'links'
                 .categorys
-                  = link_to "", class: 'links' do
+                  = link_to "#", class: 'links' do
                     = icon 'fas', 'chevron-right', id: 'chevron'
-                    バッグ
+                    = @product.category.child
                 .categorys  
-                = link_to "", class: 'links' do
+                = link_to "#", class: 'links' do
                   = icon 'fas', 'chevron-right', id: 'chevron'
-                  ショルダーバッグ
+                  = @product.category.son
             %tr
               %th ブランド
               %td
-                = link_to "コーチ", "", class: 'links' 
+                = link_to "#{@product.brand_id}", "", class: 'links' 
             %tr
               %th 商品の状態
               %td
-                目立った傷無しや汚れ無し 
+                = @product.condition
             %tr
               %th 配送料の負担
               %td
-                送料込み(出品者負担)
+                = @product.delivery_price
             %tr
               %th 配送の方法
               %td
-                らくらくメルカリ便
+                = @product.delivery_type
             %tr
               %th 配送元の地域
               %td
-                = link_to "神奈川県", "" , class: 'links'
+                = link_to "#{@product.prefecture}", "" , class: 'links'
             %tr
               %th 発送日の目安
               %td
-                １〜２日で発送
+                = @product.delivery_days
       .products__container__price__box
         .price
-          %span ¥8,000
+          %span 
+            = number_to_currency(@product.price)
         .tax
           %span (税込)
         .cost 
-          %span 送料込み
+          - if @product.delivery_price == "送料込み(出品者負担)" then
+            %span 
+              送料込み(出品者負担)
+          - else 
+            %span
+              着払い(購入者負担)
       .products__container__buy__box
-        = link_to new_product_path ,class: "buy-btn" do
+        = link_to purchase_products_path ,class: "buy-btn" do
           購入画面に進む
       .products__container__comment__box
         %p.inner-comment 
-          テストです
-          テストです
-          TESUTO DESU
-          TESUTO DESU
+          = @product.description
       .products__container__likereport__box.clearfix
         %button.like
-          = icon 'far','heart', id: 'like'
-          %span いいね! 
-          %span.num 3
+          = icon 'far','heart', id: 'likes'
+          %span.likes いいね! 
+          -# likesテーブルから持ってくること（未実装
+          %span.likes 3
         %button.report
           = icon 'far','flag', id: 'flag'
           %span 不適切な商品の報告
         .safety
-          = link_to "", class: "safety-btn links-noline" do
+          = link_to "#", class: "safety-btn links-noline" do
             = icon 'fas','lock', id: 'lock'
             %span あんしん・あんぜんへの取り組み
     .comment__container
-      = form_for '' do |f|
+      = form_for '#' do |f|
         .comment__container__note
           相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
         .comment__container__textarea.clearfix
@@ -112,28 +120,29 @@
           = f.submit 'コメントする', class: 'comment'
     .other__products
       .other__products__prev
-        = link_to "", class: 'links' do
+        = link_to "#", class: 'links' do
           = icon 'fas', 'chevron-left', id: 'chevron' 
           バッグ
       .other__products__next
-        = link_to "", class: 'links' do
+        = link_to "#", class: 'links' do
           ブレスレット
           = icon 'fas', 'chevron-right', id: 'chevron'
     %ul.sns__share
       %li.sns__share__list
-        = link_to "" do
+        = link_to "#" do
           = icon 'fab','facebook-square', id: 'facebook'
       %li.sns__share__list
-        = link_to "" do
+        = link_to "#" do
           = icon 'fab','twitter-square', id: 'twitter'
       %li.sns__share__list
-        = link_to "" do
+        = link_to "#" do
           = icon 'fab','pinterest-square', id: 'pinterest'
   .details-pick-up-category
     .details-pick-up-box
       .details-pick-up-letter
         = link_to "#", class: "new_arrival links" do 
           %h2 出品者さんのその他の出品
+          -# each文で回して表示する （未実装
       .details-pick-up-contents
         .details-pick-up-content-category
           = link_to "/products/details", class: "item_details" do

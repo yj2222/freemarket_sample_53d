@@ -31,7 +31,7 @@
  @import 'modules/index_header';
  @import 'modules/details_footer';
  @import 'modules/details_header';
- @import 'users/new_registration';
+ @import 'users/signup';
  @import 'users/login';
  @import "users/information";
  @import 'users/complete';
@@ -40,7 +40,10 @@
  @import 'credits/credits';
  @import 'products/upload';
  @import 'credits/credits';
- @import 'users/new_registration_address';
+ @import "slick/slick-theme"; 
+ @import "slick/slick";
+ @import "slick/carousel";
+ @import 'users/address';
 
 select {
   -webkit-appearance: none;
