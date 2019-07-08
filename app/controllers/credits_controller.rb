@@ -9,7 +9,7 @@ class CreditsController < ApplicationController
     card = Credits.where(user_id: @current_user.id)
     redirect_to action: "show" if card.exists?
   end
-    
+
   def create   # クレジットカード登録のメソッド
     # テスト鍵をセットする記述
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]

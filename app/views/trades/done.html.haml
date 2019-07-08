@@ -1,8 +1,10 @@
 .wrapper
-  %header.buy-header
+  %header.finish__header
     = render 'shared/details_header'
-  %main.finish-main
-    %p.purchase-finish 
-      購入が完了しました！
-      .return-top-page
-        = link_to "トップページ", root_path, class: "top-page-move"
+  %main.finish__main
+    .purchase__finish
+      .purchase__finish--message 購入が完了しました！
+    .return__top
+      = link_to "トップページに戻る", root_path, class: "return__top--move"
+  %footer.finish__footer
+    = render 'shared/details_footer'
