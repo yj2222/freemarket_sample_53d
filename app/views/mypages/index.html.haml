@@ -1,5 +1,7 @@
 .mypage
-  = render partial: "mypage-header"
+  -# = render partial: "mypage-header"
+  - breadcrumb :mypages
+  = render "shared/gretel"
   .mypage__main
     = render partial: "mypage-left"
     = render partial: "mypage-right"
@@ -8,9 +10,5 @@
     -# = render partial: "credits/index"
 
 -# = render partial: "edit"
-
-
-
-
 
 

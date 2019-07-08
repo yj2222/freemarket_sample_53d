@@ -1,5 +1,7 @@
 .wrapper
-  = render 'shared/index_header'
+  -# = render 'shared/index_header'
+  - breadcrumb :product_details, @product
+  = render "shared/gretel"
   .products
     .products__container
       %h1
