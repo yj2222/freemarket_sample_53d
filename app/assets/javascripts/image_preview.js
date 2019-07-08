@@ -25,6 +25,7 @@ $(document).on('turbolinks:load', function () {
 
   image_form.on('click', function() {
     image_form.children('input[name="images[' + image_id + '][image_url]"]')[0].click();
+    console.log(image_form)
   })
 
   image_form.on("dragover", function(event) {
@@ -57,7 +58,6 @@ $(document).on('turbolinks:load', function () {
         image_tag = build_image_tag(image_id, event.target.result);
         preview_ul.append(image_tag);
 
-        console.log(image_id)
         // 2 || 6 という条件分岐にしたかったがうまくイベントが動かなかったため全ての条件を記載
         if (image_id == 1) {
           image_form.removeClass('box-size--wide');

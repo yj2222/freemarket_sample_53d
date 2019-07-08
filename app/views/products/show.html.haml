@@ -6,27 +6,14 @@
         = @product.name
       .products__container__main
         .products__container__main__image__box
-          .image_active
-            = image_tag "#{@product.images.first.image_url}",class: 'image'
-          .image_dots
-            .image_dot.active
-              = image_tag "#{@product.images.first.image_url}",class: 'image'
-            .image_dot
-              = image_tag "#{@product.images.first.image_url}",class: 'image'
-            .image_dot
-              = image_tag "#{@product.images.first.image_url}",class: 'image'
-            .image_dot
-              = image_tag "#{@product.images.first.image_url}",class: 'image'
-            .image_dot
-              = image_tag "#{@product.images.first.image_url}",class: 'image'
-            .image_dot
-              = image_tag "#{@product.images.first.image_url}",class: 'image'
-            .image_dot
-              = image_tag "#{@product.images.first.image_url}",class: 'image'
-            .image_dot
-              = image_tag "#{@product.images.first.image_url}",class: 'image'
-            .image_dot
-              = image_tag "#{@product.images.first.image_url}",class: 'image'
+          %ul#image_slider
+            - @product.images.each_with_index do |image, index|
+              %li.image_item
+                = image_tag("image[:image_url]", class: 'normalimage')
+          %ul#thumbnail_list
+            - @product.images.each_with_index do |image, index|
+              %li.thumbnail_item.thumbnail-current
+                = image_tag("image[:image_url]", id: 'smallimage')
         %table.products__container__main__detail_box
           %tbody
             %tr

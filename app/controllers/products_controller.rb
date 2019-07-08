@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
     # NOTE：本番では以下の記述を使用する
     # @product = Product.find(params[:id])
     @product = Product.find(1)
+    
   end
 
   def purchase
@@ -28,14 +29,10 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @image = Image.new
-    @product.images.build
-    # @category = Category.new
-    # @product.category.build
-    
+    @product.images.build   
   end
 
   def create
-    Category.create(category_params)
     product = Product.new(params_int(product_params))
     if product.save
       
@@ -56,25 +53,22 @@ class ProductsController < ApplicationController
   # ユーザID、SIZE、delivery_typeは未実装のため後ほど実装。
 
   def product_params
-    last_id = Category.pluck(:id).last
     params.require(:product).permit(
       :name,
       :description,
+      :category_id,
       :size,
       :condition,
       :delivery_price,
+      :delivery_type,
       :delivery_days,
       :prefecture,
-      :price).merge(user_id: 1, delivery_type: 1, category_id: last_id)
+      :price).merge(user_id: 1)
   end
 
   def image_params(num)
       last_id = Product.pluck(:id).last
       params.require(:images).require("#{num}").permit(:image_url).merge(product_id: last_id)
-  end
-
-  def category_params
-    params.require(:product).require(:category).permit(:parent)
   end
 
   # 送られたパラメータを整数化する。
