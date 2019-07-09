@@ -93,7 +93,7 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_url|string|null: false|
+|url|string|null: false|
 
 |product_id|references|null: false,foreign_key: true|
 

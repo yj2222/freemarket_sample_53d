@@ -14,7 +14,7 @@ $(document).on('turbolinks:load', function () {
   }
 
   function build_new_input_tag(count) {
-    var html = `<input autofocus="autofocus" name="images[${count}][image_url]" class="exhibition__main__image-form__upload--file display-none" type="file" id="image${count}">`
+    var html = `<input autofocus="autofocus" name="images[${count}][url]" class="exhibition__main__image-form__upload--file display-none" type="file" id="image${count}">`
     return html;
   }
 
@@ -30,9 +30,9 @@ $(document).on('turbolinks:load', function () {
       if (btn_id == last_image_id){
         list = $(this).parent().parent()
         list.remove();
-        var input = image_form.children('input[name="images[' + last_image_id + '][image_url]"]')
+        var input = image_form.children('input[name="images[' + last_image_id + '][url]"]')
         input.empty();
-        var input = image_form.children('input[name="images[' + image_id + '][image_url]"]')
+        var input = image_form.children('input[name="images[' + image_id + '][url]"]')
         input.remove();
         image_id -= 1
       }
@@ -75,27 +75,27 @@ $(document).on('turbolinks:load', function () {
 
   var image_id = 1;
   var image_form = $('.exhibition__main__image-form__upload');
-  var input_tag = 'input[name="images[' + image_id + '][image_url]"]';
+  var input_tag = 'input[name="images[' + image_id + '][url]"]';
   var preview_ul = $('.image-upload__preview');
 
   //クリックアクションイベント発火
   image_form.on('click', function() {
-    image_form.children('input[name="images[' + image_id + '][image_url]"]')[0].click();
+    image_form.children('input[name="images[' + image_id + '][url]"]')[0].click();
   })
 
   //ドラッグアンドドロップアクションイベント発火
   image_form.on("dragover", function(event) {
     event.preventDefault();  
     event.stopPropagation();
-    image_form.children('input[name="images[' + image_id + '][image_url]"]').removeClass('display-none');
+    image_form.children('input[name="images[' + image_id + '][url]"]').removeClass('display-none');
   });
   image_form.on('drop', function(e) {
-    image_form.children('input[name="images[' + image_id + '][image_url]"]').addClass('display-none');
+    image_form.children('input[name="images[' + image_id + '][url]"]').addClass('display-none');
 
   })
 
   // ファイルがアップされた時のアクション
-  image_form.on('change', image_form.children('input[name="images[' + image_id + '][image_url]"]'), function (event) {
+  image_form.on('change', image_form.children('input[name="images[' + image_id + '][url]"]'), function (event) {
     //選択されたファイル情報を取得。[0]はJSのオブジェクトを使う宣言？
     var image = event.target.files[0];
 

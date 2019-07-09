@@ -1,7 +1,7 @@
 .wrapper
   = render 'shared/index_header'
-  - breadcrumb :product_details, @product
-  = render "shared/gretel"
+  -# - breadcrumb :product_details, @product
+  -# = render "shared/gretel"
   .products
     .products__container
       %h1
@@ -11,11 +11,11 @@
           %ul#image_slider
             - @product.images.each_with_index do |image, index|
               %li.image_item
-                = image_tag(image[:url], class: 'normalimage')
+                = image_tag "#{image[:url]}", class: 'normalimage'
           %ul#thumbnail_list
             - @product.images.each_with_index do |image, index|
               %li.thumbnail_item.thumbnail-current
-                = image_tag(image[:url], id: 'smallimage')
+                = image_tag "#{image[:url]}", class: 'smallimage'
         %table.products__container__main__detail_box
           %tbody
             %tr
@@ -136,7 +136,7 @@
         - @user_product.each do |product|
           .details-pick-up-content-category
             = link_to product_path(product.id), class: "item_details", data: {"turbolinks" => false} do
-              = image_tag(product.images.first.url, class: 'pickupimage')
+              = image_tag "#{product.images.first.url}", class: 'pickupimage'
               .details-content_description 
                 .details-item_name 
                   %h3 

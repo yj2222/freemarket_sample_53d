@@ -72,7 +72,7 @@ class ProductsController < ApplicationController
 
   def image_params(num)
       last_id = Product.pluck(:id).last
-      params.require(:images).require("#{num}").permit(:image_url).merge(product_id: last_id)
+      params.require(:images).require("#{num}").permit(:url).merge(product_id: last_id)
   end
 
   # 送られたパラメータを整数化する。

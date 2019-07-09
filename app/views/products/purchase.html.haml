@@ -8,7 +8,7 @@
       %section.buy__container-content
         .buy__product.inner
           %h3
-            = image_tag "#{@product.images.first.image_url}", class: 'image'
+            = image_tag "#{@product.images.first.url}", class: 'image'
           %p
             = product.name
           = form_with url: buy_trades_path,class: "buy_trade" do |f|
