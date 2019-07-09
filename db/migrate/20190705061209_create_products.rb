@@ -10,7 +10,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :prefecture
       t.string :delivery_days
       t.integer :price
-      t.integer :condition
+      t.string :condition
       t.references :user, index: true, foreign_key: true
       t.references :category, index: true, foreign_key: true
       t.timestamps
