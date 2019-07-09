@@ -21,19 +21,31 @@
             .category-brand__list--brand 
               = icon('fas', 'tag', class: 'brands-list-tag')
               %span ブランドから探す
-
-      .index-header__inner__bottom--right
-        %ul.devise-login
-          %li
-            = link_to signup_path, class: "new-member-registration" do
-              新規会員登録
-          %li
-            = link_to login_path, class: "log-in" do
-              ログイン  
-
-      -# 記述内容を担当者と相談するために残しています   
-      -#       %span ブランドから探す
-      -# - if user_signed_in?
-      -#   = link_to 'hello world',mypages_path
-      -# - else
-      -#   .bottom-header__right
+      - if user_signed_in?
+        .bottom-header__right__login
+          %ul.devise-login
+            %li
+              = link_to "", class: "bottom-header__like__index" do
+                = icon 'fa', 'heart', class: 'bottom-header__like__index--icon'
+                %span いいね！一覧
+            %li
+              = link_to "", class: "bottom-header__information" do
+                = icon 'fa', 'bell', class: 'bottom-header__information--icon'
+                %span お知らせ
+            %li
+              = link_to "", class: "bottom-header__todo__list" do
+                = icon 'fa', 'check', class: 'bottom-header__todo__list--icon'
+                %span やることリスト
+            %li
+              = link_to mypages_path, class: "bottom-header__move__mypage" do
+                = image_tag 'common/user-icon.png', alt: 'ユーザアイコン', class: 'bottom-header__move__mypage--icon', height: '30', width: '30'
+                %span マイページ
+      - else
+        .bottom-header__right__logout
+          %ul.devise-logout
+            %li
+              = link_to signup_path, class: "new-member-registration" do
+                新規会員登録
+            %li
+              = link_to login_path, class: "log-in" do
+                ログイン

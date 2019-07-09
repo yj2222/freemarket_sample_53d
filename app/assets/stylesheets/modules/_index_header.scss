@@ -90,13 +90,82 @@
           } 
         }
       }
-      &--right { 
+
+      .bottom-header__right__login {
+        float: right;
+        width: 530px;
+        height: 44px;
+        background-color: white;
+        .devise-login {
+          display: flex;
+          float: right;
+          li {
+            padding-left: 0;
+            margin-right: 14px;
+            .bottom-header__like__index {
+              line-height: 44px;
+              color: #333;
+              &--icon {
+                font-size: 18px;
+                color: gray;
+                span {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+          li {
+            padding-left: 0;
+            .bottom-header__information {
+              line-height: 44px;
+              color: #333;
+              &--icon {
+                font-size: 18px;
+                color: gray;
+                span {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+          li {
+            padding-left: 0;
+            .bottom-header__todo__list {
+              line-height: 44px;
+              color: #333;
+              &--icon {
+                font-size: 18px;
+                color: gray;
+                span {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+          li {
+            padding-left: 0;
+            .bottom-header__move__mypage {
+              line-height: 44px;
+              color: #333;
+              &--icon {
+                overflow: hidden;
+                border-radius: 50%;
+                vertical-align: middle;
+                span {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .bottom-header__right__logout { 
         float: right;
         width: 216px;
         height: 34px;
         background-color: white;
-        .devise-login {
-          display: flex; 
+        .devise-logout {
+          display: flex;
           float: right;
           li {
             margin: 0 0 0 8px;

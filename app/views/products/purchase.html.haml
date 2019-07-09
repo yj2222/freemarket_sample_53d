@@ -8,8 +8,9 @@
       %section.buy__container-content
         .buy__product.inner
           %h3
-            = image_tag("https://previews.123rf.com/images/lkeskinen/lkeskinen1705/lkeskinen170500353/77407965-%E7%84%A1%E6%96%99%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97.jpg", id: "image")
-          %p ショルダーバッグ
+            = image_tag "#{@product.images.first.image_url}", class: 'image'
+          %p
+            = product.name
           = form_with url: buy_trades_path,class: "buy_trade" do |f|
             .buy__product__costs
               %span.price ¥8,000
@@ -22,7 +23,8 @@
                 .price__table-payment
                   %span 支払金額
                 .price__table-payment
-                  %span ¥8,000
+                  %span
+                    = product.price
             .has-message
               %p この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
             .buy__product__button
