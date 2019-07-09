@@ -130,8 +130,8 @@
     .details-pick-up-box
       .details-pick-up-letter
         = link_to "#", class: "new_arrival links" do
-          %h2 出品者さんのその他の出品
-          -# each文で回して表示する （未実装
+          %h2 
+            = @product.user.nickname + "さんのその他の出品"
       .details-pick-up-contents
         - @user_product.each do |product|
           .details-pick-up-content-category

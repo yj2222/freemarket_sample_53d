@@ -24,7 +24,6 @@ class ProductsController < ApplicationController
     while @right_product == @left_product do
       @right_product = Product.find(rand(1..num))
     end
-    # binding.pry
   end
 
   def purchase
