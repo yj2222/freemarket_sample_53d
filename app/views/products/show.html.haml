@@ -9,11 +9,11 @@
           %ul#image_slider
             - @product.images.each_with_index do |image, index|
               %li.image_item
-                = image_tag("image[:image_url]", class: 'normalimage')
+                = image_tag(image[:url], class: 'normalimage')
           %ul#thumbnail_list
             - @product.images.each_with_index do |image, index|
               %li.thumbnail_item.thumbnail-current
-                = image_tag("image[:image_url]", id: 'smallimage')
+                = image_tag(image[:url], id: 'smallimage')
         %table.products__container__main__detail_box
           %tbody
             %tr
@@ -86,7 +86,7 @@
         %p.inner-comment 
           = @product.description
       .products__container__likereport__box.clearfix
-        %button.like
+        %button#like
           = icon 'far','heart', id: 'likes'
           %span.likes いいね! 
           -# likesテーブルから持ってくること（未実装
@@ -107,12 +107,12 @@
           = f.submit 'コメントする', class: 'comment'
     .other__products
       .other__products__prev
-        = link_to "#", class: 'links' do
+        = link_to product_path(@left_product.id), class: 'links', data: {"turbolinks" => false}do
           = icon 'fas', 'chevron-left', id: 'chevron' 
-          バッグ
+          = @left_product.name
       .other__products__next
-        = link_to "#", class: 'links' do
-          ブレスレット
+        = link_to product_path(@right_product.id), class: 'links', data: {"turbolinks" => false} do
+          = @right_product.name
           = icon 'fas', 'chevron-right', id: 'chevron'
     %ul.sns__share
       %li.sns__share__list
@@ -127,92 +127,25 @@
   .details-pick-up-category
     .details-pick-up-box
       .details-pick-up-letter
-        = link_to "#", class: "new_arrival links" do 
+        = link_to "#", class: "new_arrival links" do
           %h2 出品者さんのその他の出品
           -# each文で回して表示する （未実装
       .details-pick-up-contents
-        .details-pick-up-content-category
-          = link_to "/products/details", class: "item_details" do
-            %img{src: "https://static.mercdn.net/thumb/photos/m22301283822_1.jpg?1557200472", alt: "product_image"} 
-            .details-content_description 
-              .details-item_name 
-                %h3 Green-Bag
-              .details-item_price_like 
-                .details-item-price ¥ 3,000
-                .details-index_like_botton
-                  %span.icon
-                    = icon('far', 'heart', class: 'like-heart ')
-                  %span.details-index_like_botton--text 1
-              .details-item_price_tax
-                %p.details-item_price_tax--text (税込)
-        .details-pick-up-content-category
-          = link_to "/products/details", class: "item_details" do
-            %img{src: "https://static.mercdn.net/thumb/photos/m22301283822_1.jpg?1557200472", alt: "product_image"} 
-            .details-content_description 
-              .details-item_name 
-                %h3 Green-Bag
-              .details-item_price_like 
-                .details-item-price ¥ 3,000
-                .details-index_like_botton
-                  %span.icon
-                    = icon('far', 'heart', class: 'like-heart')
-                  %span.details-index_like_botton--text 1
-              .details-item_price_tax
-                %p.details-item_price_tax--text (税込)
-        .details-pick-up-content-category
-          = link_to "/products/details", class: "item_details" do
-            %img{src: "https://static.mercdn.net/thumb/photos/m22301283822_1.jpg?1557200472", alt: "product_image"} 
-            .details-content_description 
-              .details-item_name 
-                %h3 Green-Bag
-              .details-item_price_like 
-                .details-item-price ¥ 3,000
-                .details-index_like_botton
-                  %span.icon
-                    = icon('far', 'heart', class: 'like-heart')
-                  %span.details-index_like_botton--text 1
-              .details-item_price_tax
-                %p.details-item_price_tax--text (税込)                 
-        .details-pick-up-content-category
-          = link_to "/products/details", class: "item_details" do
-            %img{src: "https://static.mercdn.net/thumb/photos/m22301283822_1.jpg?1557200472", alt: "product_image"} 
-            .details-content_description 
-              .details-item_name 
-                %h3 Green-Bag
-              .details-item_price_like 
-                .details-item-price ¥ 3,000
-                .details-index_like_botton
-                  %span.icon
-                    = icon('far', 'heart', class: 'like-heart')
-                  %span.details-index_like_botton--text 1
-              .details-item_price_tax
-                %p.details-item_price_tax--text (税込)                
-        .details-pick-up-content-category
-          = link_to "/products/details", class: "item_details" do
-            %img{src: "https://static.mercdn.net/thumb/photos/m22301283822_1.jpg?1557200472", alt: "product_image"} 
-            .details-content_description 
-              .details-item_name 
-                %h3 Green-Bag
-              .details-item_price_like 
-                .details-item-price ¥ 3,000
-                .details-index_like_botton
-                  %span.icon
-                    = icon('far', 'heart', class: 'like-heart')
-                  %span.details-index_like_botton--text 1
-              .details-item_price_tax
-                %p.details-item_price_tax--text (税込)
-        .details-pick-up-content-category
-          = link_to "/products/details", class: "item_details" do
-            %img{src: "https://static.mercdn.net/thumb/photos/m22301283822_1.jpg?1557200472", alt: "product_image"} 
-            .details-content_description 
-              .details-item_name 
-                %h3 Green-Bag
-              .details-item_price_like 
-                .details-item-price ¥ 3,000
-                .details-index_like_botton
-                  %span.icon
-                    = icon('far', 'heart', class: 'like-heart')
-                  %span.details-index_like_botton--text 1
-              .details-item_price_tax
-                %p.details-item_price_tax--text (税込)                                
-  = render 'shared/index_footer' 
+        - @user_product.each do |product|
+          .details-pick-up-content-category
+            = link_to product_path(product.id), class: "item_details", data: {"turbolinks" => false} do
+              = image_tag(product.images.first.url, class: 'pickupimage')
+              .details-content_description 
+                .details-item_name 
+                  %h3 
+                    = product.name
+                .details-item_price_like 
+                  .details-item-price
+                    = number_to_currency(product.price)
+                  .details-index_like_botton
+                    %span.icon
+                      = icon('far', 'heart', class: 'like-heart')
+                    %span.details-index_like_botton--text 1
+                .details-item_price_tax
+                  %p.details-item_price_tax--text (税込)
+  = render 'shared/index_footer'
