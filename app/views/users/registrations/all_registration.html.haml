@@ -13,25 +13,25 @@
                   ニックネーム
                 %span.input_content__form__box__necessary
                   必須
-                = f.text_field :nickname, {class: "form__input",placeholder: "例) メルカリ太郎"}
+                = f.text_field :nickname, {class: "form__input",id: "step1__nickname", placeholder: "例) メルカリ太郎"}
               .input_content__form__box
                 %label.input_content__form__box__detail
                   メールアドレス
                 %span.input_content__form__box__necessary
                   必須
-                = f.text_field :email, {class: "form__input", placeholder: "PC・携帯どちらでも可"}
+                = f.text_field :email, {class: "form__input",id: "step1__email", placeholder: "PC・携帯どちらでも可"}
               .input_content__form__box
                 %label.input_content__form__box__detail
                   パスワード
                 %span.input_content__form__box__necessary
                   必須
-                = f.text_field :password, {class: "form__input", placeholder: "6文字以上"}
+                = f.text_field :password, {class: "form__input",id: "step1__password", placeholder: "6文字以上"}
               .input_content__form__box
                 %label.input_content__form__box__detail
                   パスワード（確認）
                 %span.input_content__form__box__necessary
                   必須
-                = f.text_field :password, {class: "form__input", placeholder: "6文字以上"}
+                = f.text_field :password, {class: "form__input",id: "step1__password", placeholder: "6文字以上"}
               .input_content__form__box
                 %h3
                   本人確認
@@ -43,25 +43,25 @@
                     姓（全角）
                   %span.input_content__form__box__necessary
                     必須
-                  = pro.text_field :firstname_kanji, {class: "form__input", placeholder: "例）山田"}
+                  = pro.text_field :firstname_kanji, {class: "form__input",id: "step1__firstname_kanji", placeholder: "例）山田"}
                 .input_content__form__box
                   %label.input_content__form__box__detail
                     名（全角）
                   %span.input_content__form__box__necessary
                     必須
-                  = pro.text_field :lastname_kanji, {class: "form__input", placeholder: "例）彩"}
+                  = pro.text_field :lastname_kanji, {class: "form__input",id: "step1__lastname_kanji", placeholder: "例）彩"}
                 .input_content__form__box
                   %label.input_content__form__box__detail
                     姓カナ（全角）
                   %span.input_content__form__box__necessary
                     必須
-                  = pro.text_field :firstname_katakana, {class: "form__input", placeholder: "例）ヤマダ"}
+                  = pro.text_field :firstname_katakana, {class: "form__input",id: "step1__firstname_katakana", placeholder: "例）ヤマダ"}
                 .input_content__form__box
                   %label.input_content__form__box__detail
                     名カナ（全角）
                   %span.input_content__form__box__necessary
                     必須
-                  = pro.text_field :lastname_katakana, {class: "form__input", placeholder: "例）アヤ"}
+                  = pro.text_field :lastname_katakana, {class: "form__input",id: "step1__lastname_katakana", placeholder: "例）アヤ"}
                 .input_content__form__box
                   .box__birthday
                     %label.input_content__form__box__detail
@@ -122,23 +122,23 @@
                       お名前  
                     %span.address-form-require
                       必須
-                    = pro.text_field :firstname_kanji, class: 'address-registration-form', placeholder: '例）山田'  
-                    = pro.text_field :lastname_kanji, class: 'address-registration-form', placeholder: '例）彩' 
+                    = pro.text_field :firstname_kanji, class: 'address-registration-form',id: "step2__firstname_kanji", placeholder: '例）山田'  
+                    = pro.text_field :lastname_kanji, class: 'address-registration-form',id: "step2__lastname_kanji", placeholder: '例）彩' 
 
                   .new-registration-address_form__group--kananame
                     %label.address-kananame
                       お名前カナ  
                     %span.address-form-require
                       必須
-                    = pro.text_field :firstname_katakana, class: 'address-registration-form', placeholder: '例）ヤマダ'  
-                    = pro.text_field :firstname_katakana, class: 'address-registration-form', placeholder: '例）アヤ' 
+                    = pro.text_field :firstname_katakana, class: 'address-registration-form',id: "step2__firstname_katakana", placeholder: '例）ヤマダ'  
+                    = pro.text_field :lastname_katakana, class: 'address-registration-form',id: "step2__lastname_katakana", placeholder: '例）アヤ' 
                 
                   .new-registration-address_form__group--post-num
                     %label.address-post-num
                       郵便番号  
                     %span.address-form-require
                       必須
-                    = area.text_field :post_number, class: 'address-registration-form', placeholder: '例）123-4567'  
+                    = area.text_field :post_number, class: 'address-registration-form',id: "step2__post_number", placeholder: '例）123-4567'  
                     .new-registration-address_form__group--prefecture
                       %label.address-prefecture
                         都道府県 
@@ -154,14 +154,14 @@
                       市区町村
                     %span.address-form-require
                       必須
-                    = area.text_field :city, class: 'address-registration-form', placeholder: '例）横浜市緑区' 
+                    = area.text_field :city, class: 'address-registration-form',id: "step2__city", placeholder: '例）横浜市緑区' 
 
                   .new-registration-address_form__group--block-num
                     %label.address-block-num
                       番地
                     %span.address-form-require
                       必須
-                    = area.text_field :address_number, class: 'address-registration-form', placeholder: '例）青山1−1−1' 
+                    = area.text_field :address_number, class: 'address-registration-form',id: "step2__address_number", placeholder: '例）青山1−1−1' 
 
                   .new-registration-address_form__group--building
                     %label.address-building
@@ -177,5 +177,5 @@
                       任意
                     = pro.text_field :phone_number, class: 'address-registration-form', placeholder: '例）09012345678' 
                   
-                = f.submit "次へ進む", {class:"form-button"} 
+                = f.submit "次へ進む", {class:"form-button",id:"step2__button"} 
       = render "shared/details_footer"

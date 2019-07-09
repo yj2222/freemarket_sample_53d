@@ -1,5 +1,7 @@
 .wrapper
   = render 'shared/index_header'
+  - breadcrumb :product_details, @product
+  = render "shared/gretel"
   .products
     .products__container
       %h1
@@ -80,7 +82,7 @@
             %span
               着払い(購入者負担)
       .products__container__buy__box
-        = link_to purchase_products_path ,class: "buy-btn" do
+        = link_to purchase_products_path(@product.id) ,class: "buy-btn" do
           購入画面に進む
       .products__container__comment__box
         %p.inner-comment 
