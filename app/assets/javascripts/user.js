@@ -43,7 +43,6 @@ $(function() {
 
     else if(value__password.length <= 5)
     {
-      debugger
       window.alert("パスワードが短すぎます");
     }
 
@@ -87,7 +86,6 @@ $(function() {
             || !value__address_number.match(/[^\s\t]/)
             )
     {
-      debugger
       error = true;
       window.alert("空白を含まないでください");
       return false;

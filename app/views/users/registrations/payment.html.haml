@@ -7,56 +7,5 @@
           .input-card
             .input-card__head
               %h2.input-card__head--title 支払い方法
-
-            .input-card__main
-              = form_for '' do |f|
-                .input-card__main__top
-                  %span.label カード番号
-                  %span.arbitrary 必須
-                  .input-card__main__top__form
-                    = f.text_field :card_number, autofocus: true, value: "", placeholder: "半角数字のみ", class: 'input-wide'
-                    %ul.input-card__main__top__form__images
-                      %li
-                        = image_tag 'common/visa.svg', alt: 'visa', class: "image", width: "49", height: "20"
-                      %li
-                        = image_tag 'common/master-card.svg', alt: 'master-card', class: "image", width: "34", height: "20"
-                      %li
-                        = image_tag 'common/saison-card.svg', alt: 'saison-card', class: "image", width: "30", height: "20"
-                      %li
-                        = image_tag 'common/jcb.svg', alt: 'jcb', class: "image", width: "32", height: "20"
-                      %li
-                        = image_tag 'common/american_express.svg', alt: 'american_express', class: "image", width: "21", height: "20"
-                      %li
-                        = image_tag 'common/dinersclub.svg', alt: 'dinersclub', class: "image", width: "32", height: "20"
-                      %li
-                        = image_tag 'common/discover.svg', alt: 'discover', class: "image", width: "32", height: "20"
-
-                .input-card__main__middle
-                  %span.label 有効期限 
-                  %span.arbitrary 必須
-                  .input-card__main__middle__form
-                    .input-card__main__middle__form__select
-                      .input-card__main__middle__form__select--box.icon-relative
-                        = f.select :expiration_month, @months, {}, class: "input", prompt: "--"
-                        = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-                      .input-card__main__middle__form__select--text 月
-
-                    .input-card__main__middle__form__select
-                      .input-card__main__middle__form__select--box.icon-relative
-                        = f.select :expiration_year, @years, {}, class: "input", prompt: "--"
-                        = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-                      .input-card__main__middle__form__select--text 年
-
-                .input-card__main__bottom
-                  %span.label セキュリティコード 
-                  %span.arbitrary 必須
-                  .input-card__main__bottom__form
-                    = f.text_field :security_code, autofocus: true, value: "", placeholder: "カード背面4桁もしくは3桁の番号", class: 'input-wide'
-                  .input-card__main__bottom__help
-                    %span.input-card__main__bottomp__help--icon
-                      = icon 'fas', 'question-circle', class: ""
-                    %span.input-card__main__bottomp__help--text カード裏面の番号とは？
-
-                .input-card__main__btn
-                  = f.submit "追加する", class: "input-card__main__btn--submit"
+              = render partial: "credits/new"
       = render partial: 'shared/details_footer'

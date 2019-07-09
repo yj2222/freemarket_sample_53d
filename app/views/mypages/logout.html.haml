@@ -1,5 +1,7 @@
 .mypage
-  = render partial: "mypage-header"
+  = render partial: "shared/index_header"
+  - breadcrumb :logout
+  = render "shared/gretel"
   .mypage__main
     = render partial: "mypage-left"
     .logout

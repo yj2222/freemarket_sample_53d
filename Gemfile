@@ -90,7 +90,9 @@ gem 'recaptcha', require: "recaptcha/rails"
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'enum_help'
+gem "gretel"
 gem 'pry-rails'
 group :production do
   gem 'unicorn'
 end
+ 
