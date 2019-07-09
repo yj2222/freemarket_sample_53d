@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function () {
                   </div>
                   <div class="image-upload__preview__list__bottom">
                     <span class="image-upload__preview__list__bottom--btn btn-left">編集</span>
-                    <span class="image-upload__preview__list__bottom--btn">削除</span>
+                    <span class="image-upload__preview__list__bottom--btn btn-right btn-${alt}">削除</span>
                   </div>
                 </li>`
     return html;
@@ -18,26 +18,78 @@ $(document).on('turbolinks:load', function () {
     return html;
   }
 
+  //削除ボタンが押された時のアクション
+  $(function(){
+    $(document).on('click', '.btn-right', function() {
+
+      var num = $(this).attr('class').slice( -1 );
+      btn_id = Number(num)
+      last_image_id = image_id - 1
+
+      //ボタンのIDと最新の画像のIDが一緒なら以下を実行
+      if (btn_id == last_image_id){
+        list = $(this).parent().parent()
+        list.remove();
+        var input = image_form.children('input[name="images[' + last_image_id + '][image_url]"]')
+        input.empty();
+        var input = image_form.children('input[name="images[' + image_id + '][image_url]"]')
+        input.remove();
+        image_id -= 1
+      }
+
+      //ドロップボックスの大きさを変更する
+      if (image_id == 1) {
+        image_form.removeClass('box-size--wide_middle');
+        image_form.addClass('box-size--wide');
+      } else if (image_id == 2){
+        image_form.removeClass('box-size--middle');
+        image_form.addClass('box-size--wide_middle');
+      } else if (image_id == 3){
+        image_form.removeClass('box-size--narrow_middle');
+        image_form.addClass('box-size--middle');
+      } else if (image_id == 4){
+        image_form.removeClass('box-size--narrow');
+        image_form.addClass('box-size--narrow_middle');
+      } else if (image_id == 5){
+        image_form.removeClass('box-size--wide');
+        image_form.addClass('box-size--narrow');
+      } else if (image_id == 6) {
+        image_form.removeClass('box-size--wide_middle');
+        image_form.addClass('box-size--wide');
+      } else if (image_id == 7){
+        image_form.removeClass('box-size--middle');
+        image_form.addClass('box-size--wide_middle');
+      } else if (image_id == 8){
+        image_form.removeClass('box-size--narrow_middle');
+        image_form.addClass('box-size--middle');
+      } else if (image_id == 9){
+        image_form.removeClass('box-size--narrow');
+        image_form.addClass('box-size--narrow_middle');
+      } else if (image_id == 10){
+        image_form.removeClass('display-none');
+      }
+
+    });
+
+  });
+
   var image_id = 1;
   var image_form = $('.exhibition__main__image-form__upload');
   var input_tag = 'input[name="images[' + image_id + '][image_url]"]';
   var preview_ul = $('.image-upload__preview');
 
+  //クリックアクションイベント発火
   image_form.on('click', function() {
     image_form.children('input[name="images[' + image_id + '][image_url]"]')[0].click();
-    console.log(image_form)
   })
 
+  //ドラッグアンドドロップアクションイベント発火
   image_form.on("dragover", function(event) {
     event.preventDefault();  
     event.stopPropagation();
     image_form.children('input[name="images[' + image_id + '][image_url]"]').removeClass('display-none');
   });
-
   image_form.on('drop', function(e) {
-    //dropzone-jsを使う時は下記の画面遷移停止を定義すると動かなくなる。
-    // e.preventDefault();  
-    // e.stopPropagation();
     image_form.children('input[name="images[' + image_id + '][image_url]"]').addClass('display-none');
 
   })
@@ -46,7 +98,6 @@ $(document).on('turbolinks:load', function () {
   image_form.on('change', image_form.children('input[name="images[' + image_id + '][image_url]"]'), function (event) {
     //選択されたファイル情報を取得。[0]はJSのオブジェクトを使う宣言？
     var image = event.target.files[0];
-    // console.log(image)
 
     // 読み込んだ画像を読み込む
     var file_reader = new FileReader();
@@ -58,7 +109,7 @@ $(document).on('turbolinks:load', function () {
         image_tag = build_image_tag(image_id, event.target.result);
         preview_ul.append(image_tag);
 
-        // 2 || 6 という条件分岐にしたかったがうまくイベントが動かなかったため全ての条件を記載
+        // ドロプゾーンのリサイズ
         if (image_id == 1) {
           image_form.removeClass('box-size--wide');
           image_form.addClass('box-size--wide_middle');
@@ -97,9 +148,9 @@ $(document).on('turbolinks:load', function () {
         // imgタグ追加
         new_input_tag = build_new_input_tag(image_id);
         image_form.append(new_input_tag);
-        // console.log(new_input_tag)
       };
     })(image);
      file_reader.readAsDataURL(image);
   });
+
 });
