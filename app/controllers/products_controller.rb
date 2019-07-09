@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    @product = Product.find(3)
+    @product = Product.find(params[:id])
   end
   
   def new
