@@ -16,10 +16,14 @@ class ProductsController < ApplicationController
   end 
 
   def show 
-    # NOTE：本番では以下の記述を使用する
-    # @product = Product.find(params[:id])
-    @product = Product.find(1)
-    
+    @product = Product.find(params[:id])
+    @user_product = Product.where(user_id: @product.user.id)
+    num = Product.count('id')
+    @left_product = Product.find(rand(1..num))
+    @right_product = Product.find(rand(1..num))
+    while @right_product == @left_product do
+      @right_product = Product.find(rand(1..num))
+    end
   end
 
   def purchase

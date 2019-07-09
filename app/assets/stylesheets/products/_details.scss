@@ -21,9 +21,11 @@
     opacity: 0.8;
   }
 }
-.draggable{
-  width: 300px;
-  height: 300px;
+.slider {
+  display:none;
+}
+.slider.slick-initialized {
+  display: block;
 }
 .wrapper{
   background-color: #f5f5f5;
