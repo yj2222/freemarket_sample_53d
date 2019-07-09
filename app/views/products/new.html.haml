@@ -26,26 +26,23 @@
                   %p またはクリックしてファイルをアップロード
                 = fi.file_field :image_url, autofocus: true, name: "images[1][image_url]", class: "exhibition__main__image-form__upload--file display-none", id: "image1"
 
+        //商品名フォーム
         .exhibition__main__name-form
           .form
             %span.form__lavel 商品名 
             %span.form__equired 必須
             .form__input
               = f.text_field :name, autofocus: true, placeholder: "商品名（必須40文字まで）", class: "form__input--box"
-            - if @product.errors.messages[:name].present?
-              - @product.errors.messages[:name].each do |message|
-                %p.error= message
         
+        //商品説明フォーム
         .exhibition__main__description-form
           .form
             %span.form__lavel 商品の説明 
             %span.form__equired 必須
             .form__input
               = f.text_area :description, autofocus: true, class: "form__input--textarea", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-            - if @product.errors.messages[:description].present?
-              - @product.errors.messages[:description].each do |message|
-                %p.error= message
-
+        
+        //カテゴリーフォーム
         .exhibition__main__category-form
           .exhibition__main__category-form__left.form
             .exhibition__main__category-form__left--title.form__lavel 商品の詳細
@@ -53,88 +50,123 @@
             .form
               %span.form__lavel カテゴリー 
               %span.form__equired 必須
-              .form__select.icon-relative
-                .form__select.icon-relative
-                = f.select :category_id, Category.parents, prompt: "----", autofocus: true, class: "form__select--box"
-                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-              .form__select.icon-relative
-                = f.select :category_id, Category.children, prompt: "----", autofocus: true, class: "form__select--box"
-                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-              .form__select.icon-relative
-                = f.select :category_id, Category.grandchildren, prompt: "----", autofocus: true, class: "form__select--box"
+
+              //トップレベルカテゴリー
+              .form__select.icon-relative.category_top
+                %select.category_top--select.form__select--box
+                  %option{value: 0} ---
+                  %option{value: 1} レディース
+                  %option{value: 2} メンズ
+                  %option{value: 3} ベビー・キッズ
+                  %option{value: 4} コスメ・香水・美容
+                  %option{value: 5} インテリア・住まい・小物
+                  %option{value: 1328} 本・音楽・ゲーム
+                  %option{value: 6} おもちゃ・ホビー・グッズ
+                  %option{value: 7} 家電・スマホ・カメラ
+                  %option{value: 8} スポーツ・レジャー
+                  %option{value: 9} ハンドメイド
+                  %option{value: 1027} チケット
+                  %option{value: 1318} 自動車・オートバイ
+                  %option{value: 10} その他
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
-            .form.lower-form
+              //ミドルレベルカテゴリー
+              .form__select.icon-relative.category_middle.display-none
+                %select.category_middle--select.form__select--box
+                  %option{value: 0} ---
+                  %option{value: 1} トップス
+                  %option{value: 2} ジャケット/アウター
+                  %option{value: 3} パンツ
+                  %option{value: 4} スカート
+                  %option{value: 5} ワンピース
+                  %option{value: 1328} 靴
+                  %option{value: 6} ルームウェア/パジャマ
+                  %option{value: 7} レッグウェア
+                  %option{value: 8} 帽子
+                  %option{value: 9}バッグ
+                  %option{value: 1027} アクセサリー
+                  %option{value: 1318} ヘアアクセサリー
+                  %option{value: 10} その他
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+
+              //ボトムレベルカテゴリー
+              .form__select.icon-relative.category_bottom.display-none
+                = f.select :category_id, Category.grandchildren, prompt: "---", autofocus: true, class: "form__select--box"
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+
+            //サイズ選択
+            .form.lower-form.size-form.display-none
               %span.form__lavel サイズ
               %span.form__equired 必須
               .form__select.icon-relative
                 = f.select :size, Product.sizes, autofocus: true, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-              - if @product.errors.messages[:size].present?
-                - @product.errors.messages[:size].each do |message|
-                  %p.error= message  
 
+            //商品状態選択
             .form.lower-form
               %span.form__lavel 商品の状態 
               %span.form__equired 必須
               .form__select.icon-relative
                 = f.select :condition, Product.conditions, autofocus: true, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-              - if @product.errors.messages[:condition].present?
-                - @product.errors.messages[:condition].each do |message|
-                  %p.error= message
-          
+
+        //配送方法グループ
         .exhibition__main__derivary-form
           .exhibition__main__derivary-form__left
             %span.form__lavel 配送について
             %span.form-icon
               = link_to '', class: 'form-icon__help' do
                 = icon 'fas', 'question-circle', class: "form-icon__help--icon"
+          
+          //配送料選択
           .exhibition__main__derivary-form__right
-            .form
+            .form.delivery_price
               %span.form__lavel 配送料の負担 
               %span.form__equired 必須
               .form__select.icon-relative
-                = f.select :delivery_price, Product.delivery_prices, prompt: "---", class: "form__select--box"
+                = f.select :delivery_price,[['---',""], ['送料込み（出品者負担）', '送料込み（出品者負担）'], ['着払い（購入者負担）', '着払い（購入者負担）']], {}, {class:"form__select--box delivery_price_value"}
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-            
-            .form.lower-form 
+
+            //配送方法選択
+            .form.lower-form.delivery_type.display-none
               %span.form__lavel 配送の方法
               %span.form__equired 必須
-              .form__select.icon-relative
-                = f.select :delivery_type, Product.delivery_types, prompt: "---", class: 'form__select--box'
-                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-            
-              - if @product.errors.messages[:delivery_price].present?
-                - @product.errors.messages[:delivery_price].each do |message|
-                  %p.error= message
 
+              //送料込みが、選択された時のフォーム
+              .form__select.icon-relative.delivery_1_types.display-none
+                = f.select :delivery_type, Product.delivery_1_types, prompt: "---", class: 'form__select--box'
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+
+              //着払いが、選択された時のフォーム
+              .form__select.icon-relative.delivery_2_types.display-none
+                = f.select :delivery_type, Product.delivery_2_types, prompt: "---", class: 'form__select--box'
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              
+            //地域選択
             .form.lower-form 
               %span.form__lavel 発送元の地域 
               %span.form__equired 必須
               .form__select.icon-relative
                 = f.select :prefecture, Profile.prefectures, prompt: "---", class: 'form__select--box'
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-              - if @product.errors.messages[:prefecture].present?
-                - @product.errors.messages[:prefecture].each do |message|
-                  %p.error= message
 
+            //日数選択
             .form.lower-form
               %span.form__lavel 発送までの日数 
               %span.form__equired 必須
               .form__select.icon-relative
                 = f.select :delivery_days, Product.delivery_days, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-              - if @product.errors.messages[:delivery_days].present?
-                - @product.errors.messages[:delivery_days].each do |message|
-                  %p.error= message
-
+        
+        //価格設定グループ
         .exhibition__main__price-form
           .exhibition__main__price-form__left
             %span.form__lavel 販売価格(300〜9,999,999)
             %span.form__icon
               = link_to '', class: 'form-icon__help' do
                 = icon 'fas', 'question-circle', class: "form-icon__help--icon"
+                  
+          //価格入力
           .exhibition__main__price-form__right
             .price-form
               .price-form__text.form
@@ -143,9 +175,6 @@
               .price-form__input
                 %span.price-form__input--yen ¥
                 = f.text_field :price, autofocus: true, placeholder: "例）300", class: "price-form__input--box", id: "textForm1"
-              - if @product.errors.messages[:price].present?
-                - @product.errors.messages[:price].each do |message|
-                  %p.error= message
                 
             .price__list
               .price__list__tax
