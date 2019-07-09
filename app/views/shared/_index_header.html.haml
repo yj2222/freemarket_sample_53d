@@ -1,34 +1,39 @@
 .index-header 
-  .index-header__index-inner 
-    .top-header
-      .top-header-image  
-        %img{src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1881812696", alt: "company_logo"}
-      .top-page-search
+  .index-header__inner 
+    .index-header__inner__top
+      .index-header__inner__top--image  
+        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1881812696"
+      .index-header__inner__top--search
         = form_for "" do |f| 
           = f.text_field :content, class: 'header_search', placeholder: '  何かお探しですか?' 
           %label.form-mask 
             = f.submit 'Send', class: 'form__submit'
             = icon('fas', 'search', class: 'search-icon')
 
-    .bottom-header 
-      .bottom-header__left
-        %ul.category-brands
+    .index-header__inner__bottom 
+      .index-header__inner__bottom--left
+        %ul.category-brand__list
           %li
-            %h2.category-list-parent 
+            .category-brand__list--category 
               = icon('fas', 'list-ul', class: 'category-list-ul')
               %span カテゴリーから探す             
           %li
-            %h2.brands-list-parent 
+            .category-brand__list--brand 
               = icon('fas', 'tag', class: 'brands-list-tag')
               %span ブランドから探す
-      - if user_signed_in?
-        = link_to 'hello world',mypages_path
-      - else
-        .bottom-header__right
-          %ul.devise-login
-            %li
-              = link_to signup_path, class: "new-member-registration" do
-                新規会員登録
-            %li
-              = link_to login_path, class: "log-in" do
-                ログイン
+
+      .index-header__inner__bottom--right
+        %ul.devise-login
+          %li
+            = link_to signup_path, class: "new-member-registration" do
+              新規会員登録
+          %li
+            = link_to login_path, class: "log-in" do
+              ログイン  
+
+      -# 記述内容を担当者と相談するために残しています   
+      -#       %span ブランドから探す
+      -# - if user_signed_in?
+      -#   = link_to 'hello world',mypages_path
+      -# - else
+      -#   .bottom-header__right

@@ -1,0 +1,29 @@
+.gretel_guide {
+  position: relative;
+  border-top: 1px solid #eee;
+  -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  text-shadow: none;
+  width: 100%;
+  height: 49px;
+  &__wrapper {
+    overflow: visible;
+    width: 700px;
+    margin: 0 auto;
+    padding: 16px 0;
+    white-space: normal;
+    text-align: center;
+    height: 16px;
+    &--inner {
+      float: left;
+      a {
+        color: black;
+        .breadcrumbs-list {
+          font-size: 14px;
+          font-weight: 600;
+        } 
+      }
+    }
+  }
+}
