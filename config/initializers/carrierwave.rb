@@ -3,7 +3,7 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
-  if Rails.env.development? || Rails.env.test?  
+  if Rails.env.development? || Rails.env.test? 
     config.storage = :file
   elsif Rails.env.production? || Rails.env.staging?
     config.storage = :fog
@@ -14,8 +14,9 @@ CarrierWave.configure do |config|
       aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
       region: 'ap-northeast-1'
     }
+    config.fog_directory = 'mercari-pictures'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/mercari-pictures'
   end
 
-  config.fog_directory = 'mercari-pictures'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/mercari-pictures'
+  
 end
