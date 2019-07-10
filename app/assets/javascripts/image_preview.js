@@ -96,9 +96,9 @@ $(document).on('turbolinks:load', function () {
 
   // ファイルがアップされた時のアクション
   image_form.on('change', image_form.children('input[name="images[' + image_id + '][url]"]'), function (event) {
+    $('.error_message.type1').text("");
     //選択されたファイル情報を取得。[0]はJSのオブジェクトを使う宣言？
     var image = event.target.files[0];
-
     // 読み込んだ画像を読み込む
     var file_reader = new FileReader();
     // onload→読み込みが完了したら以下の処理を行う
