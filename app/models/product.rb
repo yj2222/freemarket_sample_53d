@@ -6,7 +6,7 @@ class Product < ApplicationRecord
 
   accepts_nested_attributes_for :images
   accepts_nested_attributes_for :category
-
+  
   enum condition: {
     "新品、未使用": "新品、未使用", 
     "未使用に近い": "未使用に近い", 
@@ -34,25 +34,6 @@ class Product < ApplicationRecord
     '着払い（購入者負担）': '着払い（購入者負担）', 
   }
 
-  enum delivery_1_type: {
-    "未定": "未定",
-    "らくらくメルカリ便": "らくらくメルカリ便",
-    "ゆうメール": "ゆうメール",
-    "レターパック": "レターパック",
-    "普通郵便(定形、定形外)": "普通郵便(定形、定形外)",
-    "クロネコヤマト": "クロネコヤマト",
-    "ゆうパック": "ゆうパック",
-    "クリックポスト": "クリックポスト",
-    "ゆうパケット": "ゆうパケット"
-  },_suffix: true
-
-  enum delivery_2_type: {
-    "未定": "未定",
-    "クロネコヤマト": "クロネコヤマト",
-    "ゆうパック": "ゆうパック",
-    "ゆうメール": "ゆうメール"
-  },_suffix: true
-
   enum delivery_day: {
     '1~2日で発送': '1~2日で発送', 
     '2〜3日で発送': '2〜3日で発送',
@@ -65,6 +46,5 @@ class Product < ApplicationRecord
   scope :limiter, -> { limit(4) }
   # limitとsortedを合わせたもの
   scope :recent, -> { sorted.limiter }
-
 
 end
