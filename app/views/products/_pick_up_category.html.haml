@@ -8,7 +8,7 @@
     .top-page__items-box__content-boxes 
       - @products_ladies.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to product_path(product.id) do
+          = link_to product_path(product.id), data: {"turbolinks" => false} do
             = image_tag "#{product.images.first.url}",class: 'image'
             .item__outline 
               .item__outline--product-name
@@ -32,8 +32,8 @@
     .top-page__items-box__content-boxes
       - @products_mens.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to product_path(product.id) do
-            = image_tag (product.images[0][:url])
+          = link_to product_path(product.id), data: {"turbolinks" => false} do
+            = image_tag "#{product.images.first.url}"
             .item__outline 
               .item__outline--product-name
                 = product.name
@@ -56,8 +56,8 @@
     .top-page__items-box__content-boxes
       - @products_kids.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to product_path(product.id) do
-            = image_tag (product.images[0][:url])
+          = link_to product_path(product.id), data: {"turbolinks" => false} do
+            = image_tag "#{product.images.first.url}"
             .item__outline 
               .item__outline--product-name
                 = product.name
@@ -80,8 +80,8 @@
     .top-page__items-box__content-boxes
       - @products_perfume.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to product_path(product.id) do
-            = image_tag (product.images[0][:url])
+          = link_to product_path(product.id), data: {"turbolinks" => false} do
+            = image_tag "#{product.images.first.url}"
             .item__outline 
               .item__outline--product-name
                 = product.name
