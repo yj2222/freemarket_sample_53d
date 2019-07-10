@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     collection do
       get 'details'
       get 'purchase'
+      get 'exhibit'
     end
   end
 
