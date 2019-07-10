@@ -53,6 +53,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def exhibit
+    @product = Product.find(1)
+    @user_product = Product.where(user_id: @product.user.id)
+    num = Product.count('id')
+    @left_product = Product.find(rand(1..num))
+    @right_product = Product.find(rand(1..num))
+    while @right_product == @left_product do
+      @right_product = Product.find(rand(1..num))
+    end
+  end
+
   private
 
   # ユーザID、SIZE、delivery_typeは未実装のため後ほど実装。
