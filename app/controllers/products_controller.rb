@@ -37,12 +37,13 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.new(params_int(product_params))
-    if product.save
+    @product = Product.new(params_int(product_params))
+    if @product.save
       
       num = 1
       while params[:images]["#{num}"].present? do
-        Image.create(image_params(num))
+        @image = Image.new(image_params(num))
+        @image.save
         num += 1
       end
 

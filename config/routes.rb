@@ -17,11 +17,8 @@ Rails.application.routes.draw do
 
   root 'products#index'
   resources :products do
-    collection do
-      get 'details'
-      get 'purchase'
-      get 'exhibit'
-    end
+    get 'purchase', on: :member
+    get 'exhibit'
   end
 
   resources :mypages do

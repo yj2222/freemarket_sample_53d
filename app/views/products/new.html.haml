@@ -1,5 +1,5 @@
 = render 'shared/details_header'
-.exhibition#btn
+.exhibition
   .exhibition__container
     .exhibition__head
       %h2.exhibition__head--title 商品の情報を入力
@@ -25,6 +25,7 @@
                   %p ドラッグアンドドロップ
                   %p またはクリックしてファイルをアップロード
                 = fi.file_field :url, autofocus: true, name: "images[1][url]", class: "exhibition__main__image-form__upload--file display-none", id: "image1"
+              %p.error_message.type1
 
         //商品名フォーム
         .exhibition__main__name-form
@@ -32,7 +33,8 @@
             %span.form__lavel 商品名 
             %span.form__equired 必須
             .form__input
-              = f.text_field :name, autofocus: true, placeholder: "商品名（必須40文字まで）", class: "form__input--box"
+              = f.text_field :name, autofocus: true, placeholder: "商品名（必須40文字まで）", class: "form__input--box name_box_val"
+              %p.error_message.type2
         
         //商品説明フォーム
         .exhibition__main__description-form
@@ -40,8 +42,9 @@
             %span.form__lavel 商品の説明 
             %span.form__equired 必須
             .form__input
-              = f.text_area :description, autofocus: true, class: "form__input--textarea", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-        
+              = f.text_area :description, autofocus: true, class: "form__input--textarea description_box_val", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+              %p.error_message.type3
+
         //カテゴリーフォーム
         .exhibition__main__category-form
           .exhibition__main__category-form__left.form
@@ -93,6 +96,7 @@
               .form__select.icon-relative.category_bottom.display-none
                 = f.select :category_id, Category.grandchildren, prompt: "---", autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+            %p.error_message.type4
 
             //サイズ選択
             .form.lower-form.size-form.display-none
@@ -101,6 +105,7 @@
               .form__select.icon-relative
                 = f.select :size, Product.sizes, autofocus: true, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+                .error_message.type5
 
             //商品状態選択
             .form.lower-form
@@ -109,6 +114,7 @@
               .form__select.icon-relative
                 = f.select :condition, Product.conditions, autofocus: true, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+                .error_message.type6
 
         //配送方法グループ
         .exhibition__main__derivary-form
@@ -126,22 +132,18 @@
               .form__select.icon-relative
                 = f.select :delivery_price,[['---',""], ['送料込み（出品者負担）', '送料込み（出品者負担）'], ['着払い（購入者負担）', '着払い（購入者負担）']], {}, {class:"form__select--box delivery_price_value"}
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+                .error_message.type7
 
             //配送方法選択
             .form.lower-form.delivery_type.display-none
               %span.form__lavel 配送の方法
               %span.form__equired 必須
 
-              //送料込みが、選択された時のフォーム
-              .form__select.icon-relative.delivery_1_types.display-none
-                = f.select :delivery_type, Product.delivery_1_types, prompt: "---", class: 'form__select--box'
+              //送料込み、着払いが、選択された時のフォーム
+              .form__select.icon-relative.delivery_type_select
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              %p.error_message.type8
 
-              //着払いが、選択された時のフォーム
-              .form__select.icon-relative.delivery_2_types.display-none
-                = f.select :delivery_type, Product.delivery_2_types, prompt: "---", class: 'form__select--box'
-                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-              
             //地域選択
             .form.lower-form 
               %span.form__lavel 発送元の地域 
@@ -149,6 +151,7 @@
               .form__select.icon-relative
                 = f.select :prefecture, Profile.prefectures, prompt: "---", class: 'form__select--box'
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+                %p.error_message.type9
 
             //日数選択
             .form.lower-form
@@ -157,7 +160,8 @@
               .form__select.icon-relative
                 = f.select :delivery_days, Product.delivery_days, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-        
+                %p.error_message.type10
+
         //価格設定グループ
         .exhibition__main__price-form
           .exhibition__main__price-form__left
@@ -175,7 +179,8 @@
               .price-form__input
                 %span.price-form__input--yen ¥
                 = f.text_field :price, autofocus: true, placeholder: "例）300", class: "price-form__input--box", id: "textForm1"
-                
+              %p.error_message.type11
+
             .price__list
               .price__list__tax
                 %p.price__list__tax--left 販売手数料(10%)
