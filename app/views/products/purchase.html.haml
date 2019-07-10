@@ -10,10 +10,11 @@
           %h3
             = image_tag "#{@product.images.first.url}", class: 'image'
           %p
-            = product.name
+            = @product.name
           = form_with url: buy_trades_path,class: "buy_trade" do |f|
             .buy__product__costs
-              %span.price ¥8,000
+              %span.price
+                = number_to_currency(@product.price)
               %p.shipping-cost 送料込み
             .buy__product__button.not-have
               .points__box
@@ -24,7 +25,7 @@
                   %span 支払金額
                 .price__table-payment
                   %span
-                    = product.price
+                    = number_to_currency(@product.price)
             .has-message
               %p この商品はゆうゆうメルカリ便を利用しているため、アプリからのみ購入できます。
             .buy__product__button

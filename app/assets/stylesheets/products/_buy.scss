@@ -77,6 +77,9 @@
           &__button{
             margin: 16px 0;
             width: 320px;
+            height: 48px;
+            text-align: center;
+            line-height: 48px;
             background-color: #ccc;
             &--submit{
               padding: 16px;

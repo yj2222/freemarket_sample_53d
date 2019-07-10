@@ -25,13 +25,22 @@
                 .faces
                   = icon 'fas','grin', id: 'grin'
                   %span 
-                    = @product.user.profile.good
+                    - if @product.user.profile.good == nil then
+                      0
+                    - else
+                      = @product.user.profile.good
                   = icon 'fas','meh', id: 'meh'
                   %span 
-                    = @product.user.profile.normal
+                    - if @product.user.profile.normal == nil then
+                      0
+                    - else
+                      = @product.user.profile.normal
                   = icon 'fas','frown', id: 'frown'
                   %span
-                    = @product.user.profile.bad
+                    - if @product.user.profile.bad == nil then
+                      0
+                    - else
+                      = @product.user.profile.bad
             %tr
               %th カテゴリー
               %td
@@ -43,7 +52,7 @@
                 .categorys  
                 = link_to "#", class: 'links' do
                   = icon 'fas', 'chevron-right', id: 'chevron'
-                  = @product.category.son
+                  = @product.category.grandchild
             %tr
               %th ブランド
               %td
@@ -82,7 +91,7 @@
             %span
               着払い(購入者負担)
       .products__container__buy__box
-        = link_to purchase_products_path(@product.id) ,class: "buy-btn" do
+        = link_to purchase_product_path(@product) ,class: "buy-btn" do
           購入画面に進む
       .products__container__comment__box
         %p.inner-comment 
