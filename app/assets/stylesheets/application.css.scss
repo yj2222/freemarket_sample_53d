@@ -34,8 +34,6 @@
  @import 'modules/gretel';
  @import 'modules/details_footer';
  @import 'modules/details_header';
- @import 'modules/slick';
- @import 'modules/slick-theme';
  @import 'users/signup';
  @import 'users/login';
  @import "users/information";
@@ -44,9 +42,7 @@
  @import 'users/payment';
  @import 'credits/credits';
  @import 'credits/credits';
- @import "slick/slick-theme"; 
- @import "slick/slick";
- @import "slick/carousel";
+ @import "modules/carousel";
  @import 'users/address';
 
 select {
