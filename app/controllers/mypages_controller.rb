@@ -19,5 +19,9 @@ class MypagesController < ApplicationController
 
   def destroy
   end
+
+  def selled
+    @user_product = Product.where(user_id: 1)
+  end
   
 end

@@ -41,3 +41,12 @@
   font-weight: bold;
   color: #888;
 }
+
+@mixin selled__tab--list {
+  width: 33.3%;
+  display: inline-block;
+  text-align: center;
+  font-size: 16px;
+  line-height: 72px;
+  font-weight: bold;
+}
