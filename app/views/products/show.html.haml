@@ -118,12 +118,12 @@
           = f.submit 'コメントする', class: 'comment'
     .other__products
       .other__products__prev
-        = link_to product_path(@left_product.id), class: 'links', data: {"turbolinks" => false}do
+        = link_to product_path(@product.id), class: 'links', data: {"turbolinks" => false}do
           = icon 'fas', 'chevron-left', id: 'chevron' 
-          = @left_product.name
+          = @product.name
       .other__products__next
-        = link_to product_path(@right_product.id), class: 'links', data: {"turbolinks" => false} do
-          = @right_product.name
+        = link_to product_path(@product.id), class: 'links', data: {"turbolinks" => false} do
+          = @product.name
           = icon 'fas', 'chevron-right', id: 'chevron'
     %ul.sns__share
       %li.sns__share__list
