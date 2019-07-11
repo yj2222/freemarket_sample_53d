@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2019_07_06_065633) do
   end
 
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "buyer_id", null: false
+    t.bigint "buyer_id"
     t.bigint "seller_id", null: false
     t.bigint "product_id", null: false
     t.integer "flug", null: false
