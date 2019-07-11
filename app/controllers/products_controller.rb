@@ -33,7 +33,8 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @image = Image.new
-    @product.images.build   
+    @product.images.build
+    @trade = Trade.new
   end
 
   def create
@@ -46,6 +47,10 @@ class ProductsController < ApplicationController
         @image.save
         num += 1
       end
+
+      last_id = Product.pluck(:id).last
+      @trade = Trade.new(seller_id: current_user.id, product_id: last_id, flug: 1)
+      @trade.save
 
       redirect_to root_path, notice: '出品しました。'
     else
@@ -79,7 +84,7 @@ class ProductsController < ApplicationController
       :delivery_type,
       :delivery_days,
       :prefecture,
-      :price).merge(user_id: 1)
+      :price).merge(user_id: current_user.id)
   end
 
   def image_params(num)
