@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       get 'logout'
       get 'profile'
       get 'identification'
+      get 'selled'
     end
   end
   resources :credits

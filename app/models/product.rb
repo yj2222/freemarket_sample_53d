@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   has_many :images
   belongs_to :user, optional: true
   belongs_to :category, optional: true
+  has_one :trade
 
   accepts_nested_attributes_for :images
   accepts_nested_attributes_for :category
