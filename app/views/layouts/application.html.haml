@@ -14,4 +14,5 @@
     -# 以下はslick.jsのために記述しました
     %script{src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", type: "text/javascript"}
   %body
+    = render 'layouts/notification.html.haml'   # 部分テンプレート化したフラッシュメッセージを表示させる
     = yield
