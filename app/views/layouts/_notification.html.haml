@@ -1,0 +1,3 @@
+.notification
+  - flash.each do |key, value|   # flashには標準で notice（動作成功時）とalert（動作失敗時）の2つのキーを生成してくれるため、両方に適用できるようにeachメソッドを使ってkeyとvalueを取り出す
+    = content_tag :div, value, class: key   # deviseを導入した状態でflashオブジェクトを使用すると、deviseに関する通知（ログイン・ログアウトなど）が発生した時のみ、keyとvalueのハッシュを生成する

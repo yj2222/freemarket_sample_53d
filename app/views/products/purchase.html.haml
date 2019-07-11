@@ -11,7 +11,7 @@
             = image_tag "#{@product.images.first.url}", class: 'image'
           %p
             = @product.name
-          = form_with url: buy_trades_path,class: "buy_trade" do |f|
+          = form_with url: buy_trade_path,class: "buy_trade" do |f|
             .buy__product__costs
               %span.price
                 = number_to_currency(@product.price)

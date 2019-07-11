@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function() {
     $(this).css('color', '');
   });
 
-  $("").on("click", function() {
+  $(".bottom-header__move__mypage").on("click", function() {
     $(this).css('color', 'black');
   });
 });

@@ -30,9 +30,7 @@ Rails.application.routes.draw do
   end
   resources :credits
   resources :trades do
-    collection do
-      post 'buy'
-      get 'done'
-    end
+    post 'buy', on: :member
+    get 'done'
   end
 end
