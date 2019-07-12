@@ -19,7 +19,6 @@ Rails.application.routes.draw do
   resources :products do
     get 'purchase', on: :member
     get 'exhibit', on: :member
-    end
   end
 
   resources :mypages do
@@ -35,4 +34,5 @@ Rails.application.routes.draw do
     post 'buy', on: :member
     get 'done'
   end
+
 end
