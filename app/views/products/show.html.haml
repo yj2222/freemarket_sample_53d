@@ -50,9 +50,9 @@
                     = icon 'fas', 'chevron-right', id: 'chevron'
                     = @product.category.child
                 .categorys  
-                = link_to "#", class: 'links' do
-                  = icon 'fas', 'chevron-right', id: 'chevron'
-                  = @product.category.grandchild
+                  = link_to "#", class: 'links' do
+                    = icon 'fas', 'chevron-right', id: 'chevron'
+                    = @product.category.grandchild
             %tr
               %th ブランド
               %td
@@ -97,7 +97,7 @@
         %p.inner-comment 
           = @product.description
       .products__container__likereport__box.clearfix
-        %button#like
+        %button.like
           = icon 'far','heart', id: 'likes'
           %span.likes いいね! 
           -# likesテーブルから持ってくること（未実装
@@ -118,12 +118,12 @@
           = f.submit 'コメントする', class: 'comment'
     .other__products
       .other__products__prev
-        = link_to product_path(@product.id), class: 'links', data: {"turbolinks" => false}do
+        = link_to product_path(@left_product.id), class: 'links', data: {"turbolinks" => false}do
           = icon 'fas', 'chevron-left', id: 'chevron' 
-          = @product.name
+          = @left_product.name
       .other__products__next
-        = link_to product_path(@product.id), class: 'links', data: {"turbolinks" => false} do
-          = @product.name
+        = link_to product_path(@right_product.id), class: 'links', data: {"turbolinks" => false} do
+          = @right_product.name
           = icon 'fas', 'chevron-right', id: 'chevron'
     %ul.sns__share
       %li.sns__share__list
