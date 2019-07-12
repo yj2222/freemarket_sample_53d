@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
     while @right_product == @left_product do
       @right_product = Product.find(rand(1..num))
     end
+    binding.pry
   end
 
   def purchase
@@ -52,6 +53,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    @product = Product.destroy(params[:id])
+    
+  end
   private
 
   # ユーザID、SIZE、delivery_typeは未実装のため後ほど実装。
