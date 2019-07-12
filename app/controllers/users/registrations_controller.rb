@@ -60,7 +60,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       sign_in(@user)
       redirect_to root_path
     else
-      render "users/registrations/information"
+      render "users/registrations/signup"
     end
   end
 
