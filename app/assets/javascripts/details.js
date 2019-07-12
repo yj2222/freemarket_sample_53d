@@ -10,6 +10,7 @@ $(function() {
     } else {
       $(".like").html('<i id="likes" class="far fa-heart"></i><span class="likes">いいね</span><span class="likes">3</span')
       $(".like").css("border-color","#f5f5f5")
+      $(".likes").css("color","black")
       $("#likes").css("color","black")
       flag = 0;
     }

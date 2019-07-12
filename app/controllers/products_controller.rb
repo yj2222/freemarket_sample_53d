@@ -18,12 +18,18 @@ class ProductsController < ApplicationController
   def show 
     @product = Product.find(params[:id])
     @user_product = Product.where(user_id: @product.user.id)
-    # num = Product.count('id')
-    # @left_product = Product.find(rand(1..num))
-    # @right_product = Product.find(rand(1..num))
-    # while @right_product == @left_product do
-    #   @right_product = Product.find(rand(1..num))
-    # end
+    num = Product.pluck(:id)
+    num.shuffle!
+    while num.first == @product.id do
+      num.shuffle!
+    end
+    @left_product = Product.find(num.first)
+    num.shuffle!
+    while num.first == @product.id do
+      num.shuffle!
+    end
+    @right_product = Product.find(num.first)
+    
   end
 
   def purchase
