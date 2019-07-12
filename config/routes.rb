@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   root 'products#index'
   resources :products do
     get 'purchase', on: :member
-    get 'exhibit'
+    get 'exhibit', on: :member
+    end
   end
 
   resources :mypages do

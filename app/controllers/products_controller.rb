@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
   end
 
   def exhibit
-    @product = Product.find(1)
+    @product = Product.find(params[:id])
     @user_product = Product.where(user_id: @product.user.id)
     num = Product.count('id')
     @left_product = Product.find(rand(1..num))
@@ -67,6 +67,15 @@ class ProductsController < ApplicationController
     while @right_product == @left_product do
       @right_product = Product.find(rand(1..num))
     end
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
   end
 
   private
