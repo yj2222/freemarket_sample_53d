@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function () {
   function build_image_tag(alt, src) {
     var html = `<li class="image-upload__preview__list">
                   <div class="image-upload__preview__list__top">
-                    <img src="${src}" alt="${alt}" width="114" height="50" class="image-upload__preview__list__top--image">
+                    <img src="${src}" alt="${alt}" width="114" height="100" class="image-upload__preview__list__top--image">
                   </div>
                   <div class="image-upload__preview__list__bottom">
                     <span class="image-upload__preview__list__bottom--btn btn-left">編集</span>
@@ -96,9 +96,9 @@ $(document).on('turbolinks:load', function () {
 
   // ファイルがアップされた時のアクション
   image_form.on('change', image_form.children('input[name="images[' + image_id + '][url]"]'), function (event) {
+    $('.error_message.type1').text("");
     //選択されたファイル情報を取得。[0]はJSのオブジェクトを使う宣言？
     var image = event.target.files[0];
-
     // 読み込んだ画像を読み込む
     var file_reader = new FileReader();
     // onload→読み込みが完了したら以下の処理を行う

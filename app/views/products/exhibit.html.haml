@@ -1,7 +1,7 @@
 .wrapper
   = render 'shared/index_header'
-  - breadcrumb :product_details, @product
-  = render "shared/gretel"
+  -# - breadcrumb :product_details, @product
+  -# = render "shared/gretel"
   .products
     .products__container
       %h1
@@ -25,22 +25,13 @@
                 .faces
                   = icon 'fas','grin', id: 'grin'
                   %span 
-                    - if @product.user.profile.good == nil then
-                      0
-                    - else
-                      = @product.user.profile.good
+                    = @product.user.profile.good
                   = icon 'fas','meh', id: 'meh'
                   %span 
-                    - if @product.user.profile.normal == nil then
-                      0
-                    - else
-                      = @product.user.profile.normal
+                    = @product.user.profile.normal
                   = icon 'fas','frown', id: 'frown'
                   %span
-                    - if @product.user.profile.bad == nil then
-                      0
-                    - else
-                      = @product.user.profile.bad
+                    = @product.user.profile.bad
             %tr
               %th カテゴリー
               %td
@@ -50,9 +41,9 @@
                     = icon 'fas', 'chevron-right', id: 'chevron'
                     = @product.category.child
                 .categorys  
-                  = link_to "#", class: 'links' do
-                    = icon 'fas', 'chevron-right', id: 'chevron'
-                    = @product.category.grandchild
+                = link_to "#", class: 'links' do
+                  = icon 'fas', 'chevron-right', id: 'chevron'
+                  = @product.category.grandchild
             %tr
               %th ブランド
               %td
@@ -90,25 +81,19 @@
           - else 
             %span
               着払い(購入者負担)
-      .products__container__buy__box
-        = link_to products_path,action: :destroy,class: "buy-btn" do
-          購入画面に進む
       .products__container__comment__box
         %p.inner-comment 
           = @product.description
-      .products__container__likereport__box.clearfix
-        %button.like
-          = icon 'far','heart', id: 'likes'
-          %span.likes いいね! 
-          -# likesテーブルから持ってくること（未実装
-          %span.likes 3
-        %button.report
-          = icon 'far','flag', id: 'flag'
-          %span 不適切な商品の報告
-        .safety
-          = link_to "#", class: "safety-btn links-noline" do
-            = icon 'fas','lock', id: 'lock'
-            %span あんしん・あんぜんへの取り組み
+
+    .products__change__box
+      = link_to "", class: "products__change__box__edit--btn" do
+        商品の編集
+      %p.products__change__box__middle or
+      = form_for "", class: "products__change__box__stop" do |f|
+        = f.submit "出品を一旦停止する", class: "products__change__box__stop--btn"
+      = link_to "", class: "products__change__box__delete--btn" do
+        この商品を削除する
+
     .comment__container
       = form_for '#' do |f|
         .comment__container__note

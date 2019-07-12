@@ -18,13 +18,18 @@ class ProductsController < ApplicationController
   def show 
     @product = Product.find(params[:id])
     @user_product = Product.where(user_id: @product.user.id)
-    num = Product.count('id')
-    @left_product = Product.find(rand(1..num))
-    @right_product = Product.find(rand(1..num))
-    while @right_product == @left_product do
-      @right_product = Product.find(rand(1..num))
+    num = Product.pluck(:id)
+    num.shuffle!
+    while num.first == @product.id do
+      num.shuffle!
     end
-    binding.pry
+    @left_product = Product.find(num.first)
+    num.shuffle!
+    while num.first == @product.id do
+      num.shuffle!
+    end
+    @right_product = Product.find(num.first)
+    
   end
 
   def purchase
@@ -34,18 +39,24 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @image = Image.new
-    @product.images.build   
+    @product.images.build
+    @trade = Trade.new
   end
 
   def create
-    product = Product.new(params_int(product_params))
-    if product.save
+    @product = Product.new(params_int(product_params))
+    if @product.save
       
       num = 1
       while params[:images]["#{num}"].present? do
-        Image.create(image_params(num))
+        @image = Image.new(image_params(num))
+        @image.save
         num += 1
       end
+
+      last_id = Product.pluck(:id).last
+      @trade = Trade.new(seller_id: current_user.id, product_id: last_id, flug: 1)
+      @trade.save
 
       redirect_to root_path, notice: '出品しました。'
     else
@@ -57,6 +68,17 @@ class ProductsController < ApplicationController
     @product = Product.destroy(params[:id])
     
   end
+  def exhibit
+    @product = Product.find(1)
+    @user_product = Product.where(user_id: @product.user.id)
+    num = Product.count('id')
+    @left_product = Product.find(rand(1..num))
+    @right_product = Product.find(rand(1..num))
+    while @right_product == @left_product do
+      @right_product = Product.find(rand(1..num))
+    end
+  end
+
   private
 
   # ユーザID、SIZE、delivery_typeは未実装のため後ほど実装。
@@ -72,7 +94,7 @@ class ProductsController < ApplicationController
       :delivery_type,
       :delivery_days,
       :prefecture,
-      :price).merge(user_id: 1)
+      :price).merge(user_id: current_user.id)
   end
 
   def image_params(num)

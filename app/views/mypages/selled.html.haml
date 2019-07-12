@@ -1,0 +1,38 @@
+.mypage
+  = render partial: "shared/index_header"
+  - breadcrumb :mypages
+  = render "shared/gretel"
+  .mypage__main
+    = render partial: "mypage-left"
+
+    .selled
+      .selled__title
+        %h2.selled__title--text 出品した商品
+      %ul.selled__tab
+        %li.selled__tab--list-left.active-tab 出品中           
+        %li.selled__tab--list-middle.not-active-tab 取引中
+        %li.selled__tab--list-right.not-active-tab 売却済      
+
+        %ul.left-link
+          - @user_product.each do |product|
+            %li.left-link__list.active
+              = link_to product_exhibit_path(product.id), class: "", data: {"turbolinks" => false} do
+                .left-link__list__link-tag
+                  .item-image
+                    = image_tag "#{product.images.first.url}", class: '', height: '48', width: '48'
+                  .item-text
+                    .item-text__name
+                      = product.name
+                    .item-text__status
+                      = icon 'far','heart', class: "item-text__status__like"
+                      .item-text__status__like--count 0
+                      = icon 'far','comment-alt', class: 'item-text__status__comment'
+                      .item-text__status__comment--count 0
+                      .item-text__status__flug
+                        %p 出品中
+                = icon 'fa', 'chevron-right', id: 'chevron-right-icon', class: "left-link__list__icon"
+          
+        .middle-link.not-active
+          bbb
+        .right-link.not-active
+          ccc

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   root 'products#index'
   resources :products do
     get 'purchase', on: :member
+    get 'exhibit'
   end
 
   resources :mypages do
@@ -25,13 +26,12 @@ Rails.application.routes.draw do
       get 'logout'
       get 'profile'
       get 'identification'
+      get 'selled'
     end
   end
   resources :credits
   resources :trades do
-    collection do
-      post 'buy'
-      get 'done'
-    end
+    post 'buy', on: :member
+    get 'done'
   end
 end
