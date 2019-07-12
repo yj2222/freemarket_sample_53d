@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:edit,:show,:update,:purchase,:exhibit]
+
   def index  
     # カテゴリーの一覧 スコープを使用 model/product.rb参照
     @products_ladies = Product.where(category_id: 1).recent
@@ -16,7 +18,6 @@ class ProductsController < ApplicationController
   end 
 
   def show 
-    @product = Product.find(params[:id])
     @user_product = Product.where(user_id: @product.user.id)
     num = Product.pluck(:id)
     num.shuffle!
@@ -33,7 +34,6 @@ class ProductsController < ApplicationController
   end
 
   def purchase
-    @product = Product.find(params[:id])
   end
   
   def new
@@ -65,7 +65,6 @@ class ProductsController < ApplicationController
   end
 
   def exhibit
-    @product = Product.find(1)
     @user_product = Product.where(user_id: @product.user.id)
     num = Product.count('id')
     @left_product = Product.find(rand(1..num))
@@ -75,9 +74,18 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @product.update(product_params)
+  end
+
   private
 
-  # ユーザID、SIZE、delivery_typeは未実装のため後ほど実装。
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   def product_params
     params.require(:product).permit(

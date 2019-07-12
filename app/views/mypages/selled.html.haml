@@ -16,7 +16,7 @@
         %ul.left-link
           - @user_product.each do |product|
             %li.left-link__list.active
-              = link_to product_exhibit_path(product.id), class: "", data: {"turbolinks" => false} do
+              = link_to exhibit_product_path(product.id), class: "", data: {"turbolinks" => false} do
                 .left-link__list__link-tag
                   .item-image
                     = image_tag "#{product.images.first.url}", class: '', height: '48', width: '48'

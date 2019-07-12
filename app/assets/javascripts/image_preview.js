@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', function () {
   function build_image_tag(alt, src) {
     var html = `<li class="image-upload__preview__list">
                   <div class="image-upload__preview__list__top">
-                    <img src="${src}" alt="${alt}" width="114" height="100" class="image-upload__preview__list__top--image">
+                    <img src="${src}" alt="${alt}" width="114" height="114" class="image-upload__preview__list__top--image">
                   </div>
                   <div class="image-upload__preview__list__bottom">
                     <span class="image-upload__preview__list__bottom--btn btn-left">編集</span>
