@@ -33,4 +33,6 @@ Rails.application.routes.draw do
     post 'buy', on: :member
     get 'done'
   end
+
+  resources :categories
 end

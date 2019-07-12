@@ -64,16 +64,22 @@
         background-color: white;
         .category-brand__list {
           display: flex;
+          position: relative;
           &--category {
             line-height: 44px;
             padding: 0 11px 0 0;
+            position: relative;
             .category-list-ul {
               color: red;
             } 
-              span {
-                font-weight: 450;
+              a {
                 font-size: 14px;
                 font-family: sans-serif;
+                font-weight: bold;
+                color: black;
+              }
+              a:hover {
+                color: #0099E8;
               }
           } 
           &--brand {
@@ -82,10 +88,14 @@
             .brands-list-tag {
               color: red;
             } 
-            span {
-              font-weight: 450;
+            a {
               font-size: 14px;
               font-family: sans-serif;
+              font-weight: bold;
+              color: black;
+            }
+            a:hover {
+              color: #0099E8;
             }
           } 
         }

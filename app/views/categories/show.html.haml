@@ -1,0 +1,10 @@
+= render "shared/index_header"
+- breadcrumb :categories_parent, @category
+= render "shared/gretel"
+
+-#  カテゴリーページのフロント実装は割愛しました。
+.categories__all-lists
+  = @category.parent
+   
+= render "shared/index_footer"      
+  

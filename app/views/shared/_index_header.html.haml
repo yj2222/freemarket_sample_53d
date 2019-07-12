@@ -16,11 +16,15 @@
           %li
             .category-brand__list--category 
               = icon('fas', 'list-ul', class: 'category-list-ul')
-              %span カテゴリーから探す             
+              = link_to "#" do 
+                カテゴリーから探す
+            = render "products/index_category_list"            
           %li
             .category-brand__list--brand 
               = icon('fas', 'tag', class: 'brands-list-tag')
-              %span ブランドから探す
+              = link_to "#" do 
+                ブランドから探す
+                
       - if user_signed_in?
         .bottom-header__right__login
           %ul.devise-login

@@ -1,0 +1,190 @@
+%ul.index-category__lists
+  %li.index-category__lists__parent
+    %h3
+      = link_to category_path(1), class: "list-tag" do
+        レディース
+    %ul.index-category__lists__parent__child
+      %li.index-category__lists__parent__child--child_list
+        = link_to category_path(11), class: "category-tag" do
+          トップス 
+        %ul.index-category__lists__parent__child--child_list__gra-child
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              Tシャツ/カットソー(半袖/袖なし)
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              Tシャツ/カットソー(七分/長袖)
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              シャツ/ブラウス(半袖/袖なし)
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              シャツ/ブラウス(七分/長袖)
+          %li.index-category__lists__parent__child--child_list__gra-child--list          
+            = link_to "#" do
+              ポロシャツ
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              キャミソール
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              タンクトップ
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              ホルターネック
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              ニット/セーター
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              チュニック
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              ガーディガン/ポレロ
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              アンサンブル
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              ベスト/ジレ
+          %li.index-category__lists__parent__child--child_list__gra-child--list
+            = link_to "#" do
+              パーカー
+      -#  中途半端ですが、時間がある時に実装します。
+      %li.index-category__lists__parent__child--child_list
+        = link_to category_path(12), class: "category-tag" do
+          ジャケット/アウター
+      %li.index-category__lists__parent__child--child_list
+        = link_to "#", class: "category-tag" do
+          パンツ
+      %li.index-category__lists__parent__child--child_list
+        = link_to "#", class: "category-tag" do
+          スカート
+      %li.index-category__lists__parent__child--child_list
+        = link_to "#", class: "category-tag" do
+          ワンピース
+      %li.index-category__lists__parent__child--child_list
+        = link_to "#", class: "category-tag" do
+          靴
+      %li.index-category__lists__parent__child--child_list
+        = link_to "#", class: "category-tag" do
+          ルームウェア/パジャマ
+      %li.index-category__lists__parent__child--child_list
+        = link_to "#", class: "category-tag" do
+          レッグウェア
+      %li.index-category__lists__parent__child--child_list
+        = link_to "#", class: "category-tag" do
+          帽子
+      %li.index-category__lists__parent__child--child_list
+        = link_to "#", class: "category-tag" do
+          バッグ
+      %li.index-category__lists__parent__child--child_list
+        = link_to "#", class: "category-tag" do
+          アクセサリー
+      %li.index-category__lists__parent__child--child_list
+        = link_to "#", class: "category-tag" do
+          ヘアアクセサリー
+      %li.index-category__lists__parent__child--child_list
+        = link_to "#", class: "category-tag" do
+          小物
+      %li.index-category__lists__parent__child--child_list
+        = link_to "#", class: "category-tag" do
+          時計
+
+  %li.index-category__lists__parent
+    %h3
+      = link_to category_path(2), class: "list-tag" do
+        メンズ
+    -# 中半端ですが、追加機能として実装します。
+    -# %ul.index-category__lists__parent__child
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       トップス
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       ジャケット/アウター
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       パンツ
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       スカート
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       ワンピース
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       靴
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       ルームウェア/パジャマ
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       レッグウェア
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       帽子
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       バッグ
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       アクセサリー
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       ヘアアクセサリー
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       小物
+    -#   %li.index-category__lists__parent__child--child_list
+    -#     = link_to "#", class: "category-tag" do
+    -#       時計
+           
+  %li.index-category__lists__parent
+    %h3 
+      = link_to category_path(3), class: "list-tag" do
+        ベビー・キッズ
+  %li.index-category__lists__parent
+    %h3 
+      = link_to "#", class: "list-tag" do
+        インテリア・住まい・小物
+  %li.index-category__lists__parent
+    %h3 
+      = link_to "#", class: "list-tag" do
+        本・音楽・小物
+  %li.index-category__lists__parent
+    %h3 
+      = link_to "#", class: "list-tag" do
+        おもちゃ・ホビー・グッズ
+  %li.index-category__lists__parent
+    %h3 
+      = link_to category_path(4), class: "list-tag" do
+        コスメ・香水・美容
+  %li.index-category__lists__parent
+    %h3 
+      = link_to "#", class: "list-tag" do
+        家電・スマホ・カメラ
+  %li.index-category__lists__parent
+    %h3 
+      = link_to "#", class: "list-tag" do
+        スポーツ・レジャー
+  %li.index-category__lists__parent
+    %h3 
+      = link_to "#", class: "list-tag" do
+        ハンドメイド
+  %li.index-category__lists__parent
+    %h3 
+      = link_to "#", class: "list-tag" do
+        チケット
+  %li.index-category__lists__parent
+    %h3 
+      = link_to "#", class: "list-tag" do
+        自転車・オートバイ
+  %li.index-category__lists__parent
+    %h3 
+      = link_to "#", class: "list-tag" do
+        その他
+  %li.index-category__lists__others
+    %h3 
+      = link_to categories_path class: "list-tag" do
+        カテゴリー一覧
