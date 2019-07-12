@@ -92,6 +92,7 @@ gem 'devise-i18n-views'
 gem 'enum_help'
 gem "gretel"
 gem 'pry-rails'
+gem 'gon'
 group :production do
   gem 'unicorn'
 end
