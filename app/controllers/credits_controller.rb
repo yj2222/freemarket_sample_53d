@@ -18,13 +18,12 @@ class CreditsController < ApplicationController
       redirect_to action: "index"
     else
       # payjpに保存する記述
-      @current_user = User.find(1)   # マージ後に消す(@currentを全てcurrentに変更する)
       customer = Payjp::Customer.create(
         card: params['payjpToken'],
-        metadata: {user_id: @current_user.id}
+        metadata: {user_id: current_user.id}
       )
       # dbに保存する記述
-      @card = Credit.new(user_id: @current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card = Credit.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         # redirect_to action: "show"
         redirect_to controller: 'products', action: 'index'
@@ -37,8 +36,7 @@ class CreditsController < ApplicationController
   end
 
   def show
-    @current_user = User.find(1)   # マージ後に消す(@currentを全てcurrentに変更する)
-    card = @current_user.credit
+    card = current_user.credit
     if card.blank?
       redirect_to action: "index"
     else
