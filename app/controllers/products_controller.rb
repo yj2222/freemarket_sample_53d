@@ -30,7 +30,6 @@ class ProductsController < ApplicationController
       num.shuffle!
     end
     @right_product = Product.find(num.first)
-    
   end
 
   def purchase
@@ -70,19 +69,16 @@ class ProductsController < ApplicationController
     @left_product = Product.find(rand(1..num))
     @right_product = Product.find(rand(1..num))
     # while @right_product == @left_product do
-      # @right_product = Product.find(rand(1..num))
+    #   @right_product = Product.find(rand(1..num))
     # end
   end
 
   def edit
-
     @images = @product.images
-
+    @image = Image.new(url: @images.first.url, product_id: @product.id)
     @images.each do |image|
       image.destroy
     end
-
-    @image =Image.new(url: @images.first.url, product_id: @product.id)
     @image.save
   end
 
