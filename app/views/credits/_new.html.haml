@@ -28,13 +28,13 @@
       .input-card__main__middle__form
         .input-card__main__middle__form__select
           .input-card__main__middle__form__select--box.icon-relative
-            = f.select :expiration_month, @months, {}, class: "input"
+            = f.select :expiration_month, Credit.months, {}, class: "input"
             = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
           .input-card__main__middle__form__select--text 月
 
         .input-card__main__middle__form__select
           .input-card__main__middle__form__select--box.icon-relative
-            = f.select :expiration_year, @years, {}, class: "input", prompt: "--"
+            = f.select :expiration_year, Credit.years, {}, class: "input", prompt: "--"
             = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
           .input-card__main__middle__form__select--text 年
 

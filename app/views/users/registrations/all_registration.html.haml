@@ -13,13 +13,13 @@
                   ニックネーム
                 %span.input_content__form__box__necessary
                   必須
-                = f.text_field :nickname, {class: "form__input",id: "step1__nickname", placeholder: "例) メルカリ太郎"}
+                = f.text_field :nickname, {class: "form__input",id: "step1__nickname", placeholder: "例) メルカリ太郎", value: "#{@user.nickname}"}
               .input_content__form__box
                 %label.input_content__form__box__detail
                   メールアドレス
                 %span.input_content__form__box__necessary
                   必須
-                = f.text_field :email, {class: "form__input",id: "step1__email", placeholder: "PC・携帯どちらでも可"}
+                = f.text_field :email, {class: "form__input",id: "step1__email", placeholder: "PC・携帯どちらでも可", value: "#{@user.email}"}
               .input_content__form__box
                 %label.input_content__form__box__detail
                   パスワード
@@ -176,6 +176,9 @@
                     %span.address-form-optional
                       任意
                     = pro.text_field :phone_number, class: 'address-registration-form', placeholder: '例）09012345678' 
+
+                  = f.text_field :provider, {type: "hidden", value: "#{@user.provider}"}
+                  = f.text_field :uid, {type: "hidden", value: "#{@user.uid}"}
                   
                 = f.submit "次へ進む", {class:"form-button",id:"step2__button"} 
       = render "shared/details_footer"
