@@ -8,17 +8,17 @@
             %p
               新規会員登録
           .entry-box
-            %button.entry-box__button__mail
-              %div{"data-turbolinks": "false"}
-                = link_to signup_all_path do
+            = link_to signup_all_path do
+              %button.entry-box__button__mail
+                %div{"data-turbolinks": "false"}
                   = icon 'far', 'envelope', id: 'icon__mail'
                   %p.mail__text メールアドレスで登録
-            %button.entry-box__button__facebook
-              = icon 'fab', 'facebook-square', id: 'icon__facebook'
-              %p.mail__text Facebookで登録
-              = link_to '', ""
-            %button.entry-box__button__google
-              = icon 'fab', 'google', id: 'icon__google'
-              %p.mail__text Googleで登録
-              = link_to '', "" 
+            = link_to user_facebook_omniauth_authorize_path do
+              %button.entry-box__button__facebook
+                = icon 'fab', 'facebook-square', id: 'icon__facebook'
+                %p.mail__text Facebookで登録
+            = link_to user_google_oauth2_omniauth_authorize_path do
+              %button.entry-box__button__google
+                = icon 'fab', 'google', id: 'icon__google'
+                %p.mail__text Googleで登録
       = render partial: 'shared/details_footer'
