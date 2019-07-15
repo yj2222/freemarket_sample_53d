@@ -69,23 +69,21 @@ class ProductsController < ApplicationController
     num = Product.count('id')
     @left_product = Product.find(rand(1..num))
     @right_product = Product.find(rand(1..num))
-    while @right_product == @left_product do
-      @right_product = Product.find(rand(1..num))
-    end
+    # while @right_product == @left_product do
+      # @right_product = Product.find(rand(1..num))
+    # end
   end
 
   def edit
 
     @images = @product.images
 
-    @product.images.each do |image|
+    @images.each do |image|
       image.destroy
     end
 
-    binding.pry
-
-    Image.create(url: @images.first.url, product_id: @product.id)
-
+    @image =Image.new(url: @images.first.url, product_id: @product.id)
+    @image.save
   end
 
   def update
