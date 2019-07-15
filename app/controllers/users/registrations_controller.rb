@@ -21,9 +21,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def payment
-    @credit = Credit.new
-    @years = [2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030]
-    @months = [1,2,3,4,5,6,7,8,9,10,11,12]
     render "users/registrations/payment"
   end
 
@@ -61,9 +58,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user = User.create(user_params)
     if @user.save
       sign_in(@user)
-      #createアクション内で変数を持たせないとエラーが出る
-      @months = [1,2,3,4,5,6,7,8,9,10,11,12]
-      @years = [2019,2020,2021,2022,2023,2024,2025,2026,2027,2028,2029,2030]
       render "users/registrations/payment"
     else
       render "users/signup"
