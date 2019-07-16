@@ -3,10 +3,10 @@ class ProductsController < ApplicationController
 
   def index  
     # カテゴリーの一覧 スコープを使用 model/product.rb参照
-    @products_ladies = Product.where(category_id: 1).recent
-    @products_mens = Product.where(category_id: 2).recent
-    @products_kids = Product.where(category_id: 3).recent
-    @products_perfume = Product.where(category_id: 4).recent
+    @products_ladies = Product.where(category_id: 1..18).recent
+    @products_mens = Product.where(category_id: 176..187).recent
+    @products_kids = Product.where(category_id: 304..314).recent
+    @products_perfume = Product.where(category_id: 698..706).recent
     # ブランドの一覧
     @products_chanel = Product.where(brand_id: 1).recent 
     @products_vuitton = Product.where(brand_id: 2).recent
