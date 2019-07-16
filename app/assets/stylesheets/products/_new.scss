@@ -303,10 +303,27 @@
     @include form__lavel;
   }
   &__equired {
+    background: #ea352d;
+    @include form__equired;
+  }
+  &__optional {
+    background: #cccccc;
     @include form__equired;
   }
 }
 .error_message {
   padding-top: 8px;
   color: red;
+}
+.form__input__box--small {
+  width: 91.5%;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
 }

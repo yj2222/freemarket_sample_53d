@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:edit,:show,:update,:purchase,:exhibit]
+
   def index  
     # カテゴリーの一覧 スコープを使用 model/product.rb参照
     @products_ladies = Product.where(category_id: 1).recent
@@ -16,7 +18,6 @@ class ProductsController < ApplicationController
   end 
 
   def show 
-    @product = Product.find(params[:id])
     @user_product = Product.where(user_id: @product.user.id)
     num = Product.pluck(:id)
     num.shuffle!
@@ -29,11 +30,9 @@ class ProductsController < ApplicationController
       num.shuffle!
     end
     @right_product = Product.find(num.first)
-    
   end
 
   def purchase
-    @product = Product.find(params[:id])
   end
   
   def new
@@ -70,7 +69,6 @@ class ProductsController < ApplicationController
     
   end
   def exhibit
-    @product = Product.find(1)
     @user_product = Product.where(user_id: @product.user.id)
     num = Product.pluck(:id)
     num.shuffle!
@@ -82,12 +80,38 @@ class ProductsController < ApplicationController
     while num.first == @product.id do
       num.shuffle!
     end
-    @right_product = Product.find(num.first)
+  end
+
+  def edit
+    # @images = @product.images
+    # @image = Image.new(url: @images.first.url, product_id: @product.id)
+    # @images.each do |image|
+    #   image.destroy
+    # end
+    # @image.save
+  end
+
+  def update
+    @product.update(product_params)
+
+    @product.images.each do |image|
+      image.destroy
+    end
+    
+    num = 1
+    while params[:images]["#{num}"].present? do
+      @image = Image.new(update_image_params(num))
+      @image.save
+      num += 1
+    end
+
   end
 
   private
 
-  # ユーザID、SIZE、delivery_typeは未実装のため後ほど実装。
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
   def product_params
     params.require(:product).permit(
@@ -95,6 +119,7 @@ class ProductsController < ApplicationController
       :description,
       :category_id,
       :size,
+      :brand_id,
       :condition,
       :delivery_price,
       :delivery_type,
@@ -104,8 +129,13 @@ class ProductsController < ApplicationController
   end
 
   def image_params(num)
-      last_id = Product.pluck(:id).last
-      params.require(:images).require("#{num}").permit(:url).merge(product_id: last_id)
+    last_id = Product.pluck(:id).last
+    params.require(:images).require("#{num}").permit(:url).merge(product_id: last_id)
+  end
+
+  def update_image_params(num)
+    product_id = @product.id
+    params.require(:images).require("#{num}").permit(:url).merge(product_id: product_id)
   end
 
   # 送られたパラメータを整数化する。

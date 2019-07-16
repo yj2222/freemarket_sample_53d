@@ -21,7 +21,7 @@ class MypagesController < ApplicationController
   end
 
   def selled
-    @user_product = Product.where(user_id: 1)
+    @user_product = Product.where(user_id: current_user.id)
   end
   
 end

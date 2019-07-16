@@ -11,13 +11,14 @@
           %p.exhibition__main__image-form__text 最大10枚までアップロードできます
           //投稿画像プレビュー
           %ul.image-upload__preview
-            //プレビュー表示変更の場合があるので以下の記述残しておきます。
-            -# %li.image-upload__preview__list
-            -#   .image-upload__preview__list__top
-            -#     = image_tag "common/user-bg.jpg", size: "114x50", alt: "test", class: "image-upload__preview__list__top--image"
-            -#   .image-upload__preview__list__bottom
-            -#     %span.image-upload__preview__list__bottom--btn.btn-left 編集
-            -#     %span.image-upload__preview__list__bottom--btn 削除
+            -# - @product.images.each_with_index do |image, index|
+            -#   %li.image-upload__preview__list
+            -#     .image-upload__preview__list__top
+            -#       = image_tag "#{image.url}", size: "114x100", alt: "test", class: "image-upload__preview__list__top--image"
+            -#     .image-upload__preview__list__bottom
+            -#       %span.image-upload__preview__list__bottom--btn.btn-left 編集
+            -#       %span.image-upload__preview__list__bottom--btn.btn-right 削除
+            
             //画像投稿フォーム
             = f.fields_for :images do |fi|
               .exhibition__main__image-form__upload.box-size--wide
@@ -26,7 +27,7 @@
                   %p またはクリックしてファイルをアップロード
                 = fi.file_field :url, autofocus: true, name: "images[1][url]", class: "exhibition__main__image-form__upload--file display-none", id: "image1"
               %p.error_message.type1
-
+              
         //商品名フォーム
         .exhibition__main__name-form
           .form
@@ -56,51 +57,20 @@
 
               //トップレベルカテゴリー
               .form__select.icon-relative.category_top
-                %select.category_top--select.form__select--box
-                  %option{value: 0} ---
-                  %option{value: 1} レディース
-                  %option{value: 2} メンズ
-                  %option{value: 3} ベビー・キッズ
-                  %option{value: 4} コスメ・香水・美容
+                = f.select :category_id, Category.parents, prompt: "---", autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
               //ミドルレベルカテゴリー
-              .form__select.icon-relative.category_middle_1.display-none
-                %select.category_middle--select.form__select--box
-                  %option{value: 0} ---
-                  %option{value: 1} トップス
-              .form__select.icon-relative.category_middle_2.display-none
-                %select.category_middle--select.form__select--box
-                  %option{value: 0} ---
-                  %option{value: 1} トップス
-              .form__select.icon-relative.category_middle_3.display-none
-                %select.category_middle--select.form__select--box
-                  %option{value: 0} ---
-                  %option{value: 44} ベビー服(女の子用)  ~95cm
-              .form__select.icon-relative.category_middle_4.display-none
-                %select.category_middle--select.form__select--box
-                  %option{value: 0} ---
-                  %option{value: 88} ベースメイク
+              .form__select.icon-relative.category_middle
+                = f.select :category_id, Category.children, prompt: "---", autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
               //ボトムレベルカテゴリー
-              .form__select.icon-relative.category_bottom.display-none
+              .form__select.icon-relative.category_bottom
                 = f.select :category_id, Category.grandchildren, prompt: "---", autofocus: true, class: "form__select--box"
+                -# = f.collection_select :category_id, Category.children, :id, :name, { prompt: '---' }, autofocus: true, class: 'iform__select--box'
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-              .form__select.icon-relative.category_bottom_1.display-none
-                = f.select :category_id, Category.grandchild_1s, prompt: "---", autofocus: true, class: "form__select--box"
-                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-              .form__select.icon-relative.category_bottom_2.display-none
-                = f.select :category_id, Category.grandchild_2s, prompt: "---", autofocus: true, class: "form__select--box"
-                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-              .form__select.icon-relative.category_bottom_3.display-none
-                = f.select :category_id, Category.grandchild_3s, prompt: "---", autofocus: true, class: "form__select--box"
-                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
-
-              
-              
             %p.error_message.type4
-            -# = f.hidden_field :category_id
 
             //サイズ選択
             .form.lower-form.size-form.display-none
@@ -110,12 +80,6 @@
                 = f.select :size, Product.sizes, autofocus: true, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
                 .error_message.type5
-
-            .form.lower-form.brand-form.size-form.display-none
-              %span.form__lavel ブランド
-              %span.form__optional 任意
-              .form__select.icon-relative
-                = f.text_field :brand_id, autofocus: true, placeholder: "例）シャネル", class: "form__input__box--small brand_box_val"
 
             //商品状態選択
             .form.lower-form

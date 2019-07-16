@@ -86,7 +86,7 @@
           = @product.description
 
     .products__change__box
-      = link_to "#", class: "products__change__box__edit--btn" do
+      = link_to edit_product_path(@product.id), class: "products__change__box__edit--btn" do
         商品の編集
       %p.products__change__box__middle or
       = form_for "#", class: "products__change__box__stop" do |f|
