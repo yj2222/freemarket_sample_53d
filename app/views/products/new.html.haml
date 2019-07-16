@@ -62,41 +62,45 @@
                   %option{value: 2} メンズ
                   %option{value: 3} ベビー・キッズ
                   %option{value: 4} コスメ・香水・美容
-                  %option{value: 5} インテリア・住まい・小物
-                  %option{value: 1328} 本・音楽・ゲーム
-                  %option{value: 6} おもちゃ・ホビー・グッズ
-                  %option{value: 7} 家電・スマホ・カメラ
-                  %option{value: 8} スポーツ・レジャー
-                  %option{value: 9} ハンドメイド
-                  %option{value: 1027} チケット
-                  %option{value: 1318} 自動車・オートバイ
-                  %option{value: 10} その他
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
               //ミドルレベルカテゴリー
-              .form__select.icon-relative.category_middle.display-none
+              .form__select.icon-relative.category_middle_1.display-none
                 %select.category_middle--select.form__select--box
                   %option{value: 0} ---
                   %option{value: 1} トップス
-                  %option{value: 2} ジャケット/アウター
-                  %option{value: 3} パンツ
-                  %option{value: 4} スカート
-                  %option{value: 5} ワンピース
-                  %option{value: 1328} 靴
-                  %option{value: 6} ルームウェア/パジャマ
-                  %option{value: 7} レッグウェア
-                  %option{value: 8} 帽子
-                  %option{value: 9}バッグ
-                  %option{value: 1027} アクセサリー
-                  %option{value: 1318} ヘアアクセサリー
-                  %option{value: 10} その他
+              .form__select.icon-relative.category_middle_2.display-none
+                %select.category_middle--select.form__select--box
+                  %option{value: 0} ---
+                  %option{value: 1} トップス
+              .form__select.icon-relative.category_middle_3.display-none
+                %select.category_middle--select.form__select--box
+                  %option{value: 0} ---
+                  %option{value: 44} ベビー服(女の子用)  ~95cm
+              .form__select.icon-relative.category_middle_4.display-none
+                %select.category_middle--select.form__select--box
+                  %option{value: 0} ---
+                  %option{value: 88} ベースメイク
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
               //ボトムレベルカテゴリー
               .form__select.icon-relative.category_bottom.display-none
                 = f.select :category_id, Category.grandchildren, prompt: "---", autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              .form__select.icon-relative.category_bottom_1.display-none
+                = f.select :category_id, Category.grandchild_1s, prompt: "---", autofocus: true, class: "form__select--box"
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              .form__select.icon-relative.category_bottom_2.display-none
+                = f.select :category_id, Category.grandchild_2s, prompt: "---", autofocus: true, class: "form__select--box"
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              .form__select.icon-relative.category_bottom_3.display-none
+                = f.select :category_id, Category.grandchild_3s, prompt: "---", autofocus: true, class: "form__select--box"
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+
+              
+              
             %p.error_message.type4
+            -# = f.hidden_field :category_id
 
             //サイズ選択
             .form.lower-form.size-form.display-none
@@ -106,6 +110,12 @@
                 = f.select :size, Product.sizes, autofocus: true, prompt: "---", class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
                 .error_message.type5
+
+            .form.lower-form.brand-form.size-form.display-none
+              %span.form__lavel ブランド
+              %span.form__optional 任意
+              .form__select.icon-relative
+                = f.text_field :brand_id, autofocus: true, placeholder: "例）シャネル", class: "form__input__box--small brand_box_val"
 
             //商品状態選択
             .form.lower-form
