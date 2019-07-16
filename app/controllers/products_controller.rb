@@ -63,14 +63,23 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    @product = Product.destroy(params[:id])
+    redirect_to root_path, notice: '削除に成功しました。'
+    
+  end
   def exhibit
     @user_product = Product.where(user_id: @product.user.id)
-    num = Product.count('id')
-    @left_product = Product.find(rand(1..num))
-    @right_product = Product.find(rand(1..num))
-    # while @right_product == @left_product do
-    #   @right_product = Product.find(rand(1..num))
-    # end
+    num = Product.pluck(:id)
+    num.shuffle!
+    while num.first == @product.id do
+      num.shuffle!
+    end
+    @left_product = Product.find(num.first)
+    num.shuffle!
+    while num.first == @product.id do
+      num.shuffle!
+    end
   end
 
   def edit

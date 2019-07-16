@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   has_many :likes
-  has_many :images
+  has_many :images, dependent: :delete_all
   belongs_to :user, optional: true
   belongs_to :category, optional: true
   belongs_to :brand, optional: true

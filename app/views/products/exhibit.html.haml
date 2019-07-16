@@ -89,10 +89,9 @@
       = link_to edit_product_path(@product.id), class: "products__change__box__edit--btn" do
         商品の編集
       %p.products__change__box__middle or
-      = form_for "", class: "products__change__box__stop" do |f|
+      = form_for "#", class: "products__change__box__stop" do |f|
         = f.submit "出品を一旦停止する", class: "products__change__box__stop--btn"
-      = link_to "", class: "products__change__box__delete--btn" do
-        この商品を削除する
+      %button.products__change__box__delete--btn この商品を削除する
 
     .comment__container
       = form_for '#' do |f|
@@ -144,4 +143,16 @@
                     %span.details-index_like_botton--text 1
                 .details-item_price_tax
                   %p.details-item_price_tax--text (税込)
-  = render 'shared/index_footer'
+.overlay#overlay
+  .modal#modal
+    .modal_body
+      .modal_header
+        確認
+      削除すると二度と復活できません。
+      %br 削除する代わりに停止することもできます。
+      %br 本当に削除しますか？
+    .modal_switch
+      .modal_cancel
+        キャンセル
+      .modal_delete.links
+        = link_to "削除する", product_path(@product.id),class: "links",method: :delete
