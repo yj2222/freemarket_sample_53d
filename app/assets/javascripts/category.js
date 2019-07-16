@@ -1,8 +1,14 @@
 $(document).on('turbolinks:load', function () {
 
   var top = $('.category_top');
-  var middle = $('.category_middle');
+  var middle_1 = $('.category_middle_1');
+  var middle_2 = $('.category_middle_2');
+  var middle_3 = $('.category_middle_3');
+  var middle_4 = $('.category_middle_4');
   var bottom = $('.category_bottom');
+  var bottom_1 = $('.category_bottom_1');
+  var bottom_2 = $('.category_bottom_2');
+  var bottom_3 = $('.category_bottom_3');
   var size = $('.size-form');
 
   var delivery_price = $('.delivery_price');
@@ -44,21 +50,67 @@ $(document).on('turbolinks:load', function () {
     value = $(".category_top--select").val()
     select_top_val = Number(value)
     if (select_top_val == 1){
-      middle.removeClass('display-none');
+      middle_1.removeClass('display-none');
     }
+    if (select_top_val == 2){
+      middle_2.removeClass('display-none');
+    }
+    if (select_top_val == 3){
+      middle_3.removeClass('display-none');
+    }
+    if (select_top_val == 4){
+      middle_4.removeClass('display-none');
+    }
+ 
   });
 
   //ミドルカテゴリー
-  middle.on('change', function () {
-    value = $(".category_middle--select").val()
+  middle_1.on('change', function () {
+    value = $(this).children().val()
     select_middle_val = Number(value)
     if (select_middle_val == 1){
       bottom.removeClass('display-none');
     }
   });
 
+  middle_2.on('change', function () {
+    value = $(this).children().val()
+    select_middle_val = Number(value)
+    if (select_middle_val == 1){
+      bottom_1.removeClass('display-none');
+    }
+  });
+
+  middle_3.on('change', function () {
+    value = $(this).children().val()
+    select_middle_val = Number(value)
+    if (select_middle_val == 44){
+      bottom_2.removeClass('display-none');
+    }
+  });
+
+  middle_4.on('change', function () {
+    value = $(this).children().val()
+    select_middle_val = Number(value)
+    if (select_middle_val == 88){
+      bottom_3.removeClass('display-none');
+    }
+  });
+
   //ボトムカテゴリー
   bottom.on('change', function () {
+    size.removeClass('display-none');
+    $('.error_message.type4').text("");
+  });
+  bottom_1.on('change', function () {
+    size.removeClass('display-none');
+    $('.error_message.type4').text("");
+  });
+  bottom_2.on('change', function () {
+    size.removeClass('display-none');
+    $('.error_message.type4').text("");
+  });
+  bottom_3.on('change', function () {
     size.removeClass('display-none');
     $('.error_message.type4').text("");
   });
@@ -88,6 +140,27 @@ $(document).on('turbolinks:load', function () {
       var select_form = $(".delivery_type_select")
       select_form.append(new_select_tag);
     }
+  });
+
+  $('.exhibition').submit(function() {
+    var category_bottom_val = $(".category_bottom").children().val();
+    var category_bottom_val_1 = $(".category_bottom_1").children().val();
+    var category_bottom_val_2 = $(".category_bottom_2").children().val();
+    var category_bottom_val_3 = $(".category_bottom_3").children().val();
+
+    if (category_bottom_val == "") {
+      $(".category_bottom").remove();
+    }
+    if (category_bottom_val_1 == "") {
+      $(".category_bottom_1").remove();
+    }
+    if (category_bottom_val_2 == "") {
+      $(".category_bottom_2").remove();
+    }
+    if (category_bottom_val_3 == "") {
+      $(".category_bottom_3").remove();
+    }
+
   });
 
 });

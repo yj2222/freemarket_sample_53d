@@ -74,12 +74,12 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @images = @product.images
-    @image = Image.new(url: @images.first.url, product_id: @product.id)
-    @images.each do |image|
-      image.destroy
-    end
-    @image.save
+    # @images = @product.images
+    # @image = Image.new(url: @images.first.url, product_id: @product.id)
+    # @images.each do |image|
+    #   image.destroy
+    # end
+    # @image.save
   end
 
   def update
@@ -110,6 +110,7 @@ class ProductsController < ApplicationController
       :description,
       :category_id,
       :size,
+      :brand_id,
       :condition,
       :delivery_price,
       :delivery_type,
