@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
     # @categories_grandchild = Category.select(:parent, :child).distinct
   end 
 
-  def show 
+  def show
     @user_product = Product.where(user_id: @product.user.id)
     num = Product.pluck(:id)
     num.shuffle!
@@ -35,6 +35,10 @@ class ProductsController < ApplicationController
       num.shuffle!
     end
     @right_product = Product.find(num.first)
+    if current_user.id == @product.user.id
+      redirect_to exhibit_product_path(@product.id)
+    end
+    # binding.pry
   end
 
   def purchase
@@ -85,6 +89,7 @@ class ProductsController < ApplicationController
     while num.first == @product.id do
       num.shuffle!
     end
+    @right_product = Product.find(num.first)
   end
 
   def edit
