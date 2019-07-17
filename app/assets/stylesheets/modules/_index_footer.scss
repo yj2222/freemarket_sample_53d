@@ -1,6 +1,9 @@
 // アプリサイトへのリンクです
 @media screen and (min-width: 768px) {
   .index-footer {
+    position: relative;
+    top: 5px;
+    left: 0;
     height: 260px;
     background-image: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?57233791);
     background-position: center;
@@ -78,7 +81,7 @@
 // 問い合わせ一覧の通常盤です。
 @media screen and (min-width: 1068px) {
   .footer__about-us {
-    padding: 0 20px 10px 20px;
+    padding: 0 0 10px;
     background-color: #212121;
     color:white; 
     width: 100%;
