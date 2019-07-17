@@ -59,17 +59,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user = User.create(user_params)
     if @user.save
       sign_in(@user)
-      render "users/registrations/payment"
+      redirect_to signup_payment_path
     else
       render "users/signup"
     end
   end
 
-  def destroy
-    super
-    session[:keep_signed_out] = true
-  end
-  
   private
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
