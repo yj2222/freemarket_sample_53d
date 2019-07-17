@@ -1,7 +1,6 @@
 /* Slider */
 
 .slick-slider {
-    position: relative;
     display: block;
     box-sizing: border-box;
     -webkit-touch-callout: none;
@@ -20,6 +19,8 @@
     display: block;
     margin: 0;
     padding: 0;
+    cursor: hand;
+    width: 100%;
 
     &:focus {
         outline: none;
@@ -46,9 +47,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    // 修正のために加えました
-    height: 390px;
-    width: 100%;
 
     &:before,
     &:after {
@@ -66,7 +64,7 @@
 }
 .slick-slide {
     float: left;
-    height: 390px;
+    height: 380px;
     min-height: 1px;
     [dir="rtl"] & {
         float: right;
