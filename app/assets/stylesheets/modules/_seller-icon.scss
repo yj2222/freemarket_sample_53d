@@ -1,22 +1,49 @@
-.seller-item-button {
-  position: fixed;
-  border-radius: 50%; 
-  background-color: red;
-  text-align: center;
-  width: 160px;
-  height: 160px;
-  bottom: 32px;
-  right: 32px; 
-  .seller {
-    margin: 32px 0 0 0;
+@media screen and (min-width: 768px) {
+  .seller-item-button {
+    position: fixed;
+    border-radius: 50%; 
+    background-color: red;
+    text-align: center;
     width: 160px;
-    font-size: 22px;
-    color: white;
-  }
-  .seller-item-camera {
-    color: white; 
-    text-align: center; 
-    font-size: 3.6em;
+    height: 160px;
+    bottom: 32px;
+    right: 32px; 
+    .seller {
+      margin: 32px 0 0 0;
+      width: 160px;
+      font-size: 22px;
+      color: white;
+    }
+    .seller-item-camera {
+      color: white; 
+      text-align: center; 
+      font-size: 3.6em;
+    }
   }
 } 
 
+@media screen and (max-width: 768px) {
+  .seller-item-button {
+    position: fixed;
+    z-index: 1000;
+    border-radius: 50%; 
+    background-color: red;
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    bottom: -14px;
+    right: -14px; 
+    .seller {
+      margin: 14px 0 0 0;
+      width: 80px;
+      font-size: 14px;
+      text-align: center;
+      color: white;
+    }
+    .seller-item-camera {
+      color: white; 
+      text-align: center; 
+      font-size: 1.8em;
+    }
+  }
+}

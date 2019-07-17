@@ -1,8 +1,9 @@
 .index-header 
   .index-header__inner 
     .index-header__inner__top
-      .index-header__inner__top--image  
-        = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1881812696"
+      .index-header__inner__top--image
+        = link_to root_path do
+          = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1881812696"
       .index-header__inner__top--search
         = form_for "" do |f| 
           = f.text_field :content, class: 'header_search', placeholder: '  何かお探しですか?' 
@@ -16,11 +17,17 @@
           %li
             .category-brand__list--category 
               = icon('fas', 'list-ul', class: 'category-list-ul')
-              %span カテゴリーから探す             
+              = link_to categories_path do
+                カテゴリーから探す
+            -# カテゴリーの一覧です
+            = render "products/index_category_list"
+                         
           %li
             .category-brand__list--brand 
               = icon('fas', 'tag', class: 'brands-list-tag')
-              %span ブランドから探す
+              = link_to "#" do
+                ブランドから探す
+              
       - if user_signed_in?
         .bottom-header__right__login
           %ul.devise-login
