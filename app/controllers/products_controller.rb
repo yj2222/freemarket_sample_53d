@@ -15,6 +15,11 @@ class ProductsController < ApplicationController
     
     # スコープのメリットを記録するためにあえて残しています
     # @products_ladies = Product.where(categories_id: 1).order("created_at DESC").limit(4)
+
+    # @categories = Category.all
+    @categories_parent = Category.select(:parent).distinct
+    @categories_child = Category.select(:child).distinct
+    # @categories_grandchild = Category.select(:parent, :child).distinct
   end 
 
   def show 

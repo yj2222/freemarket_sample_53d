@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_042932) do
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "grandchild", null: false
+    t.string "grandchild"
     t.string "child"
     t.string "parent"
     t.datetime "created_at", null: false
@@ -73,18 +73,18 @@ ActiveRecord::Schema.define(version: 2019_07_11_042932) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.string "size"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.string "size", null: false
+    t.string "delivery_price", null: false
+    t.string "delivery_type", null: false
+    t.string "prefecture", null: false
+    t.string "delivery_days", null: false
+    t.integer "price", null: false
+    t.string "condition", null: false
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
     t.bigint "brand_id"
-    t.string "delivery_price"
-    t.string "delivery_type"
-    t.string "prefecture"
-    t.string "delivery_days"
-    t.integer "price"
-    t.string "condition"
-    t.bigint "user_id"
-    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_042932) do
   end
 
   create_table "trades", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "buyer_id", null: false
+    t.bigint "buyer_id"
     t.bigint "seller_id", null: false
     t.bigint "product_id", null: false
     t.integer "flug", null: false
@@ -123,7 +123,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_042932) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", null: false
+    t.string "nickname", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

@@ -19,10 +19,10 @@
       float: left;
       a {
         color: black;
-        .breadcrumbs-list {
-          font-size: 14px;
-          font-weight: 600;
-        } 
+      }        
+      .current {
+        font-weight: bold;
+        font-size: 14px;
       }
     }
   }
