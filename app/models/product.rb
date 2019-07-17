@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :category, optional: true
   belongs_to :brand, optional: true
-  has_one :trade
+  has_one :trade, dependent: :destroy
 
   accepts_nested_attributes_for :images
   accepts_nested_attributes_for :category
