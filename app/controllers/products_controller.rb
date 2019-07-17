@@ -3,10 +3,10 @@ class ProductsController < ApplicationController
 
   def index  
     # カテゴリーの一覧 スコープを使用 model/product.rb参照
-    @products_ladies = Product.where(category_id: 1).recent
-    @products_mens = Product.where(category_id: 2).recent
-    @products_kids = Product.where(category_id: 3).recent
-    @products_perfume = Product.where(category_id: 4).recent
+    @products_ladies = Product.where(category_id: 1..18).recent
+    @products_mens = Product.where(category_id: 176..187).recent
+    @products_kids = Product.where(category_id: 304..314).recent
+    @products_perfume = Product.where(category_id: 698..706).recent
     # ブランドの一覧
     @products_chanel = Product.where(brand_id: 1).recent 
     @products_vuitton = Product.where(brand_id: 2).recent
@@ -35,7 +35,6 @@ class ProductsController < ApplicationController
       num.shuffle!
     end
     @right_product = Product.find(num.first)
-    
   end
 
   def purchase
@@ -69,21 +68,48 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    @product = Product.destroy(params[:id])
+    redirect_to root_path, notice: '削除に成功しました。'
+    
+  end
   def exhibit
     @user_product = Product.where(user_id: @product.user.id)
-    num = Product.count('id')
-    @left_product = Product.find(rand(1..num))
-    @right_product = Product.find(rand(1..num))
-    while @right_product == @left_product do
-      @right_product = Product.find(rand(1..num))
+    num = Product.pluck(:id)
+    num.shuffle!
+    while num.first == @product.id do
+      num.shuffle!
+    end
+    @left_product = Product.find(num.first)
+    num.shuffle!
+    while num.first == @product.id do
+      num.shuffle!
     end
   end
 
   def edit
+    # @images = @product.images
+    # @image = Image.new(url: @images.first.url, product_id: @product.id)
+    # @images.each do |image|
+    #   image.destroy
+    # end
+    # @image.save
   end
 
   def update
     @product.update(product_params)
+
+    @product.images.each do |image|
+      image.destroy
+    end
+    
+    num = 1
+    while params[:images]["#{num}"].present? do
+      @image = Image.new(update_image_params(num))
+      @image.save
+      num += 1
+    end
+
   end
 
   private
@@ -98,6 +124,7 @@ class ProductsController < ApplicationController
       :description,
       :category_id,
       :size,
+      :brand_id,
       :condition,
       :delivery_price,
       :delivery_type,
@@ -107,8 +134,13 @@ class ProductsController < ApplicationController
   end
 
   def image_params(num)
-      last_id = Product.pluck(:id).last
-      params.require(:images).require("#{num}").permit(:url).merge(product_id: last_id)
+    last_id = Product.pluck(:id).last
+    params.require(:images).require("#{num}").permit(:url).merge(product_id: last_id)
+  end
+
+  def update_image_params(num)
+    product_id = @product.id
+    params.require(:images).require("#{num}").permit(:url).merge(product_id: product_id)
   end
 
   # 送られたパラメータを整数化する。

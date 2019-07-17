@@ -1,5 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
+  before_action :login_user_valid, only: :all
 
   def all
     @area = Area.new
@@ -72,6 +73,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+  end
+
+  def login_user_valid
+    if current_user
+      redirect_to root_path
+    end
   end
 
   def user_params
