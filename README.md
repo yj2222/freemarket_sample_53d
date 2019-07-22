@@ -55,6 +55,8 @@
 
 
 ## creditsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |card_id|string|
 |customer_id|string|
 |user_id|references|null: false, index: true, foreign_key: true|
