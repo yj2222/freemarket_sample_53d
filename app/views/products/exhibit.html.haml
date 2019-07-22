@@ -152,7 +152,7 @@
       %br 削除する代わりに停止することもできます。
       %br 本当に削除しますか？
     .modal_switch
-      .modal_cancel
+      %button.modal_cancel#modal_cancel
         キャンセル
       .modal_delete.links
         = link_to "削除する", product_path(@product.id),class: "links",method: :delete

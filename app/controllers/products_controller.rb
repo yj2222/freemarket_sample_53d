@@ -38,7 +38,6 @@ class ProductsController < ApplicationController
     if current_user.id == @product.user.id
       redirect_to exhibit_product_path(@product.id)
     end
-    # binding.pry
   end
 
   def purchase
