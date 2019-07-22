@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:edit,:show,:update,:purchase,:exhibit]
+  before_action :check_signin, only: [:show,:purchase,:exhibit]
 
   def index  
     # カテゴリーの一覧 スコープを使用 model/product.rb参照
@@ -153,6 +154,10 @@ class ProductsController < ApplicationController
     true
   rescue ArgumentError
     false
+  end
+
+  def check_signin
+    redirect_to root_path unless user_signed_in?
   end
 
   def params_int(product_params)
