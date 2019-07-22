@@ -13,7 +13,7 @@ $(function(){
    $('#modal').fadeIn();
  });
 
-  $('#close-btn').on('click', function(){
+  $('#modal_cancel').on('click', function(){
     $('#overlay').fadeOut();
     $('#modal').fadeOut();
   });
