@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit,:show,:update,:purchase,:exhibit]
 
   def index  
-    # カテゴリーの一覧 スコープを使用 model/product.rb参照
+    # カテゴリーの一覧 スコープを使用 models/product.rb参照
     @products_ladies = Product.where(category_id: 1..18).recent
     @products_mens = Product.where(category_id: 176..187).recent
     @products_kids = Product.where(category_id: 304..314).recent
@@ -15,11 +15,6 @@ class ProductsController < ApplicationController
     
     # スコープのメリットを記録するためにあえて残しています
     # @products_ladies = Product.where(categories_id: 1).order("created_at DESC").limit(4)
-
-    # @categories = Category.all
-    @categories_parent = Category.select(:parent).distinct
-    @categories_child = Category.select(:child).distinct
-    # @categories_grandchild = Category.select(:parent, :child).distinct
   end 
 
   def show
