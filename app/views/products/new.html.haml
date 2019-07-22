@@ -24,7 +24,7 @@
                 .exhibition__main__image-form__upload--text
                   %p ドラッグアンドドロップ
                   %p またはクリックしてファイルをアップロード
-                = fi.file_field :url, autofocus: true, name: "images[1][url]", class: "exhibition__main__image-form__upload--file display-none", id: "image1"
+                = fi.file_field :url, autofocus: true, name: "images[0][url]", class: "exhibition__main__image-form__upload--file display-none", id: "image1"
               %p.error_message.type1
 
         //商品名フォーム
@@ -56,49 +56,34 @@
 
               //トップレベルカテゴリー
               .form__select.icon-relative.category_top
-                %select.category_top--select.form__select--box
-                  %option{value: 0} ---
-                  %option{value: 1} レディース
-                  %option{value: 2} メンズ
-                  %option{value: 3} ベビー・キッズ
-                  %option{value: 4} コスメ・香水・美容
+                = f.select :category_id, Category.tops, autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
               //ミドルレベルカテゴリー
               .form__select.icon-relative.category_middle_1.display-none
-                %select.category_middle--select.form__select--box
-                  %option{value: 0} ---
-                  %option{value: 1} トップス
+                = f.select :category_id, Category.middle_1s, autofocus: true, class: "form__select--box"
               .form__select.icon-relative.category_middle_2.display-none
-                %select.category_middle--select.form__select--box
-                  %option{value: 0} ---
-                  %option{value: 1} トップス
+                = f.select :category_id, Category.middle_2s, autofocus: true, class: "form__select--box"
               .form__select.icon-relative.category_middle_3.display-none
-                %select.category_middle--select.form__select--box
-                  %option{value: 0} ---
-                  %option{value: 44} ベビー服(女の子用)  ~95cm
+                = f.select :category_id, Category.middle_3s, autofocus: true, class: "form__select--box"
               .form__select.icon-relative.category_middle_4.display-none
-                %select.category_middle--select.form__select--box
-                  %option{value: 0} ---
-                  %option{value: 88} ベースメイク
+                = f.select :category_id, Category.middle_4s, autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
               //ボトムレベルカテゴリー
-              .form__select.icon-relative.category_bottom.display-none
-                = f.select :category_id, Category.grandchildren, prompt: "---", autofocus: true, class: "form__select--box"
-                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
               .form__select.icon-relative.category_bottom_1.display-none
-                = f.select :category_id, Category.grandchild_1s, prompt: "---", autofocus: true, class: "form__select--box"
+                = f.select :category_id, Category.grandchild_1s, autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
               .form__select.icon-relative.category_bottom_2.display-none
-                = f.select :category_id, Category.grandchild_2s, prompt: "---", autofocus: true, class: "form__select--box"
+                = f.select :category_id, Category.grandchild_2s, autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
               .form__select.icon-relative.category_bottom_3.display-none
-                = f.select :category_id, Category.grandchild_3s, prompt: "---", autofocus: true, class: "form__select--box"
+                = f.select :category_id, Category.grandchild_3s, autofocus: true, class: "form__select--box"
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              .form__select.icon-relative.category_bottom_4.display-none
+                = f.select :category_id, Category.grandchild_4s, autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
-              
-              
             %p.error_message.type4
             -# = f.hidden_field :category_id
 

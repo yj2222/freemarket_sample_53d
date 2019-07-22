@@ -1,16 +1,5 @@
 $(document).on('turbolinks:load', function () {
-
-  var top = $('.category_top');
-  var middle_1 = $('.category_middle_1');
-  var middle_2 = $('.category_middle_2');
-  var middle_3 = $('.category_middle_3');
-  var middle_4 = $('.category_middle_4');
-  var bottom = $('.category_bottom');
-  var bottom_1 = $('.category_bottom_1');
-  var bottom_2 = $('.category_bottom_2');
-  var bottom_3 = $('.category_bottom_3');
-  var size = $('.size-form');
-
+  
   var delivery_price = $('.delivery_price');
   var delivery_type = $('.delivery_type');
 
@@ -46,62 +35,84 @@ $(document).on('turbolinks:load', function () {
   }
 
   //トップカテゴリー
+  var top = $('.category_top');
+  var middle_1 = $('.category_middle_1');
+  var middle_2 = $('.category_middle_2');
+  var middle_3 = $('.category_middle_3');
+  var middle_4 = $('.category_middle_4');
+
   top.on('change', function () {
-    value = $(".category_top--select").val()
+    for (var i=1; i<5; i++) {
+      var middle = ".category_middle_" + i
+      var bottom = ".category_bottom_" + i
+      $(middle).removeClass('display-none');
+      $(bottom).removeClass('display-none');
+      $(bottom).addClass('display-none');
+    }
+    console.log($(middle).val())
+    value = $(".category_top").children().val()
     select_top_val = Number(value)
     if (select_top_val == 1){
-      middle_1.removeClass('display-none');
+      middle_2.addClass('display-none');
+      middle_3.addClass('display-none');
+      middle_4.addClass('display-none');
     }
     if (select_top_val == 2){
-      middle_2.removeClass('display-none');
+      middle_1.addClass('display-none');
+      middle_3.addClass('display-none');
+      middle_4.addClass('display-none');
     }
     if (select_top_val == 3){
-      middle_3.removeClass('display-none');
+      middle_1.addClass('display-none');
+      middle_2.addClass('display-none');
+      middle_4.addClass('display-none');
     }
     if (select_top_val == 4){
-      middle_4.removeClass('display-none');
+      middle_1.addClass('display-none');
+      middle_2.addClass('display-none');
+      middle_3.addClass('display-none');
     }
- 
   });
 
   //ミドルカテゴリー
-  middle_1.on('change', function () {
-    value = $(this).children().val()
-    select_middle_val = Number(value)
-    if (select_middle_val == 1){
-      bottom.removeClass('display-none');
-    }
-  });
+  var bottom_1 = $('.category_bottom_1');
+  var bottom_2 = $('.category_bottom_2');
+  var bottom_3 = $('.category_bottom_3');
+  var bottom_4 = $('.category_bottom_4');
 
-  middle_2.on('change', function () {
+  middle_1.on('change', function () {
     value = $(this).children().val()
     select_middle_val = Number(value)
     if (select_middle_val == 1){
       bottom_1.removeClass('display-none');
     }
   });
-
-  middle_3.on('change', function () {
+  middle_2.on('change', function () {
     value = $(this).children().val()
     select_middle_val = Number(value)
-    if (select_middle_val == 44){
+    if (select_middle_val == 1){
       bottom_2.removeClass('display-none');
     }
   });
-
+  middle_3.on('change', function () {
+    value = $(this).children().val()
+    select_middle_val = Number(value)
+    if (select_middle_val == 1){
+      bottom_3.removeClass('display-none');
+      console.log(bottom_3.children().val())
+    }
+  });
   middle_4.on('change', function () {
     value = $(this).children().val()
     select_middle_val = Number(value)
-    if (select_middle_val == 88){
-      bottom_3.removeClass('display-none');
+    if (select_middle_val == 1){
+      bottom_4.removeClass('display-none');
     }
   });
 
   //ボトムカテゴリー
-  bottom.on('change', function () {
-    size.removeClass('display-none');
-    $('.error_message.type4').text("");
-  });
+  var size = $('.size-form');
+
   bottom_1.on('change', function () {
     size.removeClass('display-none');
     $('.error_message.type4').text("");
@@ -113,8 +124,13 @@ $(document).on('turbolinks:load', function () {
   bottom_3.on('change', function () {
     size.removeClass('display-none');
     $('.error_message.type4').text("");
+    console.log(bottom_3.children().val())
   });
-
+  bottom_4.on('change', function () {
+    size.removeClass('display-none');
+    $('.error_message.type4').text("");
+  });
+  // サイズ
   size.on('change', function () {
     $('.error_message.type5').text("");
   });
@@ -142,25 +158,5 @@ $(document).on('turbolinks:load', function () {
     }
   });
 
-  $('.exhibition').submit(function() {
-    var category_bottom_val = $(".category_bottom").children().val();
-    var category_bottom_val_1 = $(".category_bottom_1").children().val();
-    var category_bottom_val_2 = $(".category_bottom_2").children().val();
-    var category_bottom_val_3 = $(".category_bottom_3").children().val();
-
-    if (category_bottom_val == "") {
-      $(".category_bottom").remove();
-    }
-    if (category_bottom_val_1 == "") {
-      $(".category_bottom_1").remove();
-    }
-    if (category_bottom_val_2 == "") {
-      $(".category_bottom_2").remove();
-    }
-    if (category_bottom_val_3 == "") {
-      $(".category_bottom_3").remove();
-    }
-
-  });
-
+  
 });
