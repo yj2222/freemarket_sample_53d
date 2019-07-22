@@ -6,6 +6,8 @@
 |nickname|string|null: false|
 |email|string|null: false|
 |passward|string|null: false|
+|provider|string|
+|uid|string|
 
 ### Association
 - has_many :products
@@ -27,6 +29,9 @@
 |birth_month|string|null: false|
 |birth_day|string|null: false|
 |phone_number|intger|
+|good|intger|
+|normal|intger|
+|bad|intger|
 |user_id|references|null: false, index: true, foreign_key: true|
 
 ### Association
@@ -50,11 +55,8 @@
 
 
 ## creditsテーブル
-|user_id|references|null: false, index: true, foreign_key: true|
-|number|intger|null: false|
-|month|intger|null: false|
-|year|intger|null: false|
-|security_code|intger|null: false|
+|card_id|string|
+|customer_id|string|
 |user_id|references|null: false, index: true, foreign_key: true|
 
 ### Association
@@ -65,21 +67,18 @@
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, index: true, foreign_key: true|
-
 |name|string|null: false|
 |description|text|null: false|
 |size|string|null: false|
-|brand|string|
-
 |condition|string|null: false|
 |delibary_price|string|null: false|
 |delibary_type|string|null: false|
 |prefecture|string|null: false|
 |delivaly_days|string|null: false|
 |price|intger|null: false|
-
+|user_id|references|null: false, index: true, foreign_key: true|
 |category_id|references|null: false, index: true, foreign_key: true|
+|brand_id|references|index: true, foreign_key: true|
 
 
 ### Association
@@ -87,6 +86,7 @@
 - has_many :likes
 - has_many :images
 - belongs_to :category
+- belongs_to :brand
 
 
 
@@ -94,7 +94,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |url|string|null: false|
-
 |product_id|references|null: false,foreign_key: true|
 
 ### Association
@@ -105,10 +104,9 @@
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-
-|parent|string|null: false|
+|grandchild|string|
 |child|string|
-|son|string|
+|parent|string|
 
 ### Association
 - has_many :products
@@ -120,7 +118,6 @@
 |------|----|-------|
 |product_id|references|null: false, index: true, foreign_key: true|
 |user_id|references|null: false, index: true, foreign_key: true|
-
 |count|intger|
 
 ### Association
@@ -141,3 +138,13 @@
 - belongs_to :product
 - belongs_to :seller_id, class_name: "User"
 - belongs_to :buyer_id, class_name: "User"
+
+
+
+## brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|
+
+### Association
+- has_many :products
