@@ -48,5 +48,4 @@ class Product < ApplicationRecord
   scope :limiter, -> { limit(4) }
   # limitとsortedを合わせたもの
   scope :recent, -> { sorted.limiter }
-
 end
