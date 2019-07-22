@@ -36,7 +36,7 @@ $(document).on('turbolinks:load', function () {
     }
 
     // ロード時のアクション
-    window.onload = function () {
+    $(function () {
   
       if (gon.category.id >= 698 && gon.category.id <= 785) {
         top.children().val(4)
@@ -110,7 +110,7 @@ $(document).on('turbolinks:load', function () {
       if (image_id == 9){
         image_form.removeClass('display-none');
       }
-    };
+    });
     // ファイル変更時のアクション
     // クリックアクションイベント発火
     image_form.on('click', function() {
