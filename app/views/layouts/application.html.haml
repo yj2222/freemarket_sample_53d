@@ -10,7 +10,8 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     -# 以下はslick.jsのために記述しました
     %link{href: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", rel: "stylesheet", type: "text/css"}/
-    -# = Gon::Base.render_data
+    -# Railsの変数をJSに適応させるため以下の1行を記載します。デプロイで何かあれば増島までお願いします。
+    = Gon::Base.render_data
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     -# 以下はslick.jsのために記述しました
     %script{src: "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", type: "text/javascript"}

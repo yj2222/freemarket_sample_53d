@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
     @product = Product.new(params_int(product_params))
     if @product.save
       
-      num = 1
+      num = 0
       while params[:images]["#{num}"].present? do
         @image = Image.new(image_params(num))
         @image.save
@@ -93,12 +93,10 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    # @images = @product.images
-    # @image = Image.new(url: @images.first.url, product_id: @product.id)
-    # @images.each do |image|
-    #   image.destroy
-    # end
-    # @image.save
+    @category = @product.category
+    gon.category = @product.category
+    @images = @product.images
+    gon.images = @product.images
   end
 
   def update
@@ -108,7 +106,7 @@ class ProductsController < ApplicationController
       image.destroy
     end
     
-    num = 1
+    num = 0
     while params[:images]["#{num}"].present? do
       @image = Image.new(update_image_params(num))
       @image.save
