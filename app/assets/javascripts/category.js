@@ -49,7 +49,6 @@ $(document).on('turbolinks:load', function () {
       $(bottom).removeClass('display-none');
       $(bottom).addClass('display-none');
     }
-    console.log($(middle).val())
     value = $(".category_top").children().val()
     select_top_val = Number(value)
     if (select_top_val == 1){
@@ -99,7 +98,6 @@ $(document).on('turbolinks:load', function () {
     select_middle_val = Number(value)
     if (select_middle_val == 1){
       bottom_3.removeClass('display-none');
-      console.log(bottom_3.children().val())
     }
   });
   middle_4.on('change', function () {
