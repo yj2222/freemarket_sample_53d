@@ -34,16 +34,5 @@ class CreditsController < ApplicationController
       end
     end
   end
-
-  def show
-    card = current_user.credit
-    if card.blank?
-      redirect_to action: "index"
-    else
-      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
-      customer = Payjp::Customer.retrieve(credit.customer_id)
-      @customer_card = customer.cards.retrieve(credit.card_id)
-    end
-  end
   
 end

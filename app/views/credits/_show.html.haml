@@ -1,0 +1,17 @@
+.user-card__content
+  .buy__payment.inner
+    .buy__payment-method
+      %h4 支払方法
+      .number
+        = "**** **** **** " + customer_card.last4
+      .limit-month
+        - exp_month = customer_card.exp_month.to_s
+        - exp_year = customer_card.exp_year.to_s.slice(2,3)
+        %p 
+          = exp_month + " / " + exp_year
+      .card-type
+        = image_tag "common/visa.svg",size: "50x30"
+    .buy__user__change.clearfix
+      = link_to credits_path, class: 'links' do
+        変更する
+        = icon 'fas', 'chevron-right', id: 'chevron'
