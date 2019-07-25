@@ -94,8 +94,12 @@
             %span
               着払い(購入者負担)
       .products__container__buy__box
-        = link_to purchase_product_path(@product),class: "buy-btn" do
-          購入画面に進む
+        - if @product.trade.flug == 3
+          .buy__btn--sold
+            売り切れました
+        - else
+          = link_to purchase_product_path(@product),class: "buy__btn--sell" do
+            購入画面に進む
       .products__container__comment__box
         %p.inner-comment 
           = @product.description
