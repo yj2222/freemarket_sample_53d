@@ -112,11 +112,11 @@
               color: gray; 
               font-size: 12px;
               .index-footer-twitter-square {
-                color: white;              
+                color: white;
                 font-size: 2.5em; 
               } 
               .index-footer-facebook-square {
-                color: white;              
+                color: white;
                 font-size: 2.5em;
                 margin: 0 0 0 20px;
               }
@@ -235,8 +235,8 @@
   }
 }
 
-// 小さい画面用です。
-@media screen and (max-width: 1067px) {
+// 中間画面用です。
+@media screen and (min-width: 768px) and (max-width: 1067px) {
   .footer__about-us {
     padding: 0 20px 10px 20px;
     background-color: #212121;
@@ -246,6 +246,170 @@
     &__links {
       height: 298px;
       width: 700px;
+      margin: 0 auto;
+      padding: 0;
+      &__first {
+        display: block;
+        margin-top: 18px;
+        padding: 0 10px 0 0;
+        width: 46%;
+        float: left;
+        height: 241px;
+        &--head {
+          font-size: 16px; 
+          font-weight: 100;
+          height: 22px;
+          color: white;
+        }
+        &--about-mercari {
+          height: 203px;
+          li {
+            margin-top: 16px;        
+            a {
+              color: gray; 
+              font-size: 12px;
+              .index-footer-twitter-square {
+                color: white;
+                font-size: 2.5em; 
+              } 
+              .index-footer-facebook-square {
+                color: white;
+                font-size: 2.5em;
+                margin: 0 0 0 20px;
+              }
+            }
+          }
+        }
+      } 
+      &__second {
+        height: 280px;
+        margin-top: 18px;
+        padding-left: 10px;
+        width: 47%;
+        float: left;
+        &--head {
+          font-size: 16px; 
+          font-weight: 100;
+          height: 22px;
+          color: white; 
+        }
+        &--help-guide {
+            height: 194px;
+          li {
+              margin-top: 13px;
+            a {
+              color: gray;
+              font-size: 12px;
+            }
+          }
+        }  
+      }
+      &__third {
+        height: 202px;
+        margin: 30px 0 0;
+        padding: 0;
+        width: 100%;
+        float: left; 
+        &--head {
+          width: 100%;
+          height: 22px;
+          font-size: 16px;
+        } 
+        &--privacy {
+          width: 46%;
+          float: left;
+          vertical-align: top; 
+          font-size: 16px;
+          padding: 0 10px 0 0;
+          li {
+            margin-top: 16px;
+            a {
+              color: gray;
+              font-size: 12px;
+            }
+          }
+        } 
+        &--policy {
+          width: 50%;
+          float: left;
+          font-size: 16px; 
+          padding: 0 0 0 10px;
+          li {
+            margin-top: 16px;
+            a {
+              color: gray;
+              font-size: 12px;
+            }
+          }
+        }      
+      }
+      &__forth {
+        height: 88px;
+        width: 50%;
+        margin-top: 35px;
+        padding: 0;
+        float: left; 
+        &--head {
+          font-size: 16px; 
+          font-weight: 100;
+          height: 22px;
+          width: 184px;
+          color: white; 
+        }
+        ul {
+          display: flex;
+          li {
+            margin-top: 16px;
+            padding: 0 30px 0 0;
+            a {
+              color: gray;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    &__bottom {
+      margin: 50px auto;
+      padding: 0;
+      width: 700px;
+      height: 35px; 
+      display: flex;    
+      &--logo {
+        display: inline-block;
+        margin-right: 10px;
+        width: auto;
+        img {
+          width: 124px;
+          height: 33px;
+        }
+      }
+      &--copyright {
+        display: inline-block;
+        margin: 8px;
+        vertical-align: sub;
+        text-align: center;
+        small {
+          font-size: 12px;
+          font-family: Source Sans Pro;
+      }
+      }
+    }
+  }
+}
+
+//  最小画面用です。
+@media screen and (max-width: 767px) {
+  .footer__about-us {
+    padding: 0 20px 10px 20px;
+    background-color: #212121;
+    color:white; 
+    width: 100%;
+    height: 100%;
+    &__links {
+      height: 298px;
+      box-sizing: inherit;
       margin: 0 auto;
       padding: 0;
       &__first {
