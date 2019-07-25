@@ -37,6 +37,14 @@ class ProductsController < ApplicationController
   end
 
   def purchase
+    card = current_user.credit
+    if card.blank?
+      redirect_to action: "index"
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @customer_card = customer.cards.retrieve(card.card_id)
+    end
   end
   
   def new

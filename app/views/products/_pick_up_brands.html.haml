@@ -8,20 +8,37 @@
     .top-page__items-box__content-boxes 
       - @products_chanel.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to product_path(product.id), class: "top-page__items-box__content-boxes__content__link", data: {"turbolinks" => false} do
-            .top-page__items-box__content-boxes__content__link--figure
-              = image_tag "#{product.images.first.url}"
-            .item__outline 
-              .item__outline--product-name
-                = product.name
-              .item__outline--product-price
-                = number_to_currency product.price   
-                .items__outline--like
-                  %span
-                    = icon('far', 'heart', class: 'like-heart') 
-                    1
-              .item__outline--price_tax 
-                %p (税込) 
+          - if product.trade.flug == 3
+            = link_to product_path(product.id), class: "top-page__items-box__content-boxes__content__link", data: {"turbolinks" => false} do
+              .top-page__items-box__content-boxes__content__link--figure
+                = image_tag "#{product.images.first.url}"
+                .top-page__items-box__content-boxes__content__link--figure--sold
+              .item__outline 
+                .item__outline--product-name
+                  = product.name
+                .item__outline--product-price
+                  = number_to_currency product.price   
+                  .items__outline--like
+                    %span
+                      = icon('far', 'heart', class: 'like-heart') 
+                      1
+                .item__outline--price_tax 
+                  %p (税込) 
+          - else
+            = link_to product_path(product.id), class: "top-page__items-box__content-boxes__content__link", data: {"turbolinks" => false} do
+              .top-page__items-box__content-boxes__content__link--figure
+                = image_tag "#{product.images.first.url}"
+              .item__outline 
+                .item__outline--product-name
+                  = product.name
+                .item__outline--product-price
+                  = number_to_currency product.price   
+                  .items__outline--like
+                    %span
+                      = icon('far', 'heart', class: 'like-heart') 
+                      1
+                .item__outline--price_tax 
+                  %p (税込) 
     .show-all-items 
       = link_to "#", class: "show-all-items" do
         すべての商品を見る
@@ -33,20 +50,37 @@
     .top-page__items-box__content-boxes 
       - @products_vuitton.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to product_path(product.id), class: "top-page__items-box__content-boxes__content__link", data: {"turbolinks" => false} do
-            .top-page__items-box__content-boxes__content__link--figure
-              = image_tag "#{product.images.first.url}"
-            .item__outline 
-              .item__outline--product-name
-                = product.name
-              .item__outline--product-price
-                = number_to_currency product.price   
-                .items__outline--like
-                  %span
-                    = icon('far', 'heart', class: 'like-heart') 
-                    1
-              .item__outline--price_tax 
-                %p (税込) 
+          - if product.trade.flug == 3
+            = link_to product_path(product.id), class: "top-page__items-box__content-boxes__content__link", data: {"turbolinks" => false} do
+              .top-page__items-box__content-boxes__content__link--figure
+                = image_tag "#{product.images.first.url}"
+                .top-page__items-box__content-boxes__content__link--figure--sold
+              .item__outline 
+                .item__outline--product-name
+                  = product.name
+                .item__outline--product-price
+                  = number_to_currency product.price   
+                  .items__outline--like
+                    %span
+                      = icon('far', 'heart', class: 'like-heart') 
+                      1
+                .item__outline--price_tax 
+                  %p (税込)
+          - else
+            = link_to product_path(product.id), class: "top-page__items-box__content-boxes__content__link", data: {"turbolinks" => false} do
+              .top-page__items-box__content-boxes__content__link--figure
+                = image_tag "#{product.images.first.url}"
+              .item__outline 
+                .item__outline--product-name
+                  = product.name
+                .item__outline--product-price
+                  = number_to_currency product.price   
+                  .items__outline--like
+                    %span
+                      = icon('far', 'heart', class: 'like-heart') 
+                      1
+                .item__outline--price_tax 
+                  %p (税込)
     .show-all-items 
       = link_to "#", class: "show-all-items" do
         すべての商品を見る
@@ -58,20 +92,37 @@
     .top-page__items-box__content-boxes 
       - @products_supreme.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to product_path(product.id), class: "top-page__items-box__content-boxes__content__link", data: {"turbolinks" => false} do
-            .top-page__items-box__content-boxes__content__link--figure
-              = image_tag "#{product.images.first.url}"
-            .item__outline 
-              .item__outline--product-name
-                = product.name
-              .item__outline--product-price
-                = number_to_currency product.price   
-                .items__outline--like
-                  %span
-                    = icon('far', 'heart', class: 'like-heart') 
-                    1
-              .item__outline--price_tax 
-                %p (税込) 
+          - if product.trade.flug == 3
+            = link_to product_path(product.id), class: "top-page__items-box__content-boxes__content__link", data: {"turbolinks" => false} do
+              .top-page__items-box__content-boxes__content__link--figure
+                = image_tag "#{product.images.first.url}"
+                .top-page__items-box__content-boxes__content__link--figure--sold
+              .item__outline 
+                .item__outline--product-name
+                  = product.name
+                .item__outline--product-price
+                  = number_to_currency product.price   
+                  .items__outline--like
+                    %span
+                      = icon('far', 'heart', class: 'like-heart') 
+                      1
+                .item__outline--price_tax 
+                  %p (税込)
+          - else
+            = link_to product_path(product.id), class: "top-page__items-box__content-boxes__content__link", data: {"turbolinks" => false} do
+              .top-page__items-box__content-boxes__content__link--figure
+                = image_tag "#{product.images.first.url}"
+              .item__outline 
+                .item__outline--product-name
+                  = product.name
+                .item__outline--product-price
+                  = number_to_currency product.price   
+                  .items__outline--like
+                    %span
+                      = icon('far', 'heart', class: 'like-heart') 
+                      1
+                .item__outline--price_tax 
+                  %p (税込)
     .show-all-items 
       = link_to "#", class: "show-all-items" do
         すべての商品を見る
@@ -83,20 +134,37 @@
     .top-page__items-box__content-boxes 
       - @products_nike.each do |product|
         .top-page__items-box__content-boxes__content
-          = link_to product_path(product.id), class: "top-page__items-box__content-boxes__content__link", data: {"turbolinks" => false} do
-            .top-page__items-box__content-boxes__content__link--figure
-              = image_tag "#{product.images.first.url}"
-            .item__outline 
-              .item__outline--product-name
-                = product.name
-              .item__outline--product-price
-                = number_to_currency product.price   
-                .items__outline--like
-                  %span
-                    = icon('far', 'heart', class: 'like-heart') 
-                    1
-              .item__outline--price_tax 
-                %p (税込) 
+          - if product.trade.flug == 3
+            = link_to product_path(product.id), class: "top-page__items-box__content-boxes__content__link", data: {"turbolinks" => false} do
+              .top-page__items-box__content-boxes__content__link--figure
+                = image_tag "#{product.images.first.url}"
+                .top-page__items-box__content-boxes__content__link--figure--sold
+              .item__outline 
+                .item__outline--product-name
+                  = product.name
+                .item__outline--product-price
+                  = number_to_currency product.price   
+                  .items__outline--like
+                    %span
+                      = icon('far', 'heart', class: 'like-heart') 
+                      1
+                .item__outline--price_tax 
+                  %p (税込)
+          - else
+            = link_to product_path(product.id), class: "top-page__items-box__content-boxes__content__link", data: {"turbolinks" => false} do
+              .top-page__items-box__content-boxes__content__link--figure
+                = image_tag "#{product.images.first.url}"
+              .item__outline 
+                .item__outline--product-name
+                  = product.name
+                .item__outline--product-price
+                  = number_to_currency product.price   
+                  .items__outline--like
+                    %span
+                      = icon('far', 'heart', class: 'like-heart') 
+                      1
+                .item__outline--price_tax 
+                  %p (税込)
     .show-all-items 
       = link_to "#", class: "show-all-items" do
         すべての商品を見る
