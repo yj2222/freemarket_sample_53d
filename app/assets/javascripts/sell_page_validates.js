@@ -22,25 +22,36 @@ $(document).on('turbolinks:load', function () {
     }
 
     var category_bottom_val_1 = $(".category_bottom_1").children().val();
+    var category_bottom_val_101 = $(".category_bottom_101").children().val();
     var category_bottom_val_2 = $(".category_bottom_2").children().val();
+    var category_bottom_val_102 = $(".category_bottom_102").children().val();
     var category_bottom_val_3 = $(".category_bottom_3").children().val();
+    var category_bottom_val_103 = $(".category_bottom_103").children().val();
     var category_bottom_val_4 = $(".category_bottom_4").children().val();
 
-    if (category_bottom_val_1 != 0 || category_bottom_val_2 != 0 || category_bottom_val_3 != 0 || category_bottom_val_4 != 0 ) {
+    if (category_bottom_val_1 != 0 || category_bottom_val_101 != 0 || category_bottom_val_2 != 0 || category_bottom_val_102 != 0 || category_bottom_val_3 != 0 || category_bottom_val_103 != 0 || category_bottom_val_4 != 0 ) {
       if (category_bottom_val_1 == 0){
         $(".category_bottom_1").remove();
+      }
+      if (category_bottom_val_101 == 0){
+        $(".category_bottom_101").remove();
       }
       if (category_bottom_val_2 == 0) {
         $(".category_bottom_2").remove();
       }
+      if (category_bottom_val_102 == 0) {
+        $(".category_bottom_102").remove();
+      }
       if (category_bottom_val_3 == 0) {
         $(".category_bottom_3").remove();
+      }
+      if (category_bottom_val_103 == 0) {
+        $(".category_bottom_103").remove();
       }
       if (category_bottom_val_4 == 0) {
         $(".category_bottom_4").remove();
       }
     }
-
 
     var image_val = $('[name="images[0][url]"]').val();
     var name_box_val = $('.name_box_val').val();
@@ -90,6 +101,7 @@ $(document).on('turbolinks:load', function () {
     if (image_val == "" || name_box_val == "" || description_box_val == "" || category_select_val == "" || size_select_val == "" || condition_select_val == "" || delivery_price_select_val == "" || delivery_type_select_val == "" || prefecture_select_val == "" || delivery_days_select_val == "" || price_box_val == "") {
       return false;
     } 
+    $('.exhibition').submit();
 
   });
 });

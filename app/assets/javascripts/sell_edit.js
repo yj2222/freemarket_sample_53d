@@ -10,6 +10,9 @@ $(document).on('turbolinks:load', function () {
     var bottom_2 = $('.category_bottom_2');
     var bottom_3 = $('.category_bottom_3');
     var bottom_4 = $('.category_bottom_4');
+    var bottom_101 = $('.category_bottom_101');
+    var bottom_102 = $('.category_bottom_102');
+    var bottom_103 = $('.category_bottom_103');
     var images = [];
     var image_id = 0;
     var preview_ul = $('.image-upload__preview');
@@ -47,20 +50,38 @@ $(document).on('turbolinks:load', function () {
       if (gon.category.id >= 304 && gon.category.id <= 417) {
         top.children().val(3)
         middle_3.removeClass('display-none');
-        middle_3.children().val(1)
-        bottom_3.removeClass('display-none');
+        if (gon.category.id >= 304 && gon.category.id <= 314) {
+          middle_3.children().val(1)
+          bottom_3.removeClass('display-none');
+        }
+        if (gon.category.id >= 315 && gon.category.id <= 322) {
+          middle_3.children().val(2)
+          bottom_103.removeClass('display-none');
+        }
       }
       if (gon.category.id >= 176 && gon.category.id <= 303) {
         top.children().val(2)
         middle_2.removeClass('display-none');
-        middle_2.children().val(1)
-        bottom_2.removeClass('display-none');
+        if (gon.category.id >= 176 && gon.category.id <= 187) {
+          middle_2.children().val(1)
+          bottom_2.removeClass('display-none');
+        }
+        if (gon.category.id >= 188 && gon.category.id <= 210) {
+          middle_2.children().val(2)
+          bottom_102.removeClass('display-none');
+        }
       }
       if (gon.category.id >= 1 && gon.category.id <= 175) {
         top.children().val(1)
         middle_1.removeClass('display-none');
-        middle_1.children().val(1)
-        bottom_1.removeClass('display-none');
+        if (gon.category.id >= 1 && gon.category.id <= 18) {
+          middle_1.children().val(1)
+          bottom_1.removeClass('display-none');
+        }
+        if (gon.category.id >= 19 && gon.category.id <= 39) {
+          middle_1.children().val(2)
+          bottom_101.removeClass('display-none');
+        }
       }
   
       // 編集ページの画像プレビュー
