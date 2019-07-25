@@ -130,7 +130,17 @@
         margin: 16px 0 16px 0;
         height: 60px;
         background-color: #ea352d;
-        .buy-btn {
+        .buy__btn--sold {
+          display: block;
+          font-size: 24px;
+          line-height: 60px;
+          background: #888;
+          cursor: not-allowed;
+          color: white;
+          text-align: center;
+          text-decoration: none;
+        }
+        .buy__btn--sell {
           display: block;
           font-size: 24px;
           line-height: 60px;
