@@ -60,13 +60,16 @@
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
               //ミドルレベルカテゴリー
-              .form__select.icon-relative.category_middle_1.display-none
+              .form__select.icon-relative.category_middle_1.display-none.category_middle
                 = f.select :category_id, Category.middle_1s, autofocus: true, class: "form__select--box"
-              .form__select.icon-relative.category_middle_2.display-none
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              .form__select.icon-relative.category_middle_2.display-none.category_middle
                 = f.select :category_id, Category.middle_2s, autofocus: true, class: "form__select--box"
-              .form__select.icon-relative.category_middle_3.display-none
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              .form__select.icon-relative.category_middle_3.display-none.category_middle
                 = f.select :category_id, Category.middle_3s, autofocus: true, class: "form__select--box"
-              .form__select.icon-relative.category_middle_4.display-none
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              .form__select.icon-relative.category_middle_4.display-none.category_middle
                 = f.select :category_id, Category.middle_4s, autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
@@ -74,18 +77,26 @@
               .form__select.icon-relative.category_bottom_1.display-none
                 = f.select :category_id, Category.grandchild_1s, autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              .form__select.icon-relative.category_bottom_101.display-none
+                = f.select :category_id, Category.grandchild_1_2s, autofocus: true, class: "form__select--box"
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
               .form__select.icon-relative.category_bottom_2.display-none
                 = f.select :category_id, Category.grandchild_2s, autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              .form__select.icon-relative.category_bottom_102.display-none
+                = f.select :category_id, Category.grandchild_2_2s, autofocus: true, class: "form__select--box"
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
               .form__select.icon-relative.category_bottom_3.display-none
                 = f.select :category_id, Category.grandchild_3s, autofocus: true, class: "form__select--box"
+                = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
+              .form__select.icon-relative.category_bottom_103.display-none
+                = f.select :category_id, Category.grandchild_3_2s, autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
               .form__select.icon-relative.category_bottom_4.display-none
                 = f.select :category_id, Category.grandchild_4s, autofocus: true, class: "form__select--box"
                 = icon 'fa', 'chevron-down', id: 'icon', class: "icon-relative--absolute"
 
             %p.error_message.type4
-            -# = f.hidden_field :category_id
 
             //サイズ選択
             .form.lower-form.size-form.display-none

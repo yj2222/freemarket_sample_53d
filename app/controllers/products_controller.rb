@@ -4,9 +4,9 @@ class ProductsController < ApplicationController
 
   def index  
     # カテゴリーの一覧 スコープを使用 models/product.rb参照
-    @products_ladies = Product.where(category_id: 1..18).recent
-    @products_mens = Product.where(category_id: 176..187).recent
-    @products_kids = Product.where(category_id: 304..314).recent
+    @products_ladies = Product.where(category_id: 1..175).recent
+    @products_mens = Product.where(category_id: 176..303).recent
+    @products_kids = Product.where(category_id: 304..417).recent
     @products_perfume = Product.where(category_id: 698..706).recent
     # ブランドの一覧
     @products_chanel = Product.where(brand_id: 1).recent 
